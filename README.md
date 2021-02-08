@@ -329,3 +329,134 @@ Khi đó, `0` và `1` sẽ thỏa mãn điều kiện còn `foo` thì không, v�
 
 </p>
 </details>
+
+---
+
+###### 12. Output là gì?
+
+```javascript
+function Dog(name) {
+    this.name = name;
+    this.speak = function() {
+        return 'woof';
+    };
+}
+
+const dog = new Dog('Pogo');
+
+Dog.prototype.speak = function() {
+    return 'arf';
+};
+
+console.log(dog.speak());
+```
+
+- A: woof
+- B: arf
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Khi gọi đến thuộc tính hay phương thức của một object, đầu tiên nó sẽ tìm trong object trước, nếu không tìm thấy, mới tiếp tục tìm trong Prototype của nó.
+
+</p>
+</details>
+
+---
+
+###### 13. Output là gì?
+
+```javascript
+const p1 = new Promise((resolve, reject) =>
+    setTimeout(resolve, 100, 'Hello')
+);
+
+const p2 = new Promise((resolve, reject) =>
+    setTimeout(resolve, 120, 'Goodbye')
+);
+
+const p3 = new Promise((resolve, reject) =>
+    setTimeout(reject, 10, 'Oops!')
+);
+
+Promise.race([p1, p2, p3])
+    .then(result => console.log(result))
+    .catch(reason => console.log('Something went wrong...'));
+```
+
+- A: Hello
+- B: Goodbye
+- C: Oops!
+- D: Something went wrong...
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Promise.race() sẽ trả về kết quả của một Promise nào hoàn thành trước. Trong ví dụ trên, `p3` sẽ hoàn thành trước, nó sẽ gọi `reject` sau 10ms và sẽ rơi vào `catch`.
+
+</p>
+</details>
+
+---
+
+###### 14. Output là gì?
+
+```javascript
+const timer = a => {
+    return new Promise(res =>
+        setTimeout(() => {
+            res(a);
+        }, Math.random() * 100)
+    );
+};
+
+const all = Promise.all([
+    timer('first'),
+    timer('second')
+]).then(data => console.log(data));
+```
+
+- A: ["first", "second"]
+- B: It is random
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Promise.all không quan tâm đến thứ tự thời gian hoàn thành xong các Promise, nó sẽ chờ cho tất cả các Promise hoàn thành xong và kết quả của nó sẽ là một array với thứ tự giữ nguyên với thứ tự của tham số truyền vào.
+
+</p>
+</details>
+
+---
+
+###### 15. Output là gì?
+
+```javascript
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+- A: true true
+- B: true false
+- C: false false
+- D: undefined undefined
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Các toán tử `<` và `>` có cùng độ ưu tiên và sẽ được thực hiện từ trái qua phải.
+
+Dòng đầu tiên chúng ta có thể viết lại như sau `(1 < 2) < 3`, `1 < 2` được thực hiện trước và trả về `true`, sau đó thực hiện `true < 3`, khi so sánh với number, boolean sẽ được chuyển đổi sang number, `true` trở thành `1`, vậy `true < 3` cho kết quả `true`.
+
+Ở dòng thứ hai `(3 > 2) > 1`, `(3 > 2)` cũng được thực hiện trước và trả về `true`, tuy nhiên sau đó `true > 1` sẽ được chuyển đổi thành `1 > 1` và cho kết quả `false`.
+
+</p>
+</details>
