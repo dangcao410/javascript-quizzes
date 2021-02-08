@@ -528,3 +528,42 @@ Vì vậy khi chúng ta thay đổi nested field của `b`, thì nested field c�
 
 </p>
 </details>
+
+---
+
+###### 18. Output là gì?
+
+```javascript
+const a = {
+    stringField: 'Joe',
+    numberField: 123,
+    dateField: new Date('1995-12-17T03:24:00'),
+    nestedField: { field: 'Nested' }
+};
+
+const b = JSON.parse(JSON.stringify(a));
+
+console.log(
+    a.stringField === b.stringField,
+    a.numberField === b.numberField,
+    a.dateField === b.dateField,
+    a.nestedField.field === b.nestedField.field
+);
+```
+
+- A: true true true true
+- B: true true true false
+- C: true true false true
+- D: false false false false
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+`b = JSON.parse(JSON.stringify(a))` sẽ thực hiện deep copy trên object `a`.
+Tất cả các thuộc tính là các kiểu dữ liệu nguyên thủy (Boolean, String, Number) sẽ được copy một cách chính xác, tuy nhiên đối với các thuộc tính có giá trị không phải là giá trị JSON (Date, undefined, Function, và không phải kiểu dữ liệu nguyên thủy) sẽ không được copy đúng.
+Trong ví dụ trên, object Date sẽ được chuyển đổi sang string, chúng ta có thể xem thêm về `JSON.stringify` để hiểu rõ hơn.
+
+</p>
+</details>
