@@ -11,10 +11,10 @@ a.call(null);
 - B: `undefined`
 - C: `window object`
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
-#### Answer: C
+#### Đáp án: C
 
 `this context` trong JavaScript tùy theo ngữ cảnh lúc gọi hàm.
 
@@ -43,10 +43,10 @@ console.log(a);
 - B: 1
 - C: Reference Error
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
-#### Answer: A
+#### Đáp án: A
 
 Đoạn code này trông có vẻ đơn giản, nếu biến global `window` chưa có phần tử `a` thì định nghĩa biến `a`, gán cho nó bằng 1.
 Bạn sẽ nghĩ kết quả là 1, nhưng không, đáp án đúng là `undefined`, điều gì đang xảy ra? Cùng đi qua 3 điểm dưới đây sẽ rõ.
@@ -114,10 +114,10 @@ b(1, 2, 3);
 - C: 3
 - D: 10
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
-#### Answer: D
+#### Đáp án: D
 
 `arguments` là một object đặc biệt trong function của JavaScript, nó chứa các params của function và share chung bộ nhớ với chúng, vì thế khi thay đổi giá trị của `agruments` thì các params cũng được thay đổi theo.
 
@@ -136,10 +136,10 @@ console.log(new String('hello') === String('hello'));
 - B: false
 - C: TypeError
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
-#### Answer: B
+#### Đáp án: B
 
 Khi gọi String constructor function với từ khóa `new` sẽ cho kết quả là một object, trong khi đó, không có từ khóa `new` kết quả sẽ là một primitive string, so sánh `===` giữa 2 kiểu dữ liệu khác nhau sẽ cho kết quả là `false`.
 
@@ -159,13 +159,41 @@ console.log('1' -- '1');
 - C: 11
 - D: TypeError
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Đáp án</b></summary>
 <p>
 
-#### Answer: D
+#### Đáp án: D
 
 Postfix Operator `--` chỉ thực hiện với biến, trong trường hợp này `'1'` không phải là biến nên sẽ gây ra lỗi `TypeError`.
 Nếu đoạn code trên được viết thành `'1' - - '1'` (chú ý có space giữa 2 dấu `-`) thì sẽ cho kết quả là `2`.
+
+</p>
+</details>
+
+---
+
+###### 6. Output là gì?
+
+```javascript
+var foo = function bar() {
+    console.log(foo === bar);
+};
+foo();
+bar();
+```
+
+- A: true, true
+- B: false, false
+- C: true, ReferenceError
+- D: false, ReferenceError
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Chúng ta có thể khai báo `function expression` cùng với `named function` và dùng `named function` bên trong function đó để gọi tới chính nó.
+Nhưng chúng ta không thể dùng `named function` bên ngoài được, điều đó có nghĩa khi gọi `bar()` sẽ gây ra lỗi `ReferenceError`.
 
 </p>
 </details>
