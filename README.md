@@ -301,3 +301,31 @@ Khi `+` number với boolean hoặc 2 boolean với nhau, JavaScript sẽ chuy�
 
 </p>
 </details>
+
+---
+
+###### 11. Output là gì?
+
+```javascript
+var arr = [];
+arr[0]  = 'a';
+arr[1]  = 'b';
+arr.foo = 'c';
+console.log(arr.length);
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: undefined
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Trong JavaScript Array, khi set một thuộc tính cho một array, nếu thuộc tính đó là một `valid array index` thì `length` của array đó sẽ được tính toán lại. Một thuộc tính `p` là `valid array index` khi và chỉ khi `ToString(ToUint32(p)) bằng p hoặc ToUint32(p)` và p không bằng  `2^32−1.`.
+Khi đó, `0` và `1` sẽ thỏa mãn điều kiện còn `foo` thì không, vậy kết quả là `2`.
+
+</p>
+</details>
