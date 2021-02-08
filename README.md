@@ -1,38 +1,28 @@
-###### 1. What's the output?
+###### 1. Output là gì?
 
 ```javascript
-function a(x) {
-  x++;
-  return function () {
-    console.log(++x);
-  };
+function a() {
+    console.log(this);
 }
-
-a(1)();
-a(1)();
-a(1)();
-
-let x = a(1);
-x();
-x();
-x();
+a.call(null);
 ```
 
-- A: `1, 2, 3` and `1, 2, 3`
-- B: `3, 3, 3` and `3, 4, 5`
-- C: `3, 3, 3` and `1, 2, 3`
-- D: `1, 2, 3` and `3, 3, 3`
+- A: null
+- B: undefined
+- C: window object
 
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: B
+#### Answer: C
 
-This question reminds us about Closure in JS. Closure allows us to create a `stateful function` and such function can access to variable outside of its scope. In a nutshell, a closure can have access to `global` variable (scope), `father function` scope and `its` own scope.
+`this context` trong JavaScript tùy theo ngữ cảnh lúc gọi hàm.
 
-We have here 3, 3, 3 and 3, 4, 5 because first we simply call the function `a()`. It works like a normal function and we do not see something `stateful` here. In later case, we declare a variable `x` and it stores the value of function `a(1)`, that is why we get 3. 4. 5 rather than 3, 3, 3.
+Chúng ta có thể thay đổi `this context` của hàm bằng cách dùng hàm `call`, với tham số đầu tiên trở thành `this` và các tham số tiếp theo là các params của hàm.
+Vì vậy, khi gọi `a.call(window)` thì `this` trong hàm `a` chính là `window`.
 
-This kind of gotcha gives me the feeling of `static` variable in PHP world.
+Lưu ý, khi chúng ta truyền tham số đầu tiên vào hàm `call` là `null` hay `undefined` thì JavaScript sẽ tự động truyền `global object` vào hàm được gọi chứ không truyền `null` hay `undefined`.
+Vì vậy, đoạn code trên sẽ in ra `object window` thay vì `null`.
 
 </p>
 </details>
