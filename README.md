@@ -197,3 +197,59 @@ Nhưng chúng ta không thể dùng `named function` bên ngoài được, đi�
 
 </p>
 </details>
+
+---
+
+###### 7. Output là gì?
+
+```javascript
+var myArr = ['foo', 'bar', 'baz'];
+console.log('2' in myArr);
+```
+
+- A: ReferenceError
+- B: true
+- C: false
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+`in operator` sẽ kiểm tra 1 thuộc tính có phải là của object đó hay không, một array cũng là một object và có các thuộc tính index (`myArray[2] === myArray['2']`), vậy kết quả là `true`.
+
+</p>
+</details>
+
+---
+
+###### 8. Output là gì?
+
+```javascript
+var bar = 1,
+    foo = {};
+
+foo: {
+    bar: 2;
+    baz: ++bar;
+};
+
+console.log(foo.baz + foo.bar + bar);
+```
+
+- A: ReferenceError
+- B: TypeError
+- C: NaN
+- D: 4
+- E: 5
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Trong JavaScript cũng có `labled statement` nên đoạn code trên không có lỗi gì đâu nhé.
+Phần tử `baz` và `bar` không có trong object `foo` nên ta có thể viết lại như sau `undefined + undefined + 1` và cho kết quả là `NaN`.
+
+</p>
+</details>
