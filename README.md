@@ -253,3 +253,51 @@ Phần tử `baz` và `bar` không có trong object `foo` nên ta có thể vi�
 
 </p>
 </details>
+
+---
+
+###### 9. Output là gì?
+
+```javascript
+console.log([] + [] + 'foo'.split(''));
+```
+
+- A: f,o,o
+- B: ["f", "o", "o"]
+- C: TypeError
+- D: [][]["f", "o", "o"]
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Theo operator precedence, các lời gọi function sẽ có độ ưu tiên cao hơn operator `+`, vì vậy `'foo'.split('')` sẽ thực hiện trước.
+Ta có thể viết lại như sau `[] + [] + ['f', 'o', 'o']`, JavaScript sẽ chuyển đổi array sang string trước khi `+` nên ta có kết quả là `f,o,o`.
+
+</p>
+</details>
+
+---
+
+###### 10. Output là gì?
+
+```javascript
+console.log(true + false > 2 + true);
+```
+
+- A: true
+- B: false
+- C: TypeError
+- D: NaN
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Operator `+` sẽ có độ ưu tiên cao hơn operator `>` vì thế `+` sẽ được thực hiện trước.
+Khi `+` number với boolean hoặc 2 boolean với nhau, JavaScript sẽ chuyển đổi boolean về number, `true -> 1` và `false -> 0`, vì vậy ta có thể viết thành `1 + 0 > 2 + 1`, kết quả `1 > 3` là `false`.
+
+</p>
+</details>
