@@ -99,121 +99,73 @@ và tất nhiên, kết quả là `undefined`.
 
 ---
 
-###### 3. What's the output?
+###### 3. Output là gì?
 
 ```javascript
-const x = function (...x) {
-  let k = (typeof x).length;
-  let y = () => "freetut".length;
-  let z = { y: y };
-
-  return k - z.y();
-};
-
-console.log(Boolean(x()));
+function b(x, y, a) {
+    arguments[2] = 10;
+    console.log(a);
+}
+b(1, 2, 3);
 ```
 
-- A: `true`
-- B: 1
-- C: -1
-- D: `false`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-The spread operator `...x` might help us obtain the parameter in the function in the form of array. Yet, in Javascript the typeof array return "object" rather than "array". It is totally odd if you are coming from PHP.
-
-That is said, we now have the length of the string `object` which returns 6. z.y() simply returns the length of the string 'freetut' (7).
-
-Be aware that the function x() (in the form of `function express` or `anonymous function` (if you are coming from PHP) return -1 when being called and when converted to bool with `Boolean(-1)` return true instead of false. Noted that `Boolean(0)` return false.
-
-</p>
-</details>
-
----
-
-###### 4. What's the output?
-
-```javascript
-(function js(x) {
-  const y = (j) => j * x;
-
-  console.log(y(s()));
-
-  function s() {
-    return j();
-  }
-
-  function j() {
-    return x ** x;
-  }
-})(3);
-```
-
-- A: `undefined`
-- B: 18
-- C: 81
-- D: 12
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-The function `js()` can be automatically executed without calling it and known as IIFE (Immediately Invoked Function Expression). Noted the parameter `x` of the function `js` is actuallly passed with the value 3.
-
-The value return of the function is y(s())), meaning calling three other functions `y()`, `s()` and `j()` because the function `s()` returns `j()`.
-
-j() returns 3^3 = 27 so that s() returns 27.
-
-y(s()) means y(27) which returns 27\*3 = 81.
-
-Note that we can call `declare function` BEFORE the function is actually declared but not with `expression function`.
-
-</p>
-</details>
-
----
-
-###### 5. What's the output?
-
-```javascript
-var tip = 100;
-
-(function () {
-  console.log("I have $" + husband());
-
-  function wife() {
-    return tip * 2;
-  }
-
-  function husband() {
-    return wife() / 2;
-  }
-
-  var tip = 10;
-})();
-```
-
-- A: "I have \$10";
-- B: "I have \$100";
-- C: "I have \$50";
-- D: "I have \$NaN";
+- A: 1
+- B: 2
+- C: 3
+- D: 10
 
 <details><summary><b>Answer</b></summary>
 <p>
 
 #### Answer: D
 
-We have here an IIFE (Immediately Invoked Function Expression). It means we do not have to call it but it will be excuted automatically when declared. The flow is as: husband() returns wife()/2 and wife() returns tip\*2.
+`arguments` là một object đặc biệt trong function của JavaScript, nó chứa các params của function và share chung bộ nhớ với chúng, vì thế khi thay đổi giá trị của `agruments` thì các params cũng được thay đổi theo.
 
-We might think that tip = 100 because it is a global variable when declaring with `var` keyword. However, it is actually `undefined` because we also have `var tip = 10` INSIDE the function. As the variable `tip` is hoisted with default value `undefined`, the final result would be D. We know that `undefined` returns NaN when we try to divide to 2 or multiple with 2.
+</p>
+</details>
 
-If we do not re-declare `var tip = 10;` at the end of the function, we will definately get B.
+---
 
-JS is fun, right?
+###### 4. Output là gì?
+
+```javascript
+console.log(new String('hello') === String('hello'));
+```
+
+- A: true
+- B: false
+- C: TypeError
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+Khi gọi String constructor function với từ khóa `new` sẽ cho kết quả là một object, trong khi đó, không có từ khóa `new` kết quả sẽ là một primitive string, so sánh `===` giữa 2 kiểu dữ liệu khác nhau sẽ cho kết quả là `false`.
+
+</p>
+</details>
+
+---
+
+###### 5. Output là gì?
+
+```javascript
+console.log('1' -- '1');
+```
+
+- A: 0
+- B: 2
+- C: 11
+- D: TypeError
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Postfix Operator `--` chỉ thực hiện với biến, trong trường hợp này `'1'` không phải là biến nên sẽ gây ra lỗi `TypeError`.
+Nếu đoạn code trên được viết thành `'1' - - '1'` (chú ý có space giữa 2 dấu `-`) thì sẽ cho kết quả là `2`.
 
 </p>
 </details>
