@@ -460,3 +460,71 @@ Dòng đầu tiên chúng ta có thể viết lại như sau `(1 < 2) < 3`, `1 <
 
 </p>
 </details>
+
+---
+
+###### 16. Output là gì?
+
+```javascript
+const obj = {
+    1: 1,
+    2: 2,
+    3: 3
+};
+
+console.log(Object.keys(obj), Object.values(obj));
+```
+
+- A: [1, 2, 3] ["1", "2", "3"]
+- B: ["1", "2", "3"] [1, 2, 3]
+- C: ["1", "2", "3"] ["1", "2", "3"]
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+`Object.keys` sẽ chuyển đổi keys của object sang string `['1', '2', '3']` và `Object.values` sẽ giữ nguyên values của object `[1, 2, 3]`.
+
+</p>
+</details>
+
+---
+
+###### 17. Output là gì?
+
+```javascript
+const a = {
+    stringField: 'Joe',
+    nestedField: { field: 'Nested' },
+    functionField: () => 'aReturn'
+};
+
+const b = Object.assign({}, a);
+
+b.stringField = 'Bob';
+b.nestedField.field = 'Changed';
+b.functionField = () => 'bReturn';
+
+console.log(
+    a.stringField,
+    a.nestedField.field,
+    a.functionField()
+);
+```
+
+- A: Joe Nested aReturn
+- B: Bob Changed bReturn
+- C: Joe Changed aReturn
+- D: Bob Nested bReturn
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+`b = Object.assign({},a);` sẽ thực hiện một `shallow copy` trên object `a`, bất kỳ thuộc tính nào của `b` là object đều tham chiếu đến cùng thuộc tính trong `a`.
+Vì vậy khi chúng ta thay đổi nested field của `b`, thì nested field của `a` cũng thay đổi theo.
+
+</p>
+</details>
