@@ -567,3 +567,43 @@ Trong ví dụ trên, object Date sẽ được chuyển đổi sang string, ch�
 
 </p>
 </details>
+
+---
+
+###### 19. Output là gì?
+
+```javascript
+var x = 5;
+
+(function() {
+    console.log(x);
+    var x = 10;
+    console.log(x);
+})();
+```
+
+- A: 5 10
+- B: undefined 10
+- C: 5 undefined
+- D: undefined undefined
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Biến `x` sẽ được `hoist` bên trong function, chúng ta có thể xem function được thực thi như sau:
+
+```javascript
+var x = 5;
+
+(function() {
+  var x;
+  console.log(x);
+  x = 10;
+  console.log(x);
+})();
+```
+
+</p>
+</details>
