@@ -657,3 +657,39 @@ Trong JavaScript, mảng rỗng `[]` và function là `truthy`. Nhưng chú ý �
 
 </p>
 </details>
+
+---
+
+###### 22. Output là gì?
+
+```javascript
+(function() {
+    console.log(1);
+    setTimeout(function() {
+        console.log(2);
+    }, 1000);
+    setTimeout(function() {
+        console.log(3);
+    }, 0);
+    console.log(4);
+})();
+```
+
+- A: 1, 2, 3, 4
+- B: 4, 2, 1, 3
+- C: 1, 4, 3, 2
+- D: 4, 3, 2, 1
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: C
+
+Rõ ràng `1` và `4` sẽ được in ra đầu tiên vì `console.log()` mà không có delay.
+`2` sẽ được in ra sau `3` vì `2` bị delay 1 giây còn `3` bị delay sau 0 giây.
+Có một điểm chú ý là vì sao `3` bị delay là 0 giây, nhưng lại được in ra sau `4`?
+Vì `callback` trong `setTimeout` sẽ được đẩy vào `event queue` và nó chỉ được gọi sau khi `call stack` rỗng.
+Nếu bạn chưa rõ các khái niệm này, đọc thêm về `JS concurrency model/event loop`.
+
+</p>
+</details>
