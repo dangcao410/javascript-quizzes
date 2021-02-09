@@ -607,3 +607,53 @@ var x = 5;
 
 </p>
 </details>
+
+---
+
+###### 20. Output là gì?
+
+```javascript
+console.log(typeof Object, typeof Array, typeof Number);
+```
+
+- A: object array number
+- B: object object number
+- C: object object object
+- D: function function function
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: D
+
+Object, Array và Number đều là các Function Constructor, chúng dùng để tạo ra các object với từ khóa `new`.
+
+</p>
+</details>
+
+---
+
+###### 21. Output là gì?
+
+```javascript
+const output = `Soon we must all choose between what is ${
+    [] ? 'right' : 'wrong'
+} and what is ${(() => false)() ? 'difficult' : 'easy'}`;
+
+console.log(output);
+```
+
+- A: Soon we must all choose between what is right and what is easy
+- B: Soon we must all choose between what is right and what is difficult
+- C: Soon we must all choose between what is wrong and what is easy
+- D: Soon we must all choose between what is wrong and what is difficult
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: A
+
+Trong JavaScript, mảng rỗng `[]` và function là `truthy`. Nhưng chú ý ở ví dụ trên, function này được thực thi và nó trả về `false`.
+
+</p>
+</details>
