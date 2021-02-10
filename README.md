@@ -1,3 +1,10 @@
+<div align="center">
+  <img height="60" src="img/JavaScript-logo.png">
+  <h1>JavaScript Quizzes</h1>
+</div>
+
+---
+
 ###### 1. Output là gì?
 
 ```javascript
