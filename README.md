@@ -2109,7 +2109,7 @@ console.log(d.greeting);
 
 #### Đáp án: A
 
-Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán _bằng_wwwww  một giá trị khác.
+Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng được gán _bằng_ một giá trị khác.
 
 Đầu tiên, giá trị `c` có giá trị là một object. Sau đó, chúng ta gán `d` tham chiếu tới object mà `c` trỏ tới.
 
