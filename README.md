@@ -2892,7 +2892,7 @@ Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queu
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
     <button onclick="console.log('button')">
-      Click!
+      Click
     </button>
   </div>
 </div>
@@ -2908,19 +2908,20 @@ Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queu
 
 #### Đáp án: C
 
-Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của event. Bạn có thể ngăn việc đó lại bằng cách sử dụng `event.stopPropagation`
+Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của event.
+Bạn có thể ngăn việc đó lại bằng cách sử dụng `event.stopPropagation`
 
 </p>
 </details>
 
 ---
 
-###### 89. Khi bạn click vào đoạn văn, giá trị của output sẽ là gì?
+###### 89. Khi bạn click vào, giá trị của output sẽ là gì?
 
 ```html
 <div onclick="console.log('div')">
   <p onclick="console.log('p')">
-    Click here!
+    Click here
   </p>
 </div>
 ```
@@ -2935,7 +2936,10 @@ Phần tử sâu nhất trong các phần tử lồng nhau sẽ là target của
 
 #### Đáp án: A
 
-Nếu ta click vào `p`, ta sẽ thấy hai log: `p` và `div`. Trong chuỗi event sẽ có 3 phases: capturing, target, và bubbling. Mặc định thì event handlers sẽ được thực hiện tại bubbling phase (trừ phi chúng ta khai báo `useCapture` là `true`). Chúng sẽ đi từ phần tử sâu nhất ra đến bên ngoài.
+Nếu ta click vào `p`, ta sẽ thấy hai log: `p` và `div`.
+Trong chuỗi event sẽ có 3 phases: capturing, target, và bubbling.
+Mặc định thì event handlers sẽ được thực hiện tại bubbling phase (trừ phi chúng ta khai báo `useCapture` là `true`).
+Chúng sẽ đi từ phần tử sâu nhất ra đến bên ngoài.
 
 </p>
 </details>
@@ -2965,9 +2969,11 @@ sayHi.bind(person, 21);
 
 #### Đáp án: D
 
-Với cả hai, chúng ta có thể đưa vào object để sử dụng từ khóa `this`. Tuy nhiên, `.call` có nghĩa là _thực hiện ngay lập tức_!
+Với cả hai, chúng ta có thể đưa vào object để sử dụng từ khóa `this`.
+Tuy nhiên, `.call` có nghĩa là _thực hiện ngay lập tức_.
 
-`.bind.` trả về một bản _copy_ của function, với context kèm theo! Nó sẽ không thực hiện ngay lập tức.
+`.bind.` trả về một bản _copy_ của function với context kèm theo.
+Nó sẽ không thực hiện ngay lập tức.
 
 </p>
 </details>
@@ -2994,9 +3000,11 @@ typeof sayHi();
 
 #### Đáp án: B
 
-`sayHi` function trả về giá trị của một _hàm gọi ngay lập tức_ (immediately invoked function - IIFE). Function này trả về `0`, kiểu dữ liệu `"number"`.
+`sayHi` function trả về giá trị của một _hàm gọi ngay lập tức_ (immediately invoked function - IIFE).
+Function này trả về `0`, kiểu dữ liệu `"number"`.
 
-FYI: chỉ có 7 kiểu dữ liệu built-in: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, and `bigint`. `"function"` không phải là một kiểu, mà là objects, kiểu dữ liệu là `"object"`.
+FYI: chỉ có 7 kiểu dữ liệu built-in: `null`, `undefined`, `boolean`, `number`, `string`, `object`, `symbol`, and `bigint`.
+`"function"` không phải là một kiểu, mà là objects, kiểu dữ liệu là `"object"`.
 
 </p>
 </details>
@@ -3057,7 +3065,7 @@ console.log(typeof typeof 1);
 #### Đáp án: B
 
 `typeof 1` trả về `"number"`.
-`typeof "number"` trả về `"string"`
+`typeof "number"` trả về `"string"`.
 
 </p>
 </details>
@@ -3082,11 +3090,12 @@ console.log(numbers);
 
 #### Đáp án: C
 
-Mỗi khi chúng ta set một giá trị cho một phần tử trong mảng mà vượt quá độ dài của mảng, JavaScript sẽ tạo ra những "empty slots". Chúng sẽ có giá trị là `undefined`, nhưng khi ghi ra thì chúng ta sẽ thấy dạng:
+Mỗi khi chúng ta set một giá trị cho một phần tử trong mảng mà vượt quá độ dài của mảng, JavaScript sẽ tạo ra những "empty slots".
+Chúng sẽ có giá trị là `undefined`, nhưng khi ghi ra thì chúng ta sẽ thấy dạng:
 
 `[1, 2, 3, 7 x empty, 11]`
 
-phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy môi trường browser, node, etc.)
+Phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy môi trường browser, node, etc).
 
 </p>
 </details>
@@ -3119,11 +3128,15 @@ phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy m
 
 #### Đáp án: A
 
-`catch` block nhận về giá trị `x`. Đây không phải là giá trị `x` mà ta khai báo với từ khóa `let` ở bên trên. Đây là biến `x` trong _block-scoped_.
+`catch` block nhận về giá trị `x`.
+Đây không phải là giá trị `x` mà ta khai báo với từ khóa `let` ở bên trên.
+Đây là biến `x` trong _block-scoped_.
 
-Tiếp đó, chúng ta set giá trị của biến block-scoped này là `1`, và đồng thời cũng set giá trị cho biến `y`. Giờ đây chúng ta log ra giá trị của biến block-scoped variable `x`, bằng `1`.
+Tiếp đó, chúng ta set giá trị của biến block-scoped này là `1`, và đồng thời cũng set giá trị cho biến `y`.
+Giờ đây chúng ta log ra giá trị của biến block-scoped variable `x`, bằng `1`.
 
-Bên ngoài `catch` block, `x` vẫn là `undefined`, và `y` là `2`. Khi gọi `console.log(x)` bên ngoài `catch` block, nó sẽ trả về `undefined`, và `y` trả về `2`.
+Bên ngoài `catch` block, `x` vẫn là `undefined`, và `y` là `2`.
+Khi gọi `console.log(x)` bên ngoài `catch` block, nó sẽ trả về `undefined`, và `y` trả về `2`.
 
 </p>
 </details>
@@ -3146,7 +3159,9 @@ JavaScript chỉ có primitive types và objects.
 
 Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
 
-Điểm khác nhau giữa primitive và object chính là primitives không có thuộc tính hay phương thức; tuy nhiên, chúng ta để ý rằng là `'foo'.toUpperCase()` sẽ trả về `'FOO'` mà không phải là một `TypeError`. Đó là bởi vì khi chúng ta truy cập các thuộc tính hay phương thức của một primitive như là string, JavaScript sẽ ngầm bao nó bởi một `wrapper class`, ví dụ `String`, và sau đó sẽ hủy việc bao đó ngay sau khi thực hiện xong. Mọi primitives ngoại trừ `null` và `undefine` đều hoạt động giống như vậy.
+Điểm khác nhau giữa primitive và object chính là primitives không có thuộc tính hay phương thức; tuy nhiên, chúng ta để ý rằng là `'foo'.toUpperCase()` sẽ trả về `'FOO'` mà không phải là một `TypeError`.
+Đó là bởi vì khi chúng ta truy cập các thuộc tính hay phương thức của một primitive như là string, JavaScript sẽ ngầm bao nó bởi một `wrapper class`, ví dụ `String`, và sau đó sẽ hủy việc bao đó ngay sau khi thực hiện xong.
+Mọi primitives ngoại trừ `null` và `undefine` đều hoạt động giống như vậy.
 
 </p>
 </details>
@@ -3174,9 +3189,12 @@ Primitive types là `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 #### Đáp án: C
 
-`[1, 2]` là giá trị khởi tạo. Đây là giá trị chúng ta bắt đầu, và cũng là giá trị đầu tiên của `acc`. Tại vòng đầu tiên, `acc` là `[1,2]`, và `cur` là `[0, 1]`. Ta nối chúng lại tạo ra `[1, 2, 0, 1]`.
+`[1, 2]` là giá trị khởi tạo.
+Đây là giá trị chúng ta bắt đầu, và cũng là giá trị đầu tiên của `acc`.
+Tại vòng đầu tiên, `acc` là `[1,2]`, và `cur` là `[0, 1]`. Ta nối chúng lại tạo ra `[1, 2, 0, 1]`.
 
-Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`. Ta nối chúng lại tạo ra `[1, 2, 0, 1, 2, 3]`.
+Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`.
+Ta nối chúng lại tạo ra `[1, 2, 0, 1, 2, 3]`.
 
 </p>
 </details>
@@ -3212,15 +3230,15 @@ Tiếp tục, `[1, 2, 0, 1]` là `acc` và `[2, 3]` là `cur`. Ta nối chúng l
 
 ---
 
-###### 99. Hàm `setInterval` trả về cái gì?
+###### 99. Hàm `setInterval` trả về gì?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: một id duy nhất
-- B: số lượng milliseconds
-- C: function truyền vào
+- A: Một id duy nhất
+- B: Số lượng milliseconds
+- C: Function truyền vào
 - D: `undefined`
 
 <details><summary><b>Đáp án</b></summary>
@@ -3235,7 +3253,7 @@ Nó trả về một id duy nhất. Id này dùng để clear interval sau này 
 
 ---
 
-###### 100. Giá trị trả về là gì?
+###### 100. Output là gì?
 
 ```javascript
 [..."Lydia"];
