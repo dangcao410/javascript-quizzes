@@ -3,8 +3,6 @@
   <h1>JavaScript Quizzes</h1>
 </div>
 
----
-
 ###### 1. Output là gì?
 
 ```javascript
