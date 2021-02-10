@@ -2715,11 +2715,11 @@ Chúng sẽ vẫn nằm ở vị trí đầu tiên được khai báo, nhưng gi
 
 ---
 
-###### 83. Ngữ cảnh thực thi global của JavaScript tạo ra 2 thứ cho chúng ta: global object, và từ khóa "this".
+###### 83. Ngữ cảnh thực thi global của JavaScript tạo ra 2 thứ: global object và từ khóa "this".
 
-- A: đúng
-- B: sai
-- C: còn tùy
+- A: Đúng
+- B: Sai
+- C: Tùy trường hợp
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2763,7 +2763,7 @@ Lệnh `continue` sẽ bỏ qua một vòng lặp nếu điều kiện của nó
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
-  return "Just give Lydia pizza already!";
+  return "Just give Lydia pizza already.";
 };
 
 const name = "Lydia";
@@ -2771,7 +2771,7 @@ const name = "Lydia";
 name.giveLydiaPizza();
 ```
 
-- A: `"Just give Lydia pizza already!"`
+- A: `"Just give Lydia pizza already."`
 - B: `TypeError: not a function`
 - C: `SyntaxError`
 - D: `undefined`
@@ -2781,7 +2781,9 @@ name.giveLydiaPizza();
 
 #### Đáp án: A
 
-`String` là một built-in constructor, có nghĩa là chúng ta có thể thêm các thuộc tính vào đó. Ta vừa thêm vào đó một thuộc tính. Kiểu String cơ bản sẽ được convert sang dạng object bởi hàm string prototype. Vì thế nên tất cả các string object đều có thể truy cập đến hàm `giveLydiaPizza` này!
+`String` là một built-in constructor, có nghĩa là chúng ta có thể thêm các thuộc tính vào đó.
+Kiểu String cơ bản sẽ được convert sang dạng object bởi hàm string prototype.
+Vì thế nên tất cả các string object đều có thể truy cập đến hàm `giveLydiaPizza` này.
 
 </p>
 </details>
@@ -2811,11 +2813,16 @@ console.log(a[b]);
 
 #### Đáp án: B
 
-Object keys sẽ tự động được convert sang dạng string. Chúng ta đang set một object như là một key cho object `a`, với giá trị là `123`.
+Object keys sẽ tự động được convert sang dạng string.
+Chúng ta đang set một object như là một key cho object `a`, với giá trị là `123`.
 
-Tuy nhiên khi ta string hóa một object, nó sẽ trở thành `"[object Object]"`. Nên tại đây phép gán này thực chất chính là `a["object Object"] = 123`. Phép gán tiếp theo cũng giống hệt vậy. `c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["object Object"] = 456`.
+Tuy nhiên khi ta chuyển một object sang string, nó sẽ trở thành `"[object Object]"`.
+Nên tại đây phép gán này thực chất chính là `a["object Object"] = 123`.
+Phép gán tiếp theo cũng giống hệt vậy.
+`c` là một object khác mà chúng ta đang string hóa nó. Theo đó, `a["object Object"] = 456`.
 
-Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["object Object"]`. Giá trị của nó là `456`, nên trả về là `456`.
+Cuối cùng khi gọi `a[b]`, thực chất chính là gọi `a["object Object"]`.
+Giá trị của nó là `456`, nên trả về là `456`.
 
 </p>
 </details>
@@ -2844,29 +2851,33 @@ baz();
 
 #### Đáp án: B
 
-Chúng ta có một hàm `setTimeout` được gọi đầu tiên. Nên, nó sẽ được log ra cuối cùng.
+Chúng ta có một hàm `setTimeout`, nên nó sẽ được log ra cuối cùng.
 
-Điều đó bởi vì trên browser, chúng ta không hề có runtime engine, đơn thuần chỉ có `WebAPI`. `WebAPI` cho chúng ta một hàm `setTimeout`, ta hãy ví dụ nó trên DOM.
+Điều đó bởi vì trên browser, chúng ta không hề có runtime engine, đơn thuần chỉ có `WebAPI`.
+`WebAPI` cho chúng ta một hàm `setTimeout`, ta hãy ví dụ nó trên DOM.
 
-Sau khi _callback_ được gửi tới WebAPI, bản thân hàm `setTimeout` (nhưng không phải callback nhé!) sẽ được đưa ra khỏi stack.
+Sau khi _callback_ được gửi tới WebAPI, bản thân hàm `setTimeout` (nhưng không phải callback nhé) sẽ được đưa ra khỏi stack.
 
-<img src="https://i.imgur.com/X5wsHOg.png" width="200">
+<img src="img/X5wsHOg.png" width="200">
 
 Giờ đây, `foo` được gọi, và `"First"` được log ra.
 
-<img src="https://i.imgur.com/Pvc0dGq.png" width="200">
+<img src="img/Pvc0dGq.png" width="200">
 
 `foo` được đưa ra khỏi stack, và `baz` được gọi. `"Third"` được log ra.
 
-<img src="https://i.imgur.com/WhA2bCP.png" width="200">
+<img src="img/WhA2bCP.png" width="200">
 
-WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được sẵn sàng. Thay vào đó, nó đẩy callback function đến một nơi gọi là _queue_.
+WebAPI không thể thêm thứ gì đó vào stack cho tới khi nó được sẵn sàng.
+Thay vào đó, nó đẩy callback function đến một nơi gọi là _queue_.
 
-<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+<img src="img/NSnDZmU.png" width="200">
 
-Đó chính là nơi mà **event loop** làm việc. Một **event loop** sẽ quan sát stack và task queue. Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queue để đưa tiếp vào stack.
+Đó chính là nơi mà **event loop** làm việc.
+Một **event loop** sẽ quan sát stack và task queue.
+Nếu stack trở nên rỗng, nó sẽ lấy giá trị đầu tiên trong queue để đưa tiếp vào stack.
 
-<img src="https://i.imgur.com/uyiScAI.png" width="200">
+<img src="img/uyiScAI.png" width="200">
 
 `bar` được gọi, `"Second"` được log ra, và nó được đưa ra khỏi stack.
 
