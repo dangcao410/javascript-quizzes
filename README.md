@@ -2144,11 +2144,14 @@ console.log(b === c);
 
 #### Đáp án: C
 
-`new Number()` là một hàm built-in constructor. Mặc dù nó trông có vẻ giống như là một số, nhưng không phải: nó thực sự là một object với hàng tá những thông số khác nữa.
+`new Number()` là một hàm built-in constructor.
+Mặc dù nó trông có vẻ giống như là một số, nhưng không phải: nó thực sự là một object với hàng tá những thông số khác nữa.
 
-Khi ta sử dụng phép so sánh `==`, nó đơn thuần chỉ kiểm tra xem 2 biến có _giá trị_ giống nhau. Chúng đều có giá trị là `3`, vậy nên phép toán đầu trả về `true`.
+Khi ta sử dụng phép so sánh `==`, nó đơn thuần chỉ kiểm tra xem 2 biến có _giá trị_ giống nhau.
+Chúng đều có giá trị là `3`, vậy nên phép toán đầu trả về `true`.
 
-Tuy nhiên khi sử dụng phép so sánh `===`, cả _giá trị_ và _kiểu_ đều phải giống nhau. Rõ ràng: `new Number()` không phải là một số, nó là một **object**. Cả 2 phép toán sau đều trả về `false.`
+Tuy nhiên khi sử dụng phép so sánh `===`, cả _giá trị_ và _kiểu_ đều phải giống nhau.
+Rõ ràng: `new Number()` không phải là một số, nó là một **object**. Cả 2 phép toán sau đều trả về `false`.
 
 </p>
 </details>
@@ -2183,7 +2186,9 @@ freddie.colorChange("orange");
 
 #### Đáp án: D
 
-Hàm `colorChange` là một hàm static (hàm tĩnh). Hàm static được thiết kế để chỉ để tồn tại ở mức class, và không thể truyền cho bất cứ instance con nào. Vì `freddie` là một instance con, hàm static này sẽ không được truyền xuống, và do đó không thể gọi được tại `freddie` instance: nó sẽ throw ra một `TypeError`.
+Hàm `colorChange` là một hàm static (hàm tĩnh).
+Hàm static được thiết kế để chỉ để tồn tại ở mức class, và không thể truyền cho bất cứ instance con nào.
+Vì `freddie` là một instance con, hàm static này sẽ không được truyền xuống, và do đó không thể gọi được tại `freddie` instance: nó sẽ throw ra một `TypeError`.
 
 </p>
 </details>
@@ -2207,7 +2212,8 @@ console.log(greetign);
 
 #### Đáp án: A
 
-Nó sẽ log ra object `greetign`, bởi vì chúng ta vừa khởi tạo một global object! Khi chúng ta đánh máy nhầm `greeting` thành `greetign`, trình thông dịch của JS sẽ coi nó như là `global.greetign = {}` (hay `window.greetign = {}` nếu chạy trên browser).
+Nó sẽ log ra object `greetign`, bởi vì chúng ta vừa khởi tạo một global object.
+Khi chúng ta đánh máy nhầm `greeting` thành `greetign`, trình thông dịch của JS sẽ coi nó như là `global.greetign = {}` (hay `window.greetign = {}` nếu chạy trên browser).
 
 Để tránh điều này chúng ta có thể sử dụng `"use strict"`. Nó sẽ đảm bảo rẳng các biến đều phải được khai báo trước khi sử dụng.
 
@@ -2226,8 +2232,8 @@ function bark() {
 bark.animal = "dog";
 ```
 
-- A: Hoàn toàn không có vấn đề gì!
-- B: `SyntaxError`. Bạn không thể thêm thuộc tính theo cách này.
+- A: Hoàn toàn không có vấn đề gì
+- B: `SyntaxError`. Bạn không thể thêm thuộc tính theo cách này
 - C: `undefined`
 - D: `ReferenceError`
 
@@ -2236,9 +2242,12 @@ bark.animal = "dog";
 
 #### Đáp án: A
 
-Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi! (Mọi primitive types đều là object)
+Điều này là có thể với Javascript, bởi vì `function` cũng chỉ là `object` mà thôi (Mọi primitive types đều là object).
 
-Function là một object đặc biệt. Phần code mà bạn viết không phải là function thực tế đâu. Function ở đây chính là một object với các thuộc tính. Và các thuộc tính này có thể gọi được.
+Function là một object đặc biệt.
+Phần code mà bạn viết không phải là function thực tế đâu.
+Function ở đây chính là một object với các thuộc tính.
+Và các thuộc tính này có thể gọi được.
 
 </p>
 </details>
@@ -2271,7 +2280,8 @@ console.log(member.getFullName());
 
 #### Đáp án: A
 
-Chúng ta không thể add thêm một thuộc tính cho một constructor giống như một object thông thường. Nếu bạn muốn add thêm thuộc tính nào đó cho tất cả các object một lần, bạn phải dùng `prototype`. Trong trường hợp này cũng vậy.
+Chúng ta không thể thêm một thuộc tính cho một constructor giống như một object thông thường.
+Nếu bạn muốn thêm thuộc tính nào đó cho tất cả các object một lần, bạn phải dùng `prototype`. Trong trường hợp này cũng vậy.
 
 ```js
 Person.prototype.getFullName = function() {
@@ -2279,7 +2289,10 @@ Person.prototype.getFullName = function() {
 };
 ```
 
-khi này `member.getFullName()` sẽ hoạt động. Tại sao nên làm vậy? Hãy thử thêm chúng trực tiếp vào constructor xem sao. Không phải mọi instance `Person` đều cần phương thức này. Nó sẽ dẫn tới việc lãng phí rất nhiều bộ nhớ, khi chúng đều phải lưu trữ thuộc tính này cho mỗi instance. Thay vì thế, nếu ta chỉ thêm chúng vào `prototype`, ta sẽ chỉ tốn bộ nhớ _một lần_ mà thôi, và mọi object khác đều có thể truy cập đến nó!
+khi này `member.getFullName()` sẽ hoạt động. Tại sao nên làm vậy? Hãy thử thêm chúng trực tiếp vào constructor xem sao.
+Không phải mọi instance `Person` đều cần phương thức này.
+Nó sẽ dẫn tới việc lãng phí rất nhiều bộ nhớ, khi chúng đều phải lưu trữ thuộc tính này cho mỗi instance.
+Thay vì thế, nếu ta chỉ thêm chúng vào `prototype`, ta sẽ chỉ tốn bộ nhớ _một lần_ và mọi object khác đều có thể truy cập đến nó.
 
 </p>
 </details>
@@ -2311,9 +2324,13 @@ console.log(sarah);
 
 #### Đáp án: A
 
-Với `sarah`, chúng ta khai báo mà không có từ khóa `new`. Khi sử dụng `new`, nó sẽ trỏ đến một object mới mà ta vừa tạo ra. Tuy nhiên nếu ta không dùng `new` thì nó sẽ trỏ tới **global object**!
+Với `sarah`, chúng ta khai báo mà không có từ khóa `new`.
+Khi sử dụng `new`, nó sẽ trỏ đến một object mới mà ta vừa tạo ra.
+Tuy nhiên nếu ta không dùng `new` thì nó sẽ trỏ tới **global object**.
 
-Chúng ta cho rằng `this.firstName` là `"Sarah"` và `this.lastName` là `"Smith"`. Tuy nhiên sự thực là chúng ta đã định nghĩa `global.firstName = 'Sarah'` và `global.lastName = 'Smith'`. Bản thân biến `sarah` vẫn là `undefined`.
+Chúng ta cho rằng `this.firstName` là `"Sarah"` và `this.lastName` là `"Smith"`.
+Tuy nhiên sự thực là chúng ta đã định nghĩa `global.firstName = 'Sarah'` và `global.lastName = 'Smith'`.
+Bản thân biến `sarah` vẫn là `undefined`.
 
 </p>
 </details>
