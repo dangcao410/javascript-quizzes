@@ -2199,7 +2199,7 @@ Vì `freddie` là một instance con, hàm static này sẽ không được truy
 
 ```javascript
 let greeting;
-greetign = {}; // Lỗi đánh máy!
+greetign = {}; // Lỗi đánh máy.
 console.log(greetign);
 ```
 
@@ -2349,26 +2349,31 @@ Bản thân biến `sarah` vẫn là `undefined`.
 
 #### Đáp án: D
 
-Trong **capturing** phase, event được truyền từ các phần tử cha cho tới phần tử target. Sau khi tới được phần tử **target** thì **bubbling** sẽ bắt đầu.
+Trong **capturing** phase, event được truyền từ các phần tử cha cho tới phần tử target.
+Sau khi tới được phần tử **target** thì **bubbling** sẽ bắt đầu.
 
-<img src="https://i.imgur.com/N18oRgd.png" width="200">
+<img src="img/N18oRgd.png" width="200">
 
 </p>
 </details>
 
 ---
 
-###### 71. Tất cả các object đều có prototypes.
+###### 71. Tất cả các object đều có prototypes?
 
-- A: đúng
-- B: sai
+- A: Đúng
+- B: Sai
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: B
 
-Tất cả các object đều có prototypes, ngoại trừ **base object**. Object base có thể truy cập đến vài methods và properties, ví dụ như `.toString`. Đó là lý do tại sao chúng ta có thể sử dụng được các built-in methods trong JavaScript! Tất cả các phương thức đó đều có trong prototype. Mặc dù JavaScript không thể tìm thấy chúng trong object một cách trực tiếp, nó sẽ được truyền xuống thông qua prototype chain và xuống tới object, tại đây chúng ta có thể truy cập được nó.
+Tất cả các object đều có prototypes, ngoại trừ **base object**.
+Object base có thể truy cập đến vài methods và properties, ví dụ như `.toString`.
+Đó là lý do tại sao chúng ta có thể sử dụng được các built-in methods trong JavaScript.
+Tất cả các phương thức đó đều có trong prototype.
+Mặc dù JavaScript không thể tìm thấy chúng trong object một cách trực tiếp, nó sẽ được truyền xuống thông qua prototype chain và xuống tới object, tại đây chúng ta có thể truy cập được nó.
 
 </p>
 
@@ -2396,9 +2401,13 @@ sum(1, "2");
 
 #### Đáp án: C
 
-JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến. Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là _implicit type coercion_. **Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
+JavaScript là một ngôn ngữ **dynamically typed**: chúng ta không khai báo kiểu dữ liệu khi khai báo biến.
+Giá trị có thể bị tự động convert sang một kiểu dữ liệu khác mà ta không hề hay biết, điều này được gọi là _implicit type coercion_.
+**Coercion** có nghĩa là convert từ kiểu này sang kiểu khác.
 
-Trong ví dụ này, JavaScript sẽ convert số `1` sang dạng string. Mỗi khi ta cộng một số (`1`) với một string (`'2'`), số sẽ luôn được xem như là một string. Kết quả sẽ là một phép nối chuỗi giống như `"Hello" + "World"`, vậy nên `"1" + "2"` sẽ trả về là `"12"`.
+Trong ví dụ này, JavaScript sẽ convert số `1` sang dạng string.
+Mỗi khi ta cộng một số (`1`) với một string (`'2'`), số sẽ luôn được xem như là một string.
+Kết quả sẽ là một phép nối chuỗi giống như `"Hello" + "World"`, vậy nên `"1" + "2"` sẽ trả về là `"12"`.
 
 </p>
 </details>
@@ -2465,7 +2474,8 @@ getPersonInfo`${person} is ${age} years old`;
 
 #### Đáp án: B
 
-Nếu bạn dùng _tagged template literals_, giá trị của đối số đầu tiên luôn luôn là một mảng các string. Những đối số còn lại sẽ lấy giá trị từ biểu thức đưa vào!
+Nếu bạn dùng _tagged template literals_, giá trị của đối số đầu tiên luôn luôn là một mảng các string.
+Những đối số còn lại sẽ lấy giá trị từ biểu thức đưa vào.
 
 </p>
 </details>
@@ -2477,7 +2487,7 @@ Nếu bạn dùng _tagged template literals_, giá trị của đối số đầ
 ```javascript
 function checkAge(data) {
   if (data === { age: 18 }) {
-    console.log("You are an adult!");
+    console.log("You are an adult.");
   } else if (data == { age: 18 }) {
     console.log("You are still an adult.");
   } else {
@@ -2488,7 +2498,7 @@ function checkAge(data) {
 checkAge({ age: 18 });
 ```
 
-- A: `You are an adult!`
+- A: `You are an adult.`
 - B: `You are still an adult.`
 - C: `Hmm.. You don't have an age I guess`
 
@@ -2497,9 +2507,10 @@ checkAge({ age: 18 });
 
 #### Đáp án: C
 
-Khi test sự bằng nhau, các kiểu dữ liệu cơ bản sẽ so sánh _giá trị_ của chúng, còn object thì so sánh _tham chiếu_. JavaScript sẽ kiểm tra xem các object đó có trỏ đến những vùng nhớ giống nhau hay không.
+Khi so sánh bằng nhau, các kiểu dữ liệu cơ bản sẽ so sánh _giá trị_ của chúng, còn object thì so sánh _tham chiếu_.
+JavaScript sẽ kiểm tra xem các object đó có trỏ đến những vùng nhớ giống nhau hay không.
 
-Hai object chúng ta đang so sánh không có được điều đó: object đối số tham chiếu đến một vùng nhớ khác với object chúng ta dùng để kiểm tra sự bằng nhau.
+Hai object chúng ta đang so sánh không có được điều đó: object đối số tham chiếu đến một vùng nhớ khác với object chúng ta dùng để so sánh bằng nhau.
 
 Đó là lý do tại sao cả `{ age: 18 } === { age: 18 }` và `{ age: 18 } == { age: 18 }` đều trả về `false`.
 
@@ -2557,7 +2568,9 @@ getAge();
 
 #### Đáp án: C
 
-Với `"use strict"`, chúng ta sẽ đảm bảo được rằng ta sẽ không bao giờ khai báo biến global một cách vô ý. Tại đây chúng ta chưa khai báo biến `age`, và khi dùng `"use strict"`, nó sẽ throw ra một _reference error_. Nếu như không dùng `"use strict"`, nó sẽ vẫn hoạt động, vì thuộc tính `age` sẽ được thêm vào global object.
+Với `"use strict"`, chúng ta sẽ đảm bảo được rằng ta sẽ không bao giờ khai báo biến global một cách vô ý.
+Tại đây chúng ta chưa khai báo biến `age`, và khi dùng `"use strict"`, nó sẽ throw ra một _reference error_.
+Nếu như không dùng `"use strict"`, nó sẽ vẫn hoạt động, vì thuộc tính `age` sẽ được thêm vào global object.
 
 </p>
 </details>
@@ -2580,7 +2593,9 @@ const sum = eval("10*10+5");
 
 #### Đáp án: A
 
-`eval` sẽ đánh giá đoạn code bên trong string. Nếu nó là một biểu thức, giống như trong trường hợp này, nó sẽ tính toán giá trị đó. Biểu thức là `10 * 10 + 5`, kết quả sẽ là `105`.
+`eval` sẽ đánh giá đoạn code bên trong string.
+Nếu nó là một biểu thức, giống như trong trường hợp này, nó sẽ tính toán giá trị đó.
+Biểu thức là `10 * 10 + 5`, kết quả sẽ là `105`.
 
 </p>
 </details>
@@ -2631,7 +2646,8 @@ console.log(num);
 
 #### Đáp án: B
 
-Với từ khóa `var` bạn có thể khai báo bao nhiêu biến trùng tên tùy thích. Biến đó sẽ có giá trị là lần cuối khai báo.
+Với từ khóa `var` bạn có thể khai báo bao nhiêu biến trùng tên tùy thích.
+Biến đó sẽ có giá trị là lần cuối khai báo.
 
 Bạn không thể làm điều tương tự với `let` hay `const` vì chúng là _block-scoped_.
 
@@ -2662,9 +2678,12 @@ set.has(1);
 
 #### Đáp án: C
 
-Tất cả các keys của object (ngoại trừ Symbols) về bản chất đều là string, dù chúng ta có viết chúng ra dạng string hay không. Nó là lý do tại sao `obj.hasOwnProperty('1')` cũng trả về `true`.
+Tất cả các keys của object (ngoại trừ Symbols) về bản chất đều là string, dù chúng ta có viết chúng ra dạng string hay không.
+Nó là lý do tại sao `obj.hasOwnProperty('1')` cũng trả về `true`.
 
-Tuy nhiên điều đó không đúng với `set`. Không hề có `'1'` trong set của chúng ta: `set.has('1')` trả về `false`. Có số `1` trong set, nên `set.has(1)` trả về `true`.
+Tuy nhiên điều đó không đúng với `set`.
+Không hề có `'1'` trong set của chúng ta: `set.has('1')` trả về `false`.
+Có số `1` trong set, nên `set.has(1)` trả về `true`.
 
 </p>
 </details>
@@ -2688,7 +2707,8 @@ console.log(obj);
 
 #### Đáp án: C
 
-Nếu chúng ta có 2 keys giống nhau, thì chúng sẽ bị replace. Nó sẽ vẫn nằm ở vị trí đầu tiên chúng được khai báo, nhưng giá trị thì sẽ là giá trị lần cuối.
+Nếu chúng ta có 2 keys giống nhau, thì chúng sẽ bị replace.
+Chúng sẽ vẫn nằm ở vị trí đầu tiên được khai báo, nhưng giá trị thì sẽ là giá trị lần cuối.
 
 </p>
 </details>
