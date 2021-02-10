@@ -2113,7 +2113,7 @@ Trong JavaScript, tất cả các object sẽ được _tham chiếu_ khi chúng
 
 Đầu tiên, giá trị `c` có giá trị là một object. Sau đó, chúng ta gán `d` tham chiếu tới object mà `c` trỏ tới.
 
-<img src="https://i.imgur.com/ko5k0fs.png" width="200">
+<img src="img/ko5k0fs.png" width="200">
 
 Khi ta thay đổi giá trị của object, tất cả các biến tham chiếu cũng đều thay đổi giá trị theo.
 
