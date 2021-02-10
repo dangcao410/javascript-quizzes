@@ -3095,7 +3095,7 @@ Chúng sẽ có giá trị là `undefined`, nhưng khi ghi ra thì chúng ta s�
 
 `[1, 2, 3, 7 x empty, 11]`
 
-Phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy môi trường browser, node, etc).
+Phụ thuộc vào nơi mà chúng ta chạy chúng (có thể khác nhau tùy môi trường browser, node, vv).
 
 </p>
 </details>
@@ -3300,18 +3300,27 @@ console.log(gen.next().value);
 
 #### Đáp án: C
 
-Một hàm bình thường không thể bị dừng giữa chừng khi được gọi. Tuy nhiên một _generator_ thì khác, nó có thể "dừng lại" được, và sau đó nó sẽ tiếp tục từ vị trí nó dừng lại. Mỗi khi một _generator_ gặp một từ khóa `yield`, nó sẽ sinh ra giá trị ngay phía sau nó. Chú ý là _generator_ không _trả về_ giá trị, nó _sinh ra_ giá trị.
+Một hàm bình thường không thể bị dừng giữa chừng khi được gọi.
+Tuy nhiên một _generator_ thì khác, nó có thể "dừng lại" được, và sau đó nó sẽ tiếp tục từ vị trí nó dừng lại.
+Mỗi khi một _generator_ gặp một từ khóa `yield`, nó sẽ sinh ra giá trị ngay phía sau nó.
+Chú ý là _generator_ không _trả về_ giá trị, nó _sinh ra_ giá trị.
 
-Đầu tiên, chúng ta khởi tạo generator với giá trị `i` là `10`. Generator được gọi bằng cách sử dụng phương thức `next()`. Khi lần đầu gọi thì `i` vẫn là `10`. Khi nó bắt gặp từ khóa `yield`: nó sẽ sinh ra giá trị `i`. Generator sẽ được "tạm dừng" tại đây, và ghi ra giá trị `10`.
+Đầu tiên, chúng ta khởi tạo generator với giá trị `i` là `10`.
+Generator được gọi bằng cách sử dụng phương thức `next()`.
+Khi lần đầu gọi thì `i` vẫn là `10`. Khi nó bắt gặp từ khóa `yield`: nó sẽ sinh ra giá trị `i`.
+Generator sẽ được "tạm dừng" tại đây, và ghi ra giá trị `10`.
 
-Sau đó chung ta tiếp tục gọi generator bằng cách sử dụng tiếp phương thức `next()`. Nó sẽ bắt đầu từ vị trí nó tạm dừng lúc trước, khi `i` vẫn đang là `10`. Và khi nó bắt gặp từ khóa `yield`, nó sẽ sinh ra giá trị `i * 2`. `i` là `10`, nên nó sẽ sinh ra `10 * 2`, tức `20`. Vậy kết quả cuối cùng là `10, 20`.
+Sau đó chung ta tiếp tục gọi generator bằng cách sử dụng tiếp phương thức `next()`.
+Nó sẽ bắt đầu từ vị trí nó tạm dừng lúc trước, khi `i` vẫn đang là `10`.
+Và khi nó bắt gặp từ khóa `yield`, nó sẽ sinh ra giá trị `i * 2`. `i` là `10`, nên nó sẽ sinh ra `10 * 2`, tức `20`.
+Vậy kết quả cuối cùng là `10, 20`.
 
 </p>
 </details>
 
 ---
 
-###### 102. Giá trị trả về là gì?
+###### 102. Output là gì?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -3335,7 +3344,10 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### Đáp án: B
 
-Khi chúng ta đưa các promise vào trong một hàm `Promise.race`, nó sẽ chỉ resolves hay rejects promise _đầu tiên_ được resolves/rejects. Với hàm `setTimeout`, chúng ta đưa vào một khoảng thời gian: 500 mili giây cho promise đầu tiên (`firstPromise`), và 100 mili giây cho promise thứ hai (`secondPromise`). Nó có nghĩa là `secondPromise` sẽ hoàn thành trước và trả về giá trị `'two'`. `res` khi này sẽ nhận giá trị `'two'` và được in ra console.
+Khi chúng ta đưa các promise vào trong một hàm `Promise.race`, nó sẽ chỉ resolves hay rejects promise _đầu tiên_ được resolves/rejects.
+Với hàm `setTimeout`, chúng ta đưa vào một khoảng thời gian: 500 mili giây cho promise đầu tiên (`firstPromise`), và 100 mili giây cho promise thứ hai (`secondPromise`).
+Nó có nghĩa là `secondPromise` sẽ hoàn thành trước và trả về giá trị `'two'`.
+`res` khi này sẽ nhận giá trị `'two'` và được in ra console.
 
 </p>
 </details>
@@ -3364,17 +3376,22 @@ console.log(members);
 
 Đầu tiên, chúng ta khai báo một biến `person` là một object có thuộc tính `name`.
 
-<img src="https://i.imgur.com/TML1MbS.png" width="200">
+<img src="img/TML1MbS.png" width="200">
 
-Sau đó chúng ta khai báo một biến `members`. Ta set giá trị đầu tiên của mảng là giá trị của biến `person`. Khi sử dụng gán bằng, object sẽ được _tham chiếu_ tới object mà nó được gán. Khi ta gán tham chiếu từ một biến sang biến khác, ta tạo ra một bản sao của tham chiếu đó. (nên nhớ rằng đó vẫn là 2 tham chiếu hoàn toàn khác nhau!)
+Sau đó chúng ta khai báo một biến `members`.
+Ta set giá trị đầu tiên của mảng là giá trị của biến `person`.
+Khi sử dụng gán bằng, object sẽ được _tham chiếu_ tới object mà nó được gán.
+Khi ta gán tham chiếu từ một biến sang biến khác, ta tạo ra một bản sao của tham chiếu đó (nên nhớ rằng đó vẫn là 2 tham chiếu hoàn toàn khác nhau).
 
-<img src="https://i.imgur.com/FSG5K3F.png" width="300">
+<img src="img/FSG5K3F.png" width="300">
 
 Sau đó ta set giá trị của `person` bằng `null`.
 
-<img src="https://i.imgur.com/sYjcsMT.png" width="300">
+<img src="img/sYjcsMT.png" width="300">
 
-Chúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` mà thôi, chứ không phải giá trị của phần tử đầu tiên ở trong mảng, vì chúng ta có một tham chiếu khác đến object đó. Phần tử đầu tiên của mảng `members` vẫn giữ tham chiêu đến object gốc. Do vậy, khi chúng ta in ra mảng `members`, phần tử đầu tiên sẽ vẫn in ra giá trị của objet gốc.
+Chúng ta chỉ đơn thuần là thay đổi giá trị của biến `person` mà thôi, chứ không phải giá trị của phần tử đầu tiên ở trong mảng, vì chúng ta có một tham chiếu khác đến object đó.
+Phần tử đầu tiên của mảng `members` vẫn giữ tham chiêu đến object gốc.
+Do vậy, khi chúng ta in ra mảng `members`, phần tử đầu tiên sẽ vẫn in ra giá trị của objet gốc.
 
 </p>
 </details>
@@ -3404,7 +3421,11 @@ for (const item in person) {
 
 #### Đáp án: B
 
-Với vòng lặp `for-in` chúng ta sẽ lặp qua tất cả các `keys` của object, trong trường hợp này là `name` và `age`. Về cơ bản, object keys là string (nếu nó không phải là Symbol). Tại mỗi vòng lặp, giá trị của `item` chính là giá trị của key hiện tại trong vòng lặp. Đầu tiên, `item` là `name`, và được in ra. Vòng lặp sau, `item` là `age`, và được in ra.
+Với vòng lặp `for-in` chúng ta sẽ lặp qua tất cả các `keys` của object, trong trường hợp này là `name` và `age`.
+Về cơ bản, object keys là string (nếu nó không phải là Symbol).
+Tại mỗi vòng lặp, giá trị của `item` chính là giá trị của key hiện tại trong vòng lặp.
+Đầu tiên, `item` là `name` và được in ra.
+Vòng lặp sau, `item` là `age` và được in ra.
 
 </p>
 </details>
@@ -3427,11 +3448,15 @@ console.log(3 + 4 + "5");
 
 #### Đáp án: B
 
-Compiler sẽ đánh giá biểu thức dựa trên độ ưu tiên giữa các phép toán trong biểu thức đó, từ đó nó sẽ tính toán hoặc trái-sang-phải hoặc phải-qua-trái. Ở đây chúng ta chỉ có một phép toán mà thôi, phép cộng: `+`. Với phép cộng, tính toán sẽ là từ trái-qua-phải.
+Compiler sẽ đánh giá biểu thức dựa trên độ ưu tiên giữa các phép toán trong biểu thức đó, từ đó nó sẽ tính toán hoặc trái-sang-phải hoặc phải-qua-trái.
+Ở đây chúng ta chỉ có một phép toán mà thôi, phép cộng: `+`.
+Với phép cộng, tính toán sẽ là từ trái-qua-phải.
 
 Giá trị `3 + 4` được tính toán trước. Kết quả là `7`.
 
-`7 + '5'` sẽ ra kết quả là `"75"` bởi xuất hiện ép kiểu tại đây. JavaScript sẽ convert `7` sang dạng string, bạn có thể xem thêm tại câu hỏi 15. Và sau đó 2 string sẽ được nối lại với nhau bởi phép toán cộng `+`. Kết quả `"7" + "5"` sẽ là `"75"`.
+`7 + '5'` sẽ ra kết quả là `"75"` bởi xuất hiện ép kiểu tại đây.
+JavaScript sẽ convert `7` sang dạng string, bạn có thể xem thêm tại câu hỏi 15.
+Và sau đó 2 string sẽ được nối lại với nhau bởi phép toán cộng `+`. Kết quả `"7" + "5"` sẽ là `"75"`.
 
 </p>
 </details>
@@ -3454,7 +3479,9 @@ const num = parseInt("7*6", 10);
 
 #### Đáp án: C
 
-Chỉ có số đầu tiên trong chuỗi kí tự được trả về. Hệ cơ số là _hệ thập phân_ (đối số thứ 2 trong hàm chính là cơ số: hệ thập phân, hệ 16, hệ 8, hệ nhị phân, vv.), Hàm `parseInt` sẽ kiểm tra xem các ký tự trong chuỗi có đảm bảo hợp lệ hay không. Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong hệ cơ số, nó dừng lại và bỏ qua các ký tự phía sau.
+Chỉ có số đầu tiên trong chuỗi kí tự được trả về.
+Hệ cơ số là _hệ thập phân_ (đối số thứ 2 trong hàm chính là cơ số: hệ thập phân, hệ 16, hệ 8, hệ nhị phân, vv.), hàm `parseInt` sẽ kiểm tra xem các ký tự trong chuỗi có đảm bảo hợp lệ hay không.
+Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong hệ cơ số, nó dừng lại và bỏ qua các ký tự phía sau.
 
 `*` không phải là một số. Vậy nên nó sẽ chỉ convert ký tự `"7"` sang hệ thập phân là `7`. `num` sẽ có giá trị là `7`.
 
