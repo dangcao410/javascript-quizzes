@@ -1997,10 +1997,10 @@ shape.diameter();
 shape.perimeter();
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+- A: `20` và `62.83185307179586`
+- B: `20` và `NaN`
+- C: `20` và `63`
+- D: `NaN` và `63`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2009,7 +2009,8 @@ shape.perimeter();
 
 Chú ý rằng giá trị `diameter` là một hàm thông thường, còn `perimeter` là một _arrow function_.
 
-Không giống như hàm thông thường, với _arrow function_, biến`this` sẽ trỏ tới surrounding scope! Có nghĩa là khi chúng ta gọi `perimeter`, nó sẽ không được gọi bởi shape object, mà nó được gọi bởi object nào đó tại surrounding scope (ví dụ `window` chẳng hạn).
+Không giống như hàm thông thường, với _arrow function_, biến`this` sẽ trỏ tới surrounding scope.
+Có nghĩa là khi chúng ta gọi `perimeter`, nó sẽ không được gọi bởi shape object, mà nó được gọi bởi object nào đó tại surrounding scope (ví dụ `window` chẳng hạn).
 
 Khi không có giá trị `radius` tại object đó, nó sẽ trả về `undefined`.
 
@@ -2025,9 +2026,9 @@ Khi không có giá trị `radius` tại object đó, nó sẽ trả về `undef
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+- A: `1` và `false`
+- B: `false` và `NaN`
+- C: `false` và `false`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
@@ -2036,7 +2037,7 @@ Khi không có giá trị `radius` tại object đó, nó sẽ trả về `undef
 
 Phép toán cộng `+` sẽ convert một toán hạng sang dạng number. `true` là `1`, và `false` is `0`.
 
-Chuỗi `'Lydia'` là một _truthy value_. Điều chúng ta thật sự đang hỏi chính là  "có phải một giá trị truthy là falsy?". Rõ ràng câu trả lời là `false` rồi.
+Chuỗi `'Lydia'` là một _truthy value_. Điều chúng ta thật sự đang hỏi chính là "có phải một giá trị truthy là falsy?". Rõ ràng câu trả lời là `false` rồi.
 
 </p>
 </details>
@@ -2066,13 +2067,19 @@ const mouse = {
 
 #### Đáp án: A
 
-Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol). Dù chúng ta không viết chúng như một string, về cơ bản chúng sẽ luôn được chuyển sang dạng string.
+Trong JavaScript thì tất cả keys của các object đều là string (ngoại trừ khi nó là một Symbol).
+Dù chúng ta không viết như một string, về cơ bản chúng sẽ luôn được chuyển sang dạng string.
 
-JavaScript thông dịch (hay unboxes) từng câu lệnh. Khi chúng ta sử dụng cặp dấu ngoặc `[]`, nó sẽ tìm kiếm dấu mở ngoặc đầu tiên `[`, và sẽ tiếp tục tìm kiếm cho tới khi gặp dấu đóng ngoặc `]`. Chỉ khi đó thì câu lệnh mới được thực thi.
+JavaScript thông dịch (hay unboxes) từng câu lệnh.
+Khi sử dụng cặp dấu ngoặc `[]`, nó sẽ tìm kiếm dấu mở ngoặc đầu tiên `[`, và sẽ tiếp tục tìm kiếm cho tới khi gặp dấu đóng ngoặc `]`.
+Chỉ khi đó thì câu lệnh mới được thực thi.
 
 `mouse[bird.size]`: Giá trị đầu tiên `bird.size` là `"small"`. `mouse["small"]` sẽ trả về `true`
 
-Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không còn đúng nữa. `mouse` không hề có key nào tên là `bird`, có nghĩa `mouse.bird` sẽ là `undefined`. Sau đó chúng ta gọi `size` sử dụng chấm `.`: `mouse.bird.size`. Vì  `mouse.bird` là `undefined`, lời gọi sẽ trở thành `undefined.size`. Đây là một lời gọi không hợp lệ, nó sẽ throw ra một lỗi kiểu như `Cannot read property "size" of undefined`.
+Tuy nhiên, khi chúng ta sử dụng dấu chấm `.`, điều trên không còn đúng nữa.
+`mouse` không hề có key nào tên là `bird`, có nghĩa `mouse.bird` sẽ là `undefined`.
+Sau đó chúng ta gọi `size` sử dụng chấm `.`: `mouse.bird.size`. Vì  `mouse.bird` là `undefined`, lời gọi sẽ trở thành `undefined.size`.
+Đây là một lời gọi không hợp lệ, nó sẽ throw ra một lỗi kiểu như `Cannot read property "size" of undefined`.
 
 </p>
 </details>
