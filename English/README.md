@@ -6,7 +6,7 @@
 
 #### Languages:
 - [🇻🇳 Tiếng Việt](../README.md)
-- [🇬🇧 English](./English/README.md)
+- [🇬🇧 English](./README.md)
 
 ---
 
