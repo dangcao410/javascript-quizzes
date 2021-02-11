@@ -3,6 +3,12 @@
   <h1>JavaScript Quizzes</h1>
 </div>
 
+
+#### Ngôn ngữ:
+- [🇻🇳 Tiếng Việt](../README.md)
+- [🇬🇧 English](./English/README.md)
+
+
 ###### 1. Output là gì?
 
 ```javascript
