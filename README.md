@@ -3509,9 +3509,13 @@ Một khi chúng tìm ra ký tự không phải là ký tự hợp lệ trong h�
 
 #### Đáp án: C
 
-Khi ta tiến hành `map` một mảng, giá trị của `num` sẽ chính là giá trị của phần tử hiện giờ trong vòng lặp. Trong trường hợp này, các phần tử đều là dạng số, tức là `typeof num === "number"` sẽ là `true`. Hàm `map` sẽ tạo ra một mảng mởi từ các giá trị của mảng ban đầu.
+Khi ta tiến hành `map` một mảng, giá trị của `num` sẽ chính là giá trị của phần tử hiện giờ trong vòng lặp.
+Trong trường hợp này, các phần tử đều là dạng số, tức là `typeof num === "number"` sẽ là `true`.
+Hàm `map` sẽ tạo ra một mảng mởi từ các giá trị của mảng ban đầu.
 
-Tuy nhiên chúng ta không hề trả về giá trị nào cả. Khi đó, hàm số sẽ mặc định trả về `undefined`. Do đó qua mỗi vòng lặp, ta lại nhận được thêm một giá trị `undefined` nữa.
+Tuy nhiên chúng ta không hề trả về giá trị nào cả.
+Khi đó, hàm số sẽ mặc định trả về `undefined`.
+Do đó qua mỗi vòng lặp, ta lại nhận được thêm một giá trị `undefined` nữa.
 
 </p>
 </details>
@@ -3544,11 +3548,19 @@ console.log(person, birthYear);
 
 #### Đáp án: A
 
-`Đối số` sẽ được đưa vào hàm dạng _tham trị_, trừ phi nó là object, khi đó nó sẽ được đưa vào hàm dạng _tham chiếu_. `birthYear` là dạng giá trị, vì nó là string chứ không phải object. Khi chúng ta đưa vào dạng giá trị, một bản sao của giá trị đó sẽ được tạo ra (xem thêm câu 46).
+`Đối số` sẽ được đưa vào hàm dạng _tham trị_, trừ khi nó là object, khi đó nó sẽ được đưa vào hàm dạng _tham chiếu_.
+`birthYear` là dạng giá trị, vì nó là string chứ không phải object.
+Khi chúng ta đưa vào dạng giá trị, một bản sao của giá trị đó sẽ được tạo ra.
 
-`birthYear` trỏ đến giá trị là `"1997"`. Đối số `year` cũng sẽ rỏ đến giá trị `"1997"`, nhưng giá trị này chỉ là một bản sao của giá trị mà `birthYear` trỏ tới mà thôi, hai giá trị đó hoàn toàn khác nhau. Do đó khi ta thay đổi giá trị `year` bằng `"1998"`, chúng ta chỉ thay đổi giá trị của `year` mà thôi. `birthYear` sẽ vẫn giữ giá trị là `"1997"`.
+`birthYear` trỏ đến giá trị là `"1997"`.
+Đối số `year` cũng sẽ rỏ đến giá trị `"1997"`, nhưng giá trị này chỉ là một bản sao của giá trị mà `birthYear` trỏ tới mà thôi, hai giá trị đó hoàn toàn khác nhau.
+Do đó khi ta thay đổi giá trị `year` bằng `"1998"`, chúng ta chỉ thay đổi giá trị của `year` mà thôi.
+`birthYear` sẽ vẫn giữ giá trị là `"1997"`.
 
-`person` là một object. Biến `member` có một tham chiếu tới cùng object mà `person` trỏ tới. Khi chúng ta thay đổi một thuộc tính của object mà `member` trỏ tới, giá trị của `person` cũng sẽ tự động thay đổi theo, vì chúng có chung tham chiếu. `name` của `person` khi này sẽ có giá trị mới là `"Lydia"`.
+`person` là một object.
+Biến `member` có một tham chiếu tới cùng object mà `person` trỏ tới.
+Khi chúng ta thay đổi một thuộc tính của object mà `member` trỏ tới, giá trị của `person` cũng sẽ tự động thay đổi theo, vì chúng có chung tham chiếu.
+`name` của `person` khi này sẽ có giá trị mới là `"Lydia"`.
 
 </p>
 </details>
@@ -3584,9 +3596,14 @@ sayHi();
 
 #### Đáp án: D
 
-Với lệnh `throw`, chúng ta có thể tạo ra các errors tùy ý. Với câu lệnh đó, chúng ta có thể throw các exception. Một _exeption_ có thể là một <b>chuỗi</b>, một <b>số</b>, một <b>boolean</b> hoặc một <b>object</b>. Trong trường hợp này thì nó là chuỗi `'Hello world'`.
+Với lệnh `throw`, chúng ta có thể tạo ra các errors tùy ý.
+Với câu lệnh đó, chúng ta có thể throw các exception.
+Một _exeption_ có thể là một <b>chuỗi</b>, một <b>số</b>, một <b>boolean</b> hoặc một <b>object</b>.
+Trong trường hợp này thì nó là chuỗi `'Hello world'`.
 
-Với lệnh `catch` chúng ta có thể xử lý những exeption được throw ra khi thực hiện `try`. Một exeption đã được throw ra: chuỗi `'Hello world'`. `e` chính là chuỗi đó và chúng ta sẽ in ra. Kết quả là `'Oh an error: Hello world'`.
+Với lệnh `catch` chúng ta có thể xử lý những exeption được throw ra khi thực hiện `try`.
+Một exeption đã được throw ra: chuỗi `'Hello world'`. `e` chính là chuỗi đó và chúng ta sẽ in ra.
+Kết quả là `'Oh an error: Hello world'`.
 
 </p>
 </details>
@@ -3615,7 +3632,8 @@ console.log(myCar.make);
 
 #### Đáp án: B
 
-Khi chúng ta trả về một thuộc tính, giá trị của thuộc tính bằng với giá trị đã được trả về bởi lệnh _return_, chứ không phải giá trị được set trong constructor. Chúng ta trả về giá trị là `"Maserati"`, do đó `myCar.make` sẽ là `"Maserati"`.
+Khi chúng ta trả về một thuộc tính, giá trị của thuộc tính bằng với giá trị đã được trả về bởi lệnh _return_, chứ không phải giá trị được set trong constructor.
+Chúng ta trả về giá trị là `"Maserati"`, do đó `myCar.make` sẽ là `"Maserati"`.
 
 </p>
 </details>
@@ -3650,11 +3668,17 @@ y = 10;
 let x = y;
 ```
 
-Khi ta set `y` bằng `10`, thực tế chúng ta đã sử dụng biến global `y` (`window` nếu là trên browser, `global` nếu là môi trường Node).Trên browser, `window.y` sẽ là `10`.
+Khi ta set `y` bằng `10`, thực tế chúng ta đã sử dụng biến global `y` (`window` nếu là trên browser, `global` nếu là môi trường Node).
+Trên browser, `window.y` sẽ là `10`.
 
-Sau đó, chúng ta khai báo giá trị của `x` với giá trị của `y`, tức `10`. Tuy nhiên khi ta khai báo với từ khóa `let` biến x sẽ chỉ tồn tại trong _block scoped_; hay trong trường hợp này là `hàm thực hiện ngay lập tức` (immediately-invoked function - IIFE). Khi ta sử dụng phép toán `typeof`, `x` hoàn toàn chưa được định nghĩa: vì `x` lúc này nằm bên ngoài block nó được định nghĩa lúc trước. Nghĩa là `x` là `undefined`. Do đó `console.log(typeof x)` trả về `"undefined"`.
+Sau đó, chúng ta khai báo giá trị của `x` với giá trị của `y`, tức `10`.
+Tuy nhiên khi ta khai báo với từ khóa `let` biến x sẽ chỉ tồn tại trong _block scoped_; hay trong trường hợp này là `hàm thực hiện ngay lập tức` (immediately-invoked function - IIFE).
+Khi ta sử dụng phép toán `typeof`, `x` hoàn toàn chưa được định nghĩa: vì `x` lúc này nằm bên ngoài block nó được định nghĩa lúc trước.
+Nghĩa là `x` là `undefined`. Do đó `console.log(typeof x)` trả về `"undefined"`.
 
-Tuy nhiên với `y` thì khác, ta đã có giá trị của `y` khi set `y` bằng `10`. Giá trị đó có thể truy cập được từ bất kì đâu bởi chúng là biến global. `y` được định nghĩa với kiểu là `"number"`. Do đó `console.log(typeof y)` trả về `"number"`.
+Tuy nhiên với `y` thì khác, ta đã có giá trị của `y` khi set `y` bằng `10`.
+Giá trị đó có thể truy cập được từ bất kì đâu bởi chúng là biến global.
+`y` được định nghĩa với kiểu là `"number"`. Do đó `console.log(typeof y)` trả về `"number"`.
 
 </p>
 </details>
@@ -3693,9 +3717,12 @@ pet.bark();
 
 #### Đáp án: A
 
-Chúng ta có thể xóa các thuộc tính khỏe object bằng từ khóa `delete`, kể cả với prototype. Khi chúng ta xóa một thuộc tính trên prototype, nó sẽ bị vô hiệu hóa hoàn toàn trong chuỗi prototype. Trong trường hợp này, hàm `bark` sẽ bị vô hiệu hóa ngay sau khi chúng ta thực hiện hàm xóa `delete Dog.prototype.bark`, tất nhiên ta vẫn có thể truy cập vào nó nhưng giá trị sẽ là `undefined`.
+Chúng ta có thể xóa các thuộc tính của object bằng từ khóa `delete`, kể cả với prototype.
+Khi chúng ta xóa một thuộc tính trên prototype, nó sẽ bị vô hiệu hóa hoàn toàn trong chuỗi prototype.
+Trong trường hợp này, hàm `bark` sẽ bị vô hiệu hóa ngay sau khi chúng ta thực hiện hàm xóa `delete Dog.prototype.bark`, tất nhiên ta vẫn có thể truy cập vào nó nhưng giá trị sẽ là `undefined`.
 
-Khi chúng ta chạy một thứ không phải là `hàm`, nó sẽ bắn ra một `TypeError`. Trong trường hợp này là `TypeError: pet.bark is not a function`, vì bản thân thuộc tính `pet.bark` là `undefined`.
+Khi chúng ta chạy một thứ không phải là `hàm`, nó sẽ bắn ra một `TypeError`.
+Trong trường hợp này là `TypeError: pet.bark is not a function`, vì bản thân thuộc tính `pet.bark` là `undefined`.
 
 </p>
 </details>
@@ -3720,9 +3747,10 @@ console.log(set);
 
 #### Đáp án: D
 
-`Set` là một tập hơp các giá trị _không trùng nhau_.
+`Set` là một tập hợp các giá trị _không trùng nhau_.
 
-Chúng ta đưa đầu vào là một mảng `[1, 1, 2, 3, 4]` với giá trị `1` bị trùng. Giá trị trùng đó sẽ bị loại bỏ. Kết quả là `{1, 2, 3, 4}`.
+Chúng ta đưa đầu vào là một mảng `[1, 1, 2, 3, 4]` với giá trị `1` bị trùng.
+Giá trị trùng đó sẽ bị loại bỏ. Kết quả là `{1, 2, 3, 4}`.
 
 </p>
 </details>
@@ -3785,9 +3813,12 @@ console.log(delete age);
 
 #### Đáp án: A
 
-Phép toán `delete` sẽ trả về một giá trị boolean: `true` nếu xóa thành công, `false` nếu thất bại. Tuy nhiên, nếu biến được khai báo với các từ khóa `var`, `const` hay `let` thì nó sẽ không thể bị xóa bởi phép toán `delete`.
+Phép toán `delete` sẽ trả về một giá trị boolean: `true` nếu xóa thành công, `false` nếu thất bại.
+Tuy nhiên, nếu biến được khai báo với các từ khóa `var`, `const` hay `let` thì nó sẽ không thể bị xóa bởi phép toán `delete`.
 
-Biến `name` được khai báo với từ khóa `const`, nên nó sẽ không thể bị xóa và trả về `false`. Khi ta set `age` bằng `21`, thực tế là ta đang sử dụng biến global `age`. Ta có thể xóa sử dụng phép toán `delete`, khi này `delete age` trả về `true`.
+Biến `name` được khai báo với từ khóa `const`, nên nó sẽ không thể bị xóa và trả về `false`.
+Khi ta set `age` bằng `21`, thực tế là ta đang sử dụng biến global `age`.
+Ta có thể xóa sử dụng phép toán `delete`, khi này `delete age` trả về `true`.
 
 </p>
 </details>
@@ -3819,7 +3850,7 @@ Chúng ta có thể unpack các giá trị từ mảng hoặc thuộc tính từ
 [a, b] = [1, 2];
 ```
 
-<img src="https://i.imgur.com/ADFpVop.png" width="200">
+<img src="img/ADFpVop.png" width="200">
 
 Giá trị của `a` sẽ là `1`, `b` sẽ là `2`. Thực tế, câu hỏi của chúng ta đơn giản là:
 
@@ -3827,7 +3858,7 @@ Giá trị của `a` sẽ là `1`, `b` sẽ là `2`. Thực tế, câu hỏi c�
 [y] = [1, 2, 3, 4, 5];
 ```
 
-<img src="https://i.imgur.com/NzGkMNk.png" width="200">
+<img src="img/NzGkMNk.png" width="200">
 
 Có nghĩa là `y` chính là giá trị đầu tiên trong mảng, tức số `1`. Do đó khi ta in ra `y` thì sẽ là`1`.
 
