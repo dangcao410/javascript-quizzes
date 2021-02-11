@@ -3886,7 +3886,10 @@ console.log(admin);
 
 #### Đáp án: B
 
-Ta có thể kết hợp 2 object sử dụng phép toán `spread operator` `...`. Nó cho phép ta tạo ra bản sao của từng cặp key/values trong từng object và nối chúng lại với nhau thành một object mới. Trong trường hợp này chúng ta tạo ra các bản sao của các cặp key/value của object `user` object, và nối chúng vào object `admin`. `admin` object khi này sẽ trở thành `{ admin: true, name: "Lydia", age: 21 }`.
+Ta có thể kết hợp 2 object sử dụng phép toán `spread operator` `...`.
+Nó cho phép ta tạo ra bản sao của từng cặp key/values trong từng object và nối chúng lại với nhau thành một object mới.
+Trong trường hợp này chúng ta tạo ra các bản sao của các cặp key/value của object `user` object, và nối chúng vào object `admin`.
+`admin` object khi này sẽ trở thành `{ admin: true, name: "Lydia", age: 21 }`.
 
 </p>
 </details>
@@ -3914,9 +3917,13 @@ console.log(Object.keys(person));
 
 #### Đáp án: B
 
-Với phương thức `defineProperty`, chúng ta có thể thêm các thuộc tính mới, cũng như sửa các thuộc tính sẵn có của object. Khi chúng ta thêm thuộc tính vào object bằng `defineProperty`, chúng sẽ mặc định là thuộc tính _not enumerable_. Phương thức `Object.keys` sẽ trả về tất cả các thuộc tính _enumerable_ của object, trong trường hợp này thì chỉ có `"name"` mà thôi.
+Với phương thức `defineProperty`, chúng ta có thể thêm các thuộc tính mới, cũng như sửa các thuộc tính sẵn có của object.
+Khi chúng ta thêm thuộc tính vào object bằng `defineProperty`, chúng sẽ mặc định là thuộc tính _not enumerable_.
+Phương thức `Object.keys` sẽ trả về tất cả các thuộc tính _enumerable_ của object, trong trường hợp này thì chỉ có `"name"` mà thôi.
 
-Thêm nữa, các thuộc tính được thêm bởi `defineProperty` là mặc định không thể thay đổi được. Tất nhiên ta có thể override các điều đó bằng các thuộc tính như `writable`, `configurable` và `enumerable`. Tức là `defineProperty` là một cách rất mềm dẻo để tạo ra và điều chỉnh thuộc tính của object.
+Thêm nữa, các thuộc tính được thêm bởi `defineProperty` là mặc định không thể thay đổi được.
+Tất nhiên ta có thể override các điều đó bằng các thuộc tính như `writable`, `configurable` và `enumerable`.
+Tức là `defineProperty` là một cách rất mềm dẻo để tạo ra và điều chỉnh thuộc tính của object.
 
 </p>
 </details>
@@ -3946,11 +3953,16 @@ console.log(data);
 
 #### Đáp án: A
 
-Đối số thứ hai của `JSON.stringify` là _replacer_. Replacer Có thể là một hàm hoặc một mảng, nó sẽ quy định xem giá trị nào sẽ được chuỗi hóa ra sao.
+Đối số thứ hai của `JSON.stringify` là _replacer_.
+Replacer Có thể là một hàm hoặc một mảng, nó sẽ quy định xem giá trị nào sẽ được chuỗi hóa ra sao.
 
-Nếu replacer là một _mảng_, chỉ có các thuộc tính có tên trong mảng được convert thành chuỗi JSON. Trong trường hợp này, chỉ có các thuộc tính `"level"` và `"health"` được đưa vào, `"username"` bị loại bỏ. `data` giờ sẽ là `"{"level":19, "health":90}"`.
+Nếu replacer là một _mảng_, chỉ có các thuộc tính có tên trong mảng được convert thành chuỗi JSON.
+Trong trường hợp này, chỉ có các thuộc tính `"level"` và `"health"` được đưa vào, `"username"` bị loại bỏ.
+`data` giờ sẽ là `"{"level":19, "health":90}"`.
 
-Nếu replacer là _function_, hàm này sẽ được gọi trên từng thuộc tính của object được chuỗi hóa. Giá trị trả về sẽ là giá trị được đưa vào chuỗi JSON. Nếu trả về `undefined`, thuộc tính này sẽ bị loại bỏ khỏi chuỗi.
+Nếu replacer là _function_, hàm này sẽ được gọi trên từng thuộc tính của object được chuỗi hóa.
+Giá trị trả về sẽ là giá trị được đưa vào chuỗi JSON.
+Nếu trả về `undefined`, thuộc tính này sẽ bị loại bỏ khỏi chuỗi.
 
 </p>
 </details>
@@ -3982,9 +3994,13 @@ console.log(num2);
 
 #### Đáp án: A
 
-Phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên. Giá trị của `num1` là `10`, vì `increaseNumber` sẽ trả về giá trị của `num`, đang là `10`, và sau đó mới tăng giá trị của `num` lên.
+Phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên.
+Giá trị của `num1` là `10`, vì `increaseNumber` sẽ trả về giá trị của `num`, đang là `10`, và sau đó mới tăng giá trị của `num` lên.
 
-`num2` cũng là `10`, vì chúng ta đưa `num1` vào `increasePassedNumber`. `number` bằng `10`(tức giá trị của `num1`). Cũng giống như trên, phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên. Giá trị của `number` là `10`, do đó `num2` cũng sẽ là `10`.
+`num2` cũng là `10`, vì chúng ta đưa `num1` vào `increasePassedNumber`.
+`number` bằng `10`(tức giá trị của `num1`).
+Cũng giống như trên, phép toán `++` sẽ _trả về trước_ giá trị của toán hạng, _sau đó tăng_ giá trị của toán hạng lên.
+Giá trị của `number` là `10`, do đó `num2` cũng sẽ là `10`.
 
 </p>
 </details>
@@ -4016,13 +4032,20 @@ multiply(value);
 
 #### Đáp án: C
 
-Trong ES6 thì chúng ta có thể khởi tạo tham số với giá trị mặc định. Giá trị của tham số sẽ là giá trị mặc định nếu ta không truyền gì vào hàm, hoặc khi giá trị truyền vào là `"undefined"`. Trong trường hợp này, ta dùng `spread operator` (toán tử mở rộng) để biến `value` thành một object mới, do đó `x` sẽ có giá trị mặc định là `{ number: 10 }`.
+Trong ES6 thì chúng ta có thể khởi tạo tham số với giá trị mặc định.
+Giá trị của tham số sẽ là giá trị mặc định nếu ta không truyền gì vào hàm, hoặc khi giá trị truyền vào là `"undefined"`.
+Trong trường hợp này, ta dùng `spread operator` (toán tử mở rộng) để biến `value` thành một object mới, do đó `x` sẽ có giá trị mặc định là `{ number: 10 }`.
 
-Chú ý một điều là đối số sẽ được xét giá trị tại _call time_! Có nghĩa là mỗi khi chúng ta gọi hàm, một _object mới_ sẽ được tạo ra. Chúng ta gọi hàm `multiply` hai lần mà không truyền vào đối số nào cả: `x` sẽ nhận giá trị mặc định `{ number: 10 }`. Sau đó chúng ta sẽ ghi ra giá trị là `20`.
+Chú ý một điều là đối số sẽ được xét giá trị tại _call time_.
+Có nghĩa là mỗi khi chúng ta gọi hàm, một _object mới_ sẽ được tạo ra.
+Chúng ta gọi hàm `multiply` hai lần mà không truyền vào đối số nào cả: `x` sẽ nhận giá trị mặc định `{ number: 10 }`.
+Sau đó chúng ta sẽ ghi ra giá trị là `20`.
 
-Lần gọi thứ ba chúng ta truyền vào một đối số: chính là `value`. Toán tử `*=` chính là cách viết gọn của `x.number = x.number * 2`: chúng ta thay đổi giá trị của `x.number`, và ghi ra giá trị `20`.
+Lần gọi thứ ba chúng ta truyền vào một đối số: chính là `value`.
+Toán tử `*=` chính là cách viết gọn của `x.number = x.number * 2`: chúng ta thay đổi giá trị của `x.number`, và ghi ra giá trị `20`.
 
-Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. `x.number` trước đó đã bị thay đổi thành `20`, nên `x.number *= 2` sẽ ghi ra `40`.
+Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa.
+`x.number` trước đó đã bị thay đổi thành `20`, nên `x.number *= 2` sẽ ghi ra `40`.
 
 </p>
 </details>
@@ -4045,23 +4068,30 @@ Tại lần gọi thứ tư, chúng ta truyền vào `value` một lần nữa. 
 
 #### Đáp án: D
 
-Đối số đầu tiên của hàm `reduce` chính là _accumulator_ (tổng tích lũy), trong trường hợp này là `x`. Đối số thứ 2 chính là _giá trị hiện tại_, tức `y`. Với hàm reduce, ta sẽ gọi callback trên mỗi phần tử của mảng, cứ vậy cho tới khi ra đến một giá trị cuối cùng.
+Đối số đầu tiên của hàm `reduce` chính là _accumulator_ (tổng tích lũy), trong trường hợp này là `x`.
+Đối số thứ 2 chính là _giá trị hiện tại_, tức `y`.
+Với hàm reduce, ta sẽ gọi callback trên mỗi phần tử của mảng, cứ vậy cho tới khi ra đến một giá trị cuối cùng.
 
 Trong trường hợp này, chúng ta không trả về bất cứ giá trị nào cả, mà đơn thuần chỉ là ghi ra giá trị của _tổng tích lũy_ và _giá trị hiện tại_ mà thôi.
 
-Giá trị của tổng tích lũy chính là giá trị được hàm callback trả về tại vòng lặp trước đó. Nếu ta không đặt giá trị khởi tạo cho đối số trong hàm `reduce`, thì tổng tích lũy sẽ chính bằng giá trị đầu tiên tại lời gọi đầu tiên.
+Giá trị của tổng tích lũy chính là giá trị được hàm callback trả về tại vòng lặp trước đó.
+Nếu ta không đặt giá trị khởi tạo cho đối số trong hàm `reduce`, thì tổng tích lũy sẽ chính bằng giá trị đầu tiên tại lời gọi đầu tiên.
 
-Trong lời gọi đầu tiên, tổng tích lũy (`x`) là `1`, và giá trị hiện tại (`y`) là `2`. Chúng ta không trả về giá trị cho hàm callback, mà đơn thuần chỉ ghi chúng ta, vậy nên `1` và `2` được ghi ra.
+Trong lời gọi đầu tiên, tổng tích lũy (`x`) là `1`, và giá trị hiện tại (`y`) là `2`.
+Chúng ta không trả về giá trị cho hàm callback, mà đơn thuần chỉ ghi chúng ta, vậy nên `1` và `2` được ghi ra.
 
-Nếu ta không trả về giá trị trong một function, thì nó sẽ mặc định trả về là `undefined`. Do đó trong lời gọi tiếp theo tổng tích lũy sẽ là `undefined`, và giá trị hiện tại là `3`. `undefined` và `3` sẽ được ghi ra.
+Nếu ta không trả về giá trị trong một function, thì nó sẽ mặc định trả về là `undefined`.
+Do đó trong lời gọi tiếp theo tổng tích lũy sẽ là `undefined`, và giá trị hiện tại là `3`. `undefined` và `3` sẽ được ghi ra.
 
-Tiếp tục như vậy, trong lời gọi thứ tư thì tổng tích lũy sẽ vẫn là `undefined`, giá trị hiện tại là `4`. `undefined` và `4` sẽ được ghi ra.
+Tiếp tục như vậy, trong lời gọi thứ tư thì tổng tích lũy sẽ vẫn là `undefined`, giá trị hiện tại là `4`.
+`undefined` và `4` sẽ được ghi ra.
+
 </p>
 </details>
   
 ---
 
-###### 123. Với cách nào chúng ta có thể kế thừa `Dog` class?
+###### 123. Với cách nào chúng ta có thể kế thừa class `Dog`?
 
 ```javascript
 class Dog {
@@ -4104,11 +4134,14 @@ class Labrador extends Dog {
 
 #### Đáp án: B
 
-Trong class dẫn xuất, ta không thể truy cập từ khóa `this` trước khi gọi `super`. Nếu bạn chạy thử, nó sẽ throw ra một `ReferenceError`, do đó 1 và 4 sẽ throw ra reference error.
+Trong class dẫn xuất, ta không thể truy cập từ khóa `this` trước khi gọi `super`.
+Nếu bạn chạy thử, nó sẽ throw ra một `ReferenceError`, do đó 1 và 4 sẽ throw ra reference error.
 
-Với việc gọi `super`, chúng ta đã gọi hàm constructor của class cha với tham số truyền vào. Trong trường hợp này, class cha nhận `name` làm đối số trong constructor, do đó chúng cần đưa `name` vào hàm `super`.
+Với việc gọi `super`, chúng ta đã gọi hàm constructor của class cha với tham số truyền vào.
+Trong trường hợp này, class cha nhận `name` làm đối số trong constructor, do đó chúng cần đưa `name` vào hàm `super`.
 
-`Labrador` class nhận vào hai đối số, `name` vì nó kế thừa `Dog`, và `size` - một thuộc tính của `Labrador` class. Cả hai đều cần thiết để đưa vào trong constructor của class `Labrador`, do đó cách khởi tạo đúng là 2.
+`Labrador` class nhận vào hai đối số, `name` vì nó kế thừa `Dog`, và `size` - một thuộc tính của `Labrador` class.
+Cả hai đều cần thiết để đưa vào trong constructor của class `Labrador`, do đó cách khởi tạo đúng là 2.
 </p>
 </details>
 
@@ -4137,9 +4170,12 @@ export const sum = (a, b) => a + b;
 
 #### Đáp án: B
 
-Với `import`, tất cả các module import vào đều sẽ được _pre-parsed_ (đánh giá trước). Có nghĩa là những module được import vào sẽ được _chạy trước_, còn code trong file sẽ _chạy sau_.
+Với `import`, tất cả các module import vào đều sẽ được _pre-parsed_ (đánh giá trước).
+Có nghĩa là những module được import vào sẽ được _chạy trước_, còn code trong file sẽ _chạy sau_.
 
-Đó chính là điều khác biệt giữa `require()` trong CommonJS và `import`! Với `require()`, ta có thể load các dependencies tại bất cứ khi nào ta cần. Nếu ta sử dụng `require` thay thế cho `import` thì `running index.js`, `running sum.js`, `3` sẽ được ghi ra.
+Đó chính là điều khác biệt giữa `require()` trong CommonJS và `import`.
+Với `require()`, ta có thể load các dependencies tại bất cứ khi nào ta cần.
+Nếu ta sử dụng `require` thay thế cho `import` thì `running index.js`, `running sum.js`, `3` sẽ được ghi ra.
 
 </p>
 </details>
@@ -4164,7 +4200,10 @@ console.log(Symbol('foo') === Symbol('foo'))****
 
 #### Đáp án: A
 
-Mỗi Symbol là một thứ hoàn toàn khác biệt. Giá trị truyền vào làm đối số trong Symbol chỉ đơn thuần là phần giải thích cho Symbol đó mà thôi, và nó không liên quan gì tới giá trị của Symbol đó cả. Chúng ta kiểm tra tính bằng nhau của hai Symbol hoàn toàn khác biệt: `Symbol('foo')` thứ nhất, và `Symbol('foo')` thứ hai. Mỗi giá trị đều là riêng biệt và duy nhất, nên `Symbol('foo') === Symbol('foo')` sẽ trả về `false`.
+Mỗi Symbol là một thứ hoàn toàn khác biệt.
+Giá trị truyền vào làm đối số trong Symbol chỉ đơn thuần là phần giải thích cho Symbol đó mà thôi, và nó không liên quan gì tới giá trị của Symbol đó cả.
+Chúng ta kiểm tra tính bằng nhau của hai Symbol hoàn toàn khác biệt: `Symbol('foo')` thứ nhất, và `Symbol('foo')` thứ hai.
+Mỗi giá trị đều là riêng biệt và duy nhất, nên `Symbol('foo') === Symbol('foo')` sẽ trả về `false`.
 
 </p>
 </details>
@@ -4189,7 +4228,9 @@ console.log(name.padStart(2))
 
 #### Đáp án: C
 
-Với hàm `padStart` chúng ta có thể thêm vào khoảng trắng đằng trước mỗi chuỗi. Giá trị đưa vào trong hàm là _tổng độ dài_ của chuỗi sau khi thêm vào khoảng trắng. Chuỗi `"Lydia Hallie"` có độ dài là `12` nên `name.padStart(13)` sẽ thêm vào một khoảng trắng đằng trước chuỗi.
+Với hàm `padStart` chúng ta có thể thêm vào khoảng trắng đằng trước mỗi chuỗi.
+Giá trị đưa vào trong hàm là _tổng độ dài_ của chuỗi sau khi thêm vào khoảng trắng.
+Chuỗi `"Lydia Hallie"` có độ dài là `12` nên `name.padStart(13)` sẽ thêm vào một khoảng trắng đằng trước chuỗi.
 
 Nếu đối số truyền vào cho hàm `padStart` nhỏ hơn độ dài của chuỗi, không có khoảng trắng nào được thêm vào.
 
@@ -4214,7 +4255,8 @@ console.log("🥑" + "💻");
 
 #### Đáp án: A
 
-Với phép toán `+`, ta có thể nối các xâu chuỗi. Trong trường hợp này, ta nối chuỗi `"🥑"` với chuỗi `"💻"`, kết quả tạo ra `"🥑💻"`.
+Với phép toán `+`, ta có thể nối các xâu chuỗi.
+Trong trường hợp này, ta nối chuỗi `"🥑"` với chuỗi `"💻"`, kết quả tạo ra `"🥑💻"`.
 
 </p>
 </details>
@@ -4237,21 +4279,26 @@ console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️
 ```
 
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
+- A: `game.next("Yes").value` và `game.next().value`
+- B: `game.next.value("Yes")` và `game.next.value()`
+- C: `game.next().value` và `game.next("Yes").value`
+- D: `game.next.value()` và `game.next.value("Yes")`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: C
 
-Một _generator_ sẽ "tạm dừng" khi nhìn thấy từ khóa `yield`. Đầu tiên ra sẽ đưa ra chuỗi "Do you love JavaScript?", bằng cách gọi `game.next().value`.
+Một _generator_ sẽ "tạm dừng" khi nhìn thấy từ khóa `yield`.
+Đầu tiên ra sẽ đưa ra chuỗi "Do you love JavaScript?", bằng cách gọi `game.next().value`.
 
-Chương trình sẽ chạy từng dòng, cho tới khi nó tìm thấy từ khóa `yield`. Có một từ khóa `yield` tại dòng đầu tiên của hàm: chương trình sẽ dừng tại đâ! _Điều đó có nghĩa là biến `answer` chưa hề được định nghĩa!_
+Chương trình sẽ chạy từng dòng, cho tới khi nó tìm thấy từ khóa `yield`.
+Có một từ khóa `yield` tại dòng đầu tiên của hàm: chương trình sẽ dừng tại đây.
+_Điều đó có nghĩa là biến `answer` chưa hề được định nghĩa_.
 
-Khi ta gọi `game.next("Yes").value`, `yield` trước đó sẽ được thay thế bởi giá trị được truyền vào hàm `next()`, trong trường hợp này là`"Yes"`. Theo đó giá trị của biến `answer` giờ sẽ là `"Yes"`. Điều kiện if sẽ trả về `false`, và `JavaScript loves you back ❤️` sẽ được ghi ra.
+Khi ta gọi `game.next("Yes").value`, `yield` trước đó sẽ được thay thế bởi giá trị được truyền vào hàm `next()`, trong trường hợp này là`"Yes"`.
+Theo đó giá trị của biến `answer` giờ sẽ là `"Yes"`.
+Điều kiện if sẽ trả về `false`, và `JavaScript loves you back ❤️` sẽ được ghi ra.
 
 </p>
 </details>
@@ -4274,7 +4321,8 @@ console.log(String.raw`Hello\nworld`);
 
 #### Đáp án: C
 
-`String.raw` trả về chuỗi nguyên bản, các ký tự (`\n`, `\v`, `\t` etc.) sẽ vẫn là nguyên bản và không biến thành xuống dòng hay khoảng trắng! Nếu ta không để là chuỗi nguyên bản, sẽ có trường hợp xảy ra lỗi không mong muốn, ví dụ với đường dẫn:
+`String.raw` trả về chuỗi nguyên bản, các ký tự (`\n`, `\v`, `\t`, vv.) sẽ vẫn là nguyên bản và không biến thành xuống dòng hay khoảng trắng.
+Nếu ta không để là chuỗi nguyên bản, sẽ có trường hợp xảy ra lỗi không mong muốn, ví dụ với đường dẫn:
 
 `` const path = `C:\Documents\Projects\table.html` ``
 
@@ -4314,7 +4362,8 @@ console.log(data);
 
 #### Đáp án: C
 
-Một hàm `async` luôn luôn trả về một `promise`. `await` sẽ chờ cho tới khi promise đó được hoàn thành: một pending promise sẽ được trả về khi ta gọi `getData()` bằng cách gán nó cho biến `data`.
+Một hàm `async` luôn luôn trả về một `promise`.
+`await` sẽ chờ cho tới khi promise đó được hoàn thành: một pending promise sẽ được trả về khi ta gọi `getData()` bằng cách gán nó cho biến `data`.
 
 Nếu ta muốn truy cập giá trị đã hoàn thành của promise, trong trường hợp này là `"I made it"`, ta có thể sử dụng hàm `.then()` ngay sau `data` như sau:
 
@@ -4348,9 +4397,12 @@ console.log(result);
 
 #### Đáp án: B
 
-Hàm `.push()` trả về _độ dài_ của mảng mới! Trước đó, mảng chỉ hồm một phần tử là `"banana"` và có độ dài là `1`. Sau khi thêm chuỗi `"apple"` vào mảng, mảng lúc này có hai chuỗi và có độ dài là `2`. Do đó hàm `addToList` sẽ trả về 2.
+Hàm `.push()` trả về _độ dài_ của mảng mới.
+Trước đó, mảng chỉ hồm một phần tử là `"banana"` và có độ dài là `1`.
+Sau khi thêm chuỗi `"apple"` vào mảng, mảng lúc này có hai chuỗi và có độ dài là `2`. Do đó hàm `addToList` sẽ trả về 2.
 
-Hàm `push` sẽ thay đổi chính bản thân mảng truyền vào. Do đó nếu chúng ta muốn trả về _mảng_ thay vì chỉ trả về _độ dài_, chúng ta nên trả về trực tiếp mảng `list` sau khi đã thêm `item` vào đó.
+Hàm `push` sẽ thay đổi chính bản thân mảng truyền vào.
+Do đó nếu chúng ta muốn trả về _mảng_ thay vì chỉ trả về _độ dài_, chúng ta nên trả về trực tiếp mảng `list` sau khi đã thêm `item` vào đó.
 
 </p>
 </details>
@@ -4380,9 +4432,11 @@ console.log(shape);
 
 #### Đáp án: B
 
-`Object.freeze` khiến cho chúng ta không thể thêm vào, xóa đi hay thay đổi bất kì thuộc tính nào của object (trừ phi giá trị của thuộc tính lại chính là một object khác).
+`Object.freeze` khiến cho chúng ta không thể thêm vào, xóa đi hay thay đổi bất kì thuộc tính nào của object (trừ khi giá trị của thuộc tính lại chính là một object khác).
 
-Khi chúng ta tạo ra biến `shape` và set cho nó giá trị bằng với một object đã được đóng băng là `box`, thì `shape` cũng sẽ trỏ tới một object đã được đóng băng. Ta có thể check một object có đang bị đóng băng hay không bằng `Object.isFrozen`. Trong trường hợp này, `Object.isFrozen(shape)` trả về true, vì `shape` đang trỏ tới một object bị đóng băng.
+Khi chúng ta tạo ra biến `shape` và set cho nó giá trị bằng với một object đã được đóng băng là `box`, thì `shape` cũng sẽ trỏ tới một object đã được đóng băng.
+Ta có thể check một object có đang bị đóng băng hay không bằng `Object.isFrozen`.
+Trong trường hợp này, `Object.isFrozen(shape)` trả về true, vì `shape` đang trỏ tới một object bị đóng băng.
 
 Do đó, cộng với việc `x` không phải là object, ta sẽ không thể thay đổi giá trị của `x`. `x` sẽ vẫn là `10`, và `{ x: 10, y: 20 }` được ghi ra.
 
@@ -4438,7 +4492,8 @@ function sum(a, b) {
 
 Một hàm được gọi là _pure function_ khi nó luôn luôn trả về một giá trị giống nhau, nếu đối số đưa vào là giống nhau.
 
-Hàm `sum` luôn trả về giá trị giống nhau. Nếu ta đưa vào `1` và `2`, nó sẽ _luôn_ trả về `3`. Nếu ta đưa vào `5` và `10`, nó _luôn_ trả về `15`. Cứ như vậy, đây là một _pure function_.
+Hàm `sum` luôn trả về giá trị giống nhau. Nếu ta đưa vào `1` và `2`, nó sẽ _luôn_ trả về `3`. Nếu ta đưa vào `5` và `10`, nó _luôn_ trả về `15`.
+Cứ như vậy, đây là một _pure function_.
 
 </p>
 </details>
@@ -4477,9 +4532,13 @@ console.log(addFunction(5 * 2));
 
 #### Đáp án: C
 
-Hàm `add` chính là một hàm _memoized_ (hàm có nhớ). Với việc có nhớ, chúng ta có thể cache lại kết quả của function để tăng tốc độ tính toán lên. Trong trường hợp này, chúng ta tạo ra một `cache` object để lưu trữ những kết quả tính toán trước đó.
+Hàm `add` chính là một hàm _memoized_ (hàm có nhớ).
+Với việc có nhớ, chúng ta có thể cache lại kết quả của function để tăng tốc độ tính toán lên.
+Trong trường hợp này, chúng ta tạo ra một `cache` object để lưu trữ những kết quả tính toán trước đó.
 
-Mỗi lần chúng ta gọi hàm `addFunction` với đối số giống nhau, đầu tiên nó sẽ check xem đối số đó có tồn tại trong cache hay không. Nếu có, giá trị trong cache sẽ được trả về luôn, tiết kiệm thời gian tính toán. Còn nếu không thì nó sẽ tiến hành tính toán kết quả và tiếp tục lưu vào cache.
+Mỗi lần chúng ta gọi hàm `addFunction` với đối số giống nhau, đầu tiên nó sẽ check xem đối số đó có tồn tại trong cache hay không.
+Nếu có, giá trị trong cache sẽ được trả về luôn, tiết kiệm thời gian tính toán.
+Còn nếu không thì nó sẽ tiến hành tính toán kết quả và tiếp tục lưu vào cache.
 
 Chúng ta gọi hàm `addFunction` ba lần với cùng một đối số: trong lần gọi đầu tiên, giá trị của `num` là `10` và chưa có mặt trong cache. Do đó `num in cache` trả về `false`, và sẽ chạy vào else block: `Calculated! 20` sẽ được ghi ra, và 10 sẽ được đưa vào cạche. `cache` khi này sẽ là `{ 10: 20 }`.
 
@@ -4506,23 +4565,26 @@ for (let item of myLifeSummedUp) {
 }
 ```
 
-- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- A: `0` `1` `2` `3` và `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` và `"☕"` ` "💻"` `"🍷"` `"🍫"`
+- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` và `0` `1` `2` `3`
+- D:  `0` `1` `2` `3` và `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: A
 
-Với vòng lặp _for-in_, chúng ta có thể duyệt qua các thuộc tính **enumerable** của object. Với mảng, thuộc tính enumerable chính là các "key" của mảng, hay chính là các index của mảng đó. Ta có thể coi mảng như là:
+Với vòng lặp _for-in_, chúng ta có thể duyệt qua các thuộc tính **enumerable** của object.
+Với mảng, thuộc tính enumerable chính là các "key" của mảng, hay chính là các index của mảng đó. Ta có thể coi mảng như là:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 Do đó `0` `1` `2` `3` được ghi ra.
 
-Với vòng lặp _for-of_, chúng ta sẽ duyệt qua các phần tử của một **iterable**. Một mảng chính là một iterable. Khi chúng ta duyệt qua mảng, biến "item" chính là phần tử mà nó đang duyệt qua, do đó `"☕"` ` "💻"` `"🍷"` `"🍫"` được ghi ra.
+Với vòng lặp _for-of_, chúng ta sẽ duyệt qua các phần tử của một **iterable**.
+Một mảng chính là một iterable.
+Khi chúng ta duyệt qua mảng, biến "item" chính là phần tử mà nó đang duyệt qua, do đó `"☕"` ` "💻"` `"🍷"` `"🍫"` được ghi ra.
 
 </p>
 </details>
@@ -4546,7 +4608,8 @@ console.log(list)
 
 #### Đáp án: C
 
-Mảng có thể nhận bất cứ giá trị nào. Số, chuỗi, objects, mảng khác, null, boolean, undefined, và nhiều dạng biểu thức nữa như ngày tháng, hàm, và các tính toán.
+Mảng có thể nhận bất cứ giá trị nào.
+Số, chuỗi, objects, mảng khác, null, boolean, undefined, và nhiều dạng biểu thức nữa như ngày tháng, hàm, và các tính toán.
 
 Giá trị của phần tử chính là giá trị trả về.  `1 + 2` trả về `3`, `1 * 2` trả về `2`, và `1 / 2` trả về `0.5`.
 
@@ -4575,7 +4638,8 @@ console.log(sayHi())
 
 #### Đáp án: B
 
-Mặc định, đối số sẽ có giá trị là `undefined`, trừ phi ta gán giá trị cho nó khi đưa vào hàm. Trong trường hợp này, ta không đưa vào giá trị nào cho đối số `name` cả. Do đó `name` sẽ là `undefined` và được ghi ra.
+Mặc định, đối số sẽ có giá trị là `undefined`, trừ khi ta gán giá trị cho nó khi đưa vào hàm.
+Trong trường hợp này, ta không đưa vào giá trị nào cho đối số `name` cả. Do đó `name` sẽ là `undefined` và được ghi ra.
 
 Với cú pháp ES6, ta có thể thay đổi giá trị mặc định `undefined` bằng một giá trị mặc định khác. Ví dụ:
 
@@ -4608,19 +4672,25 @@ setTimeout(() => {
 }, 0)
 ```
 
-- A: `"🥑"` and `"😍"`
-- B: `"🥑"` and `"😎"`
-- C: `"😍"` and `"😎"`
-- D: `"😎"` and `"😎"`
+- A: `"🥑"` và `"😍"`
+- B: `"🥑"` và `"😎"`
+- C: `"😍"` và `"😎"`
+- D: `"😎"` và `"😎"`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: B
 
-Giá trị của `this` phụ thuộc vào vị trí mà nó được gọi. Trong một **phương thức**, ví dụ `getStatus`, `this` trỏ tới _object chứa phương thức đó_. Phương thức này thuộc `data` object, do đó `this` trỏ tới `data` object. Khi chúng ta gọi `this.status` thì thuộc tính `status` của `data` sẽ được ghi ra, chính là `"🥑"`.
+Giá trị của `this` phụ thuộc vào vị trí mà nó được gọi.
+Trong một **phương thức**, ví dụ `getStatus`, `this` trỏ tới _object chứa phương thức đó_.
+Phương thức này thuộc `data` object, do đó `this` trỏ tới `data` object.
+Khi chúng ta gọi `this.status` thì thuộc tính `status` của `data` sẽ được ghi ra, chính là `"🥑"`.
 
-Với phương thức `call`, chúng ta thay đổi tham chiếu mà `this` trỏ tới. Trong **hàm**, từ khóa `this` trỏ tới _object chứa hàm đó_. Chúng ta khai báo hàm `setTimeout` trong _global object_, do đó bên trong hàm `setTimeout` thì `this` sẽ trỏ tới _global object_. Tại biến global object, có một biến _status_ với giá trị `"😎"`. Do đó khi gọi `this.status`, `"😎"` sẽ được ghi ra.
+Với phương thức `call`, chúng ta thay đổi tham chiếu mà `this` trỏ tới.
+Trong **hàm**, từ khóa `this` trỏ tới _object chứa hàm đó_.
+Chúng ta khai báo hàm `setTimeout` trong _global object_, do đó bên trong hàm `setTimeout` thì `this` sẽ trỏ tới _global object_.
+Tại biến global object, có một biến _status_ với giá trị `"😎"`. Do đó khi gọi `this.status`, `"😎"` sẽ được ghi ra.
 
 </p>
 </details>
@@ -4651,13 +4721,16 @@ console.log(person)
 
 #### Đáp án: A
 
-Chúng ta set biến `city` bằng với giá trị của thuộc tính `city` của object `person`. Nhưng object này không có thuộc tính nào là `city` cả, nên giá trị của biến `city` sẽ là `undefined`.
+Chúng ta set biến `city` bằng với giá trị của thuộc tính `city` của object `person`.
+Nhưng object này không có thuộc tính nào là `city` cả, nên giá trị của biến `city` sẽ là `undefined`.
 
-Chú ý là chúng ta _không tham chiếu_ tới bản thân object `person`! Chúng ta chỉ đơn giản là set giá trị của biến `city` bằng với giá trị của thuộc tính `city` trong object `person` mà thôi.
+Chú ý là chúng ta _không tham chiếu_ tới bản thân object `person`.
+Chúng ta chỉ đơn giản là set giá trị của biến `city` bằng với giá trị của thuộc tính `city` trong object `person` mà thôi.
 
-Sau đó chúng ta set biến `city` bằng với chuỗi `"Amsterdam"`. Điều này không hề ảnh hưởng gì tới object person vì không có tham chiếu nào ở đây cả.
+Sau đó chúng ta set biến `city` bằng với chuỗi `"Amsterdam"`.
+Điều này không hề ảnh hưởng gì tới object person vì không có tham chiếu nào ở đây cả.
 
-Do đó khi ghi object `person` ra, Tất cả các thuộc tính vẫn như cũ không hề thay đổi gì cả.
+Do đó khi ghi object `person` ra, tất cả các thuộc tính vẫn như cũ không hề thay đổi gì cả.
 
 </p>
 </details>
@@ -4690,7 +4763,10 @@ console.log(checkAge(21))
 
 #### Đáp án: C
 
-Biến số được khai báo với các từ khóa như `const` hay `let` đều là _block-scoped_. Block chính là những khối được bao bọc bởi cặp ngoặc nhọn (`{ }`). Trong trường hợp này nó chính là cặp ngoặc bao quanh những câu lệnh `if/else`. Chúng ta không thể truy cập đến biến đó bên ngoài block, và kết quả là throw một ReferenceError.
+Biến số được khai báo với các từ khóa như `const` hay `let` đều là _block-scoped_.
+Block chính là những khối được bao bọc bởi cặp ngoặc nhọn (`{ }`).
+Trong trường hợp này nó chính là cặp ngoặc bao quanh những câu lệnh `if/else`.
+Chúng ta không thể truy cập đến biến đó bên ngoài block, và kết quả là throw một ReferenceError.
 
 </p>
 </details>
@@ -4715,7 +4791,8 @@ fetch('https://www.website.com/api/user/1')
 
 #### Đáp án: C
 
-Giá trị của `res` trong `.then` thứ hai chính là giá trị trả về từ `.then` trước đó. Chúng ta có thể thực hiện `.then` liên tiếp như vậy, các giá trị sẽ liên tiếp được truyền tới hàm xử lý tiếp theo.
+Giá trị của `res` trong `.then` thứ hai chính là giá trị trả về từ `.then` trước đó.
+Chúng ta có thể thực hiện `.then` liên tiếp như vậy, các giá trị sẽ liên tiếp được truyền tới hàm xử lý tiếp theo.
 
 </p>
 </details>
@@ -4740,38 +4817,14 @@ function getName(name) {
 
 #### Đáp án: A
 
-Với `!!name`, chúng ta sẽ đánh giá giá trị của `name` là _truthy_ hay _falsy_. Nếu name là truthy, thì `!name` sẽ trả về `false`. `!false` (hay chính là `!!name` khi này) sẽ trả về `true`.
+Với `!!name`, chúng ta sẽ đánh giá giá trị của `name` là _truthy_ hay _falsy_.
+Nếu name là truthy, thì `!name` sẽ trả về `false`. `!false` (hay chính là `!!name` khi này) sẽ trả về `true`.
 
 Bằng cách set `hasName` bằng với `name`, chúng ta set `hasName` bằng với giá trị đối số đưa vào trong hàm `getName`, không thỏa mãn vì ta đã giới hạn là không đưa `true` vào.
 
 `new Boolean(true)` trả về một object wrapper, chứ không phải là một giá trị boolean.
 
 `name.length` trả về độ dài của đối số, chứ không phải `true`.
-
-</p>
-</details>
-
----
-
-###### <a name=20190805></a>87. Output là gì?
-
-```javascript
-console.log("I want pizza"[0])
-```
-
-- A: `"""`
-- B: `"I"`
-- C: `SyntaxError`
-- D: `undefined`
-
-<details><summary><b>Đáp án</b></summary>
-<p>
-
-#### Đáp án: B
-
-Trong trường hợp ta muốn lấy ra một ký tự trong một chuỗi, ta có thể sử dụng toán tử ngoặc vuông. Ký tự đầu tiên sẽ có thứ tự là 0, và cứ tiếp tục như vậy. Trong trường hợp này chúng ta lấy ra ký tự có thứ tự là 0, đó chính là ký tự `"I'`.
-
-Chú ý là phương thức này không hoạt động với IE7 trở xuống. Thay vì thế ta sử dụng `.charAt()`
 
 </p>
 </details>
@@ -4798,7 +4851,8 @@ sum(10)
 
 #### Đáp án: B
 
-Ta có thể set giá trị mặc định của một tham số là tham số khác trong hàm, miễn là tham số đó được khai báo _trước_ tham số mặc định. Chúng ta đưa `10` vào hàm `sum`. Nếu hàm `sum` chỉ nhận 1 đối số, nó có nghĩa là giá trị của `num2` không được đưa vào, nên nó sẽ lấy giá trị mặc định là giá trị của `num1` đã được đưa vào, hay chính là `10` trong trường hợp này. Khi này `num1 + num2` trả về `20`.
+Ta có thể set giá trị mặc định của một tham số là tham số khác trong hàm, miễn là tham số đó được khai báo _trước_ tham số mặc định.
+Chúng ta đưa `10` vào hàm `sum`. Nếu hàm `sum` chỉ nhận 1 đối số, nó có nghĩa là giá trị của `num2` không được đưa vào, nên nó sẽ lấy giá trị mặc định là giá trị của `num1` đã được đưa vào, hay chính là `10` trong trường hợp này. Khi này `num1 + num2` trả về `20`.
 
 Nếu chúng ta thử set một giá trị mặc định của tham số bằng với giá trị của tham số khai báo _sau_ (về bên phải), giá trị của tham số đó sẽ không được khởi tạo và dẫn đến throw ra lỗi.
 
@@ -4830,7 +4884,8 @@ console.log(data)
 
 #### Đáp án: A
 
-Cú pháp `import * as data` sẽ import _tất cả những gì được export_ từ `module.js` vào trong `index.js` và lưu trữ dưới một object có tên là `data`. Trong file `module.js`, có hai thứ được export ra: default export và một named export. Default export là một hàm trả về chuỗi `"Hello World"`, và named export là một biến `name` nhận giá trị là chuỗi `"Lydia"`.
+Cú pháp `import * as data` sẽ import _tất cả những gì được export_ từ `module.js` vào trong `index.js` và lưu trữ dưới một object có tên là `data`.
+Trong file `module.js`, có hai thứ được export ra: default export và một named export. Default export là một hàm trả về chuỗi `"Hello World"`, và named export là một biến `name` nhận giá trị là chuỗi `"Lydia"`.
 
 Do đó `data` object có thuộc tính `default` cho default export, các thuộc tính khác sẽ có tên chính là tên của named exports và giá trị đi kèm.
 
@@ -4862,7 +4917,8 @@ console.log(typeof member)
 
 #### Đáp án: C
 
-Classes chỉ đơn thuần là `syntactical sugar` (cú pháp đặc biệt) của function constructors mà thôi. Nó tương đương với việc ta viết một function thế này:
+Classes chỉ đơn thuần là `syntactical sugar` (cú pháp đặc biệt) của function constructors mà thôi.
+Nó tương đương với việc ta viết một function thế này:
 
 ```javascript
 function Person() {
@@ -4870,7 +4926,8 @@ function Person() {
 }
 ```
 
-Gọi một constructor với từ khóa `new` sẽ tạo ra một instance của class `Person`, `typeof` sẽ trả về là `"object"` cho các instance. Do đó `typeof member` trả về `"object"`.
+Gọi một constructor với từ khóa `new` sẽ tạo ra một instance của class `Person`, `typeof` sẽ trả về là `"object"` cho các instance.
+Do đó `typeof member` trả về `"object"`.
 
 </p>
 </details>
@@ -4897,7 +4954,8 @@ console.log(newList.push(5))
 
 Hàm `.push` trả về _độ dài mới_ của mảng, chứ không phải bản thân mảng đó! Bằng cách set `newList` bằng với `[1, 2, 3].push(4)`, ta đã set cho `newList` giá trị là `4` - tức độ dài của mảng lúc này.
 
-Sau đó chúng ta tiến hành `.push` trên `newList`. Vì `newList` là một số thông thường, ta không thể dùng `.push` được, nên sẽ throw ra một TypeError.
+Sau đó chúng ta tiến hành `.push` trên `newList`.
+Vì `newList` là một số thông thường, ta không thể dùng `.push` được, nên sẽ throw ra một TypeError.
 
 </p>
 </details>
@@ -4927,7 +4985,9 @@ console.log(giveLydiaChocolate.prototype)
 
 #### Đáp án: D
 
-Hàm thông thường giống như `giveLydiaPizza`, sẽ có thuộc tính `prototype` là một object (prototype object) với một thuộc tính là `constructor`. Còn `arrow functions` giống như `giveLydiaChocolate`thì không có thuộc tính `prototype` này. `undefined` trả về khi ta truy cập thuộc tính `prototype` bằng cách gọi `giveLydiaChocolate.prototype`.
+Hàm thông thường giống như `giveLydiaPizza`, sẽ có thuộc tính `prototype` là một object (prototype object) với một thuộc tính là `constructor`.
+Còn `arrow functions` giống như `giveLydiaChocolate`thì không có thuộc tính `prototype` này.
+`undefined` trả về khi ta truy cập thuộc tính `prototype` bằng cách gọi `giveLydiaChocolate.prototype`.
 
 </p>
 </details>
@@ -4961,7 +5021,9 @@ for (const [x, y] of Object.entries(person)) {
 
 `[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
-Khí sử dụng `for-of`, chúng ta sẽ duyệt qua từng thành phần của mảng, trong trường hợp này chính là những mảng con. Đồng thời tiến hành gán giá trị luôn trong vongf lặp for-of, bằng cách sử dụng `const [x, y]`. Khi này `x` sẽ là phần tử đầu tiên trong mảng con, `y` chính là phần tử thứ hai trong mảng con.
+Khí sử dụng `for-of`, chúng ta sẽ duyệt qua từng thành phần của mảng, trong trường hợp này chính là những mảng con.
+Đồng thời tiến hành gán giá trị luôn trong vòng lặp for-of, bằng cách sử dụng `const [x, y]`.
+Khi này `x` sẽ là phần tử đầu tiên trong mảng con, `y` chính là phần tử thứ hai trong mảng con.
 
 Mảng con đầu tiên là `[ "name", "Lydia" ]`, nên `x` sẽ là `"name"`, và `y` sẽ là `"Lydia"`, và được ghi ra.
 Mảng con thứ hai là `[ "age", 21 ]`, nên `x` sẽ là `"age"`, và `y` sẽ là `21`, và được ghi ra.
@@ -4991,7 +5053,10 @@ getItems(["banana", "apple"], "pear", "orange")
 
 #### Đáp án: D
 
-`...args` là cú pháp tham số cuối cùng. Giá trị của tham số cuối cùng chính là toàn bộ các đối số còn lại, **và nó là tham số cuối cùng duy nhất**! Trong trường hợp này, tham số cuối cùng lại là tham số thứ hai. Điều đó là không thể được, và sẽ throw ra một lỗi cú pháp.
+`...args` là cú pháp tham số cuối cùng.
+Giá trị của tham số cuối cùng chính là toàn bộ các đối số còn lại, **và nó là tham số cuối cùng duy nhất**.
+Trong trường hợp này, tham số cuối cùng lại là tham số thứ hai.
+Điều đó là không thể được, và sẽ throw ra một lỗi cú pháp.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
@@ -5002,6 +5067,7 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 Nếu ta code như thế này thì lại đúng. Giá trị trả về sẽ là `[ 'banana', 'apple', 'orange', 'pear' ]`
+
 </p>
 </details>
 
@@ -5034,16 +5100,21 @@ console.log(nums(1, 2))
 
 #### Đáp án: B
 
-Với JavaScript, ta _không bắt buộc_ phải viết dấu chấm phẩy (`;`), JavaScript engine sẽ tự động thêm vào sau mỗi câu lệnh. Nó gọi là **Automatic Semicolon Insertion**. Một câu lệnh có thể là khai báo biến, hoặc từ khóa như `throw`, `return`, `break`, vv.
+Với JavaScript, ta _không bắt buộc_ phải viết dấu chấm phẩy (`;`), JavaScript engine sẽ tự động thêm vào sau mỗi câu lệnh.
+Nó gọi là **Automatic Semicolon Insertion**. Một câu lệnh có thể là khai báo biến, hoặc từ khóa như `throw`, `return`, `break`, vv.
 
-Ở đây ta sử dụng câu lệnh `return` ở một dòng và giá trị `a + b` ở một _dòng khác_. Tuy nhiên do khác dòng nên JS engine không thể biết đâu là giá trị ta thực sự muốn trả về. Thay vì thế, nó sẽ tự động thêm vào dấu chấm phẩy ngay sau `return` giống như này:
+Ở đây ta sử dụng câu lệnh `return` ở một dòng và giá trị `a + b` ở một _dòng khác_.
+Tuy nhiên do khác dòng nên JS engine không thể biết đâu là giá trị ta thực sự muốn trả về.
+Thay vì thế, nó sẽ tự động thêm vào dấu chấm phẩy ngay sau `return` giống như này:
 
 ```javascript
   return;
   a + b
 ```
 
-Có nghĩa là `a + b` sẽ không bao giờ được thực hiện, vì hàm đã được `return` rồi. Do không giá trị nào được trả về, nên giá trị trả về của hàm sẽ là `undefined`. Lưu ý là sẽ không tự động thêm dấu chấm phẩy ngay sau `if/else` đâu nhé!
+Có nghĩa là `a + b` sẽ không bao giờ được thực hiện, vì hàm đã được `return` rồi.
+Do không giá trị nào được trả về, nên giá trị trả về của hàm sẽ là `undefined`.
+Lưu ý là sẽ không tự động thêm dấu chấm phẩy ngay sau `if/else`.
 
 </p>
 </details>
@@ -5079,7 +5150,9 @@ console.log(member.name)
 
 #### Đáp án: B
 
-Chúng ta có thể set một class với giá trị là một classes/function constructor khác. Trong trường hợp này, ta set `Person` bằng với `AnotherPerson`. Trong constructor, `this.name` là `Sarah`, do đó giá trị của thuộc tính này trong instance `member` chính là `"Sarah"`.
+Chúng ta có thể set một class với giá trị là một classes/function constructor khác.
+Trong trường hợp này, ta set `Person` bằng với `AnotherPerson`.
+Trong constructor, `this.name` là `Sarah`, do đó giá trị của thuộc tính này trong instance `member` chính là `"Sarah"`.
 
 </p>
 </details>
@@ -5107,7 +5180,9 @@ console.log(Object.keys(info))
 
 #### Đáp án: D
 
-Phương thức `Object.keys` sẽ trả về toàn bộ những key của các thuộc tính _enumerable_ trên một object. Nhưng Symbol không phải dạng _enumerable_. do đó nó sẽ trả về một mảng rỗng. Tuy nhiên khi ta log ra toàn bộ object, thì ta sẽ ghi ra toàn bộ các thuộc tính, cho dù đó có là thuộc tính _enumerable_ hay không.
+Phương thức `Object.keys` sẽ trả về toàn bộ những key của các thuộc tính _enumerable_ trên một object.
+Nhưng Symbol không phải dạng _enumerable_. do đó nó sẽ trả về một mảng rỗng.
+Tuy nhiên khi ta log ra toàn bộ object, thì ta sẽ ghi ra toàn bộ các thuộc tính, cho dù đó có là thuộc tính _enumerable_ hay không.
 
 Đó chính là một đặc trưng của Symbol: Bên cạnh việc nó biểu diễn một giá trị duy nhất (tránh việc xảy ra xung đột tên gọi, ví dụ khi ta sử dụng 2 thư viện mà muốn thêm thuộc tính vào cho cùng một object chẳng hạn), nó còn giúp "ẩn" thuộc tính đó đi (dù không hoàn toàn, ta vẫn có thể truy cập được bằng cách sử dụng phương thức `Object.getOwnPropertySymbols()`).
 
@@ -5143,9 +5218,14 @@ Hàm `getList` nhận vào một mảng các đối số, và tiến hành xử 
 
 `[x, ...y] = [1, 2, 3, 4]`
 
-Với việc sử dụng cú pháp tham số cuối cùng `...y`, chúng ta đưa toàn bộ "những đối số còn lại" vào một mảng y. Trong trường hợp này đó là mảng gồm các phần tử `2`, `3` và `4`. Do đó giá trị của `y` lúc này chính là mảng `[2, 3, 4]`. Giá trị của `x` là `1`, nên khi ghi `[x, y]` ra, kết quả sẽ là `[1, [2, 3, 4]]`.
+Với việc sử dụng cú pháp tham số cuối cùng `...y`, chúng ta đưa toàn bộ "những đối số còn lại" vào một mảng y.
+Trong trường hợp này đó là mảng gồm các phần tử `2`, `3` và `4`.
+Do đó giá trị của `y` lúc này chính là mảng `[2, 3, 4]`. Giá trị của `x` là `1`, nên khi ghi `[x, y]` ra, kết quả sẽ là `[1, [2, 3, 4]]`.
 
-Hàm `getUser` nhận vào một object. Với cú pháp arrow function, chúng ta sẽ không phải viết trong ngoặc nhọn `{}` nữa nếu ta chỉ muốn đơn thuần trả về giá trị. Tuy nhiên, nếu ta muốn trả về một _object_ t arrow function, ta sẽ phải viết chúng trong dấu ngoặc tròn `()`, nếu không thì sẽ không có giá trị nào được trả về! Ví dụ như sau:
+Hàm `getUser` nhận vào một object.
+Với cú pháp arrow function, chúng ta sẽ không phải viết trong ngoặc nhọn `{}` nữa nếu ta chỉ muốn đơn thuần trả về giá trị.
+Tuy nhiên, nếu ta muốn trả về một _object_ t arrow function, ta sẽ phải viết chúng trong dấu ngoặc tròn `()`, nếu không thì sẽ không có giá trị nào được trả về.
+Ví dụ như sau:
 
 ```const getUser = user => ({ name: user.name, age: user.age })```
 
@@ -5176,7 +5256,8 @@ console.log(name())
 
 Biến `name` có giá trị là một chuỗi, không phải hàm, vì thế không thể gọi được.
 
-TypeErrors sẽ được throw ra nếu một giá trị không được sử dụng đúng kiểu. JavaScript muốn `name` là một hàm khi ta tiến hành gọi nó. Nhưng nó là chuỗi, nên sẽ throw ra một TypeError.
+TypeErrors sẽ được throw ra nếu một giá trị không được sử dụng đúng kiểu.
+JavaScript muốn `name` là một hàm khi ta tiến hành gọi nó. Nhưng nó là chuỗi, nên sẽ throw ra một TypeError.
 
 SyntaxErrors sẽ được throw khi ta viết code không đúng cú pháp của JavaScript, ví dụ thay vì `return` ta viết `retrun`.
 
@@ -5190,8 +5271,6 @@ ReferenceErrors sẽ được throw ra khi Javascript không thể tìm được
 ###### 156. Output là gì?
 
 ```javascript
-// 🎉✨ Đây là câu hỏi thứ 100 của tôi! ✨🎉
-
 const output = `${[] && 'Im'}possible!
 You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ```
@@ -5206,9 +5285,12 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 #### Đáp án: B
 
-`[]` là một giá trị truthy. Với phép toán `&&` , giá trị bên phải sẽ được trả về nếu giá trị bên trái là truthy. Trong trường hợp này giá trị bên trái `[]` là truthy, nên `"Im'` sẽ được trả về.
+`[]` là một giá trị truthy.
+Với phép toán `&&` , giá trị bên phải sẽ được trả về nếu giá trị bên trái là truthy.
+Trong trường hợp này giá trị bên trái `[]` là truthy, nên `"Im'` sẽ được trả về.
 
-`""` là một giá trị falsy. Nếu giá trị bên trái là falsy, không có gì được trả về cả. Do đó `n't` sẽ không được trả về.
+`""` là một giá trị falsy.
+Nếu giá trị bên trái là falsy, không có gì được trả về cả. Do đó `n't` sẽ không được trả về.
 
 </p>
 </details>
@@ -5235,13 +5317,16 @@ console.log(one, two, three)
 
 #### Đáp án: C
 
-Với phép toán `||`, ta sẽ trả về giá trị truethy đầu tiên. Nếu tất cả đều là falsy, giá trị cuối cùng sẽ được trả về.
+Với phép toán `||`, ta sẽ trả về giá trị truethy đầu tiên.
+Nếu tất cả đều là falsy, giá trị cuối cùng sẽ được trả về.
 
-`(false || {} || null)`: object rỗng `{}` là một giá trị truthy. Nó là giá trị truethy đầu tiên và duy nhất nên sẽ được trả về. Do đó `one` sẽ là `{}`.
+`(false || {} || null)`: object rỗng `{}` là một giá trị truthy.
+Nó là giá trị truethy đầu tiên và duy nhất nên sẽ được trả về. Do đó `one` sẽ là `{}`.
 
 `(null || false || "")`: Tất cả toán hạng đều là falsy. Có nghĩa là toán hạng cuối cùng `""` sẽ được trả về. Do đó `two` sẽ là `""`.
 
-`([] || 0 || "")`: mảng rỗng `[]` là một giá trị truthy. Nó là giá trị truthy đầu tiên nên sẽ được trả về. Do đó `three` sẽ là `[]`.
+`([] || 0 || "")`: mảng rỗng `[]` là một giá trị truthy.
+Nó là giá trị truthy đầu tiên nên sẽ được trả về. Do đó `three` sẽ là `[]`.
 
 </p>
 </details>
@@ -5277,11 +5362,12 @@ secondFunction()
 
 #### Đáp án: D
 
-Có thể tưởng tượng đơn giản cách promise thực thi như sau: _bây giờ tôi sẽ để tạm nó sang một bên vì nó tính toán mất thời gian. Chỉ khi nào nó được hoàn thành (resolved) hay bị hủy bỏ (rejected) hay khi call stack trở nên rỗng thì tôi sẽ lấy giá trị trả về ra._
+Có thể tưởng tượng đơn giản cách promise thực thi như sau: _bây giờ tôi sẽ để tạm nó sang một bên vì nó tính toán mất thời gian. Chỉ khi nào nó được hoàn thành (resolved) hay bị hủy bỏ (rejected) hay khi call stack trở nên rỗng thì tôi sẽ lấy giá trị trả về ra_.
 
 Dù chúng ta có thể sử dụng giá trị thu được bằng cú pháp `.then`, hoặc sử dụng cặp cú pháp `await/async`, nhưng, cách chúng hoạt động là khác nhau.
 
-Trong `firstFunction`, chúng ta đưa promise qua một bên chờ cho nó tính toán xong, và vẫn tiếp tục chạy những code tiếp sau đó, theo đó `console.log('second')` sẽ được chạy. Sau đó promise được hoàn thành trả về giá trị `I have resolved`, giá trị này sẽ được log ra khi call stack trở nên rỗng.
+Trong `firstFunction`, chúng ta đưa promise qua một bên chờ cho nó tính toán xong, và vẫn tiếp tục chạy những code tiếp sau đó, theo đó `console.log('second')` sẽ được chạy.
+Sau đó promise được hoàn thành trả về giá trị `I have resolved`, giá trị này sẽ được log ra khi call stack trở nên rỗng.
 
 Với từ khóa `await` trong `secondFunction`, ta đã tạm dừng một hàm bất đồng bộ cho tới khi chúng trả về giá trị, sau đó ta mới đi tiếp đến các câu lệnh tiếp theo.
 
@@ -5316,13 +5402,16 @@ for (let item of set) {
 
 #### Đáp án: C
 
-Phép toán `+` không chỉ dùng để cộng các số, mà nó còn dùng để nối chuỗi nữa. Mỗi khi Javascript engine gặp một giá trị trong phép toán không phải dạng số, nó sẽ chuyển các số trong phép toán đó sang dạng chuỗi.
+Phép toán `+` không chỉ dùng để cộng các số, mà nó còn dùng để nối chuỗi nữa.
+Mỗi khi Javascript engine gặp một giá trị trong phép toán không phải dạng số, nó sẽ chuyển các số trong phép toán đó sang dạng chuỗi.
 
 Phép toán đầu tiên item là một số `1`, nên `1 + 2` trả về 3.
 
 Ở phép toán thứ hai, item là một chuỗi `"Lydia"`. trong khi đó `2` là một số, nên `2` sẽ bị chuyển sang dạng chuỗi, sau khi nối vào ta có chuỗi `"Lydia2"`.
 
-Ở phép toán thứ ba, `{ name: "Lydia" }` là một object. Tuy nhiên dù có là object hay gì đi nữa thì nó cũng sẽ bị chuyển sang dạng chuỗi. Đối với object thì khi chuyển sang dạng chuỗi nó sẽ trở thành `"[object Object]"`. `"[object Object]"` nối với `"2"` trở thành `"[object Object]2"`.
+Ở phép toán thứ ba, `{ name: "Lydia" }` là một object.
+Tuy nhiên dù có là object hay gì đi nữa thì nó cũng sẽ bị chuyển sang dạng chuỗi.
+Đối với object thì khi chuyển sang dạng chuỗi nó sẽ trở thành `"[object Object]"`. `"[object Object]"` nối với `"2"` trở thành `"[object Object]2"`.
 
 </p>
 </details>
@@ -5345,7 +5434,8 @@ Promise.resolve(5)
 
 #### Đáp án: C
 
-Ta có thể truyền vào giá trị bất kì cho `Promise.resolve`, dù có là promise hay không promise. Bản thân nó sẽ là một hàm trả về một promise với giá trị đã được resolved.
+Ta có thể truyền vào giá trị bất kì cho `Promise.resolve`, dù có là promise hay không promise.
+Bản thân nó sẽ là một hàm trả về một promise với giá trị đã được resolved.
 
 Trong trường hợp này ta đưa vào giá trị `5`. Nó sẽ trả về một resolved promise với giá trị `5`.
 
@@ -5359,9 +5449,9 @@ Trong trường hợp này ta đưa vào giá trị `5`. Nó sẽ trả về m�
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log("Not the same!")
+    console.log("Not the same")
   } else {
-    console.log("They are the same!")
+    console.log("They are the same")
   }
 }
 
@@ -5370,8 +5460,8 @@ const person = { name: "Lydia" }
 compareMembers(person)
 ```
 
-- A: `Not the same!`
-- B: `They are the same!`
+- A: `Not the same`
+- B: `They are the same`
 - C: `ReferenceError`
 - D: `SyntaxError`
 
@@ -5380,11 +5470,12 @@ compareMembers(person)
 
 #### Đáp án: B
 
-Object sẽ được truyền vào hàm theo reference. Khi chúng ta nói so sánh strict equal (`===`), nghĩa là ta đang so sánh các reference của chúng.
+Object sẽ được truyền vào hàm theo reference.
+Khi chúng ta nói so sánh strict equal (`===`), nghĩa là ta đang so sánh các reference của chúng.
 
 Ta set giá trị mặc định của `person2` là object `person`, và đưa object `person` vào làm giá trị cho đối số `person1`.
 
-Điều đó có nghĩa là chúng cùng trỏ đến một object trong bộ nhớ, do đó chúng bằng nhau, và `They are the same!` được in ra.
+Điều đó có nghĩa là chúng cùng trỏ đến một object trong bộ nhớ, do đó chúng bằng nhau, và `They are the same` được in ra.
 
 </p>
 </details>
@@ -5417,11 +5508,17 @@ console.log(colorConfig.colors[1])
 
 #### Đáp án: D
 
-Trong Javascript ta có hai cách để truy cập thuộc tính của một object: sử dụng ngoặc vuông `[]`, hoặc sử dụng chấm `.`. Trong trương hợp này chúng ta sử dụng chấm (`colorConfig.colors`) thay cho ngoặc vuông (`colorConfig["colors"]`).
+Trong Javascript ta có hai cách để truy cập thuộc tính của một object: sử dụng ngoặc vuông `[]`, hoặc sử dụng chấm `.`.
+Trong trương hợp này chúng ta sử dụng chấm (`colorConfig.colors`) thay cho ngoặc vuông (`colorConfig["colors"]`).
 
-Với cách sử dụng chấm, Javascript sẽ tìm kiếm một thuộc tính có tên chính xác như tên ta đưa vào. Trong trường hợp này nó là thuộc tính `colors` trong object `colorConfig` Tuy nhiên trong object này không có thuộc tính nào tên là  `colors`, nên nó sẽ trả về `undefined`. Sau đó chúng ta cố truy cậ vào thuộc tính 1 của nó bằng cách gọi `[1]`. Chúng ta không thể làm như vậy trên giá trị `undefined`, nên nó sẽ trả về `TypeError`: `Cannot read property '1' of undefined`.
+Với cách sử dụng chấm, Javascript sẽ tìm kiếm một thuộc tính có tên chính xác như tên ta đưa vào.
+Trong trường hợp này nó là thuộc tính `colors` trong object `colorConfig` Tuy nhiên trong object này không có thuộc tính nào tên là  `colors`, nên nó sẽ trả về `undefined`. Sau đó chúng ta cố truy cậ vào thuộc tính 1 của nó bằng cách gọi `[1]`.
+Chúng ta không thể làm như vậy trên giá trị `undefined`, nên nó sẽ trả về `TypeError`: `Cannot read property '1' of undefined`.
 
-Javascript thông dịch theo câu lệnh. Khi ta sử dụng ngoặc vuông, Nnó sẽ tìm mở ngoặc đầu tiên `[` và tiếp tục cho tới khi gặp đóng ngoặc tương ứng `]`. Chỉ khi đó nó mới đánh giá câu lệnh. Nếu chúng ta sử dụng cú pháp `colorConfig[colors[1]]`, nó sẽ trả về giá trị của thuộc tính `red` trong object `colorConfig`.
+Javascript thông dịch theo câu lệnh.
+Khi ta sử dụng ngoặc vuông, nó sẽ tìm mở ngoặc đầu tiên `[` và tiếp tục cho tới khi gặp đóng ngoặc tương ứng `]`.
+Chỉ khi đó nó mới đánh giá câu lệnh.
+Nếu chúng ta sử dụng cú pháp `colorConfig[colors[1]]`, nó sẽ trả về giá trị của thuộc tính `red` trong object `colorConfig`.
 
 </p>
 </details>
@@ -5442,7 +5539,9 @@ console.log('❤️' === '❤️')
 
 #### Đáp án: A
 
-Về cơ bản, emoji vẫn là các ký tự unicode mà thôi. Mã unicode cho hình trái tim là `"U+2764 U+FE0F"`. Chúng luôn luôn là một, nên phép toán đơn giản trả về `true`.
+Về cơ bản, emoji vẫn là các ký tự unicode mà thôi.
+Mã unicode cho hình trái tim là `"U+2764 U+FE0F"`.
+Chúng luôn luôn là một, nên phép toán đơn giản trả về `true`.
 
 </p>
 </details>
@@ -5462,7 +5561,7 @@ emojis.slice(1, 2, '✨')
 emojis.splice(1, 2, '✨')
 ```
 
-- A: `All of them`
+- A: `Tất cả`
 - B: `map` `reduce` `slice` `splice`
 - C: `map` `slice` `splice`
 - D: `splice`
@@ -5472,7 +5571,8 @@ emojis.splice(1, 2, '✨')
 
 #### Đáp án: D
 
-Với `splice`, ta thay đổi mảng gốc bằng cách thêm sửa xóa các phần tử. Trong trường hợp này ta xóa 2 phần tử kể từ index 1 (ta xóa `'🥑'` và `'😍'`) và thêm vào ✨ emoji.
+Với `splice`, ta thay đổi mảng gốc bằng cách thêm sửa xóa các phần tử.
+Trong trường hợp này ta xóa 2 phần tử kể từ index 1 (ta xóa `'🥑'` và `'😍'`) và thêm vào ✨ emoji.
 
 `map`, `filter` và `slice` trả về một mảng mới, `find` trả về một phần tử, và `reduce` trả về giá trị tích lũy.
 
@@ -5502,9 +5602,12 @@ console.log(food)
 
 #### Đáp án: A
 
-Trong Javascript tất cả các kiểu cơ bản (mọi thứ không phải object) đều tương tác bằng _giá trị_. Chúng ta set giá trị của thuộc tính `favoriteFood` trong object `info` bằng ký tự bánh pizza, `'🍕'`. Chuỗi trong javascript là một kiểu cơ bản, nên nó cũng sẽ tương tác bằng giá trị.
+Trong Javascript tất cả các kiểu cơ bản (mọi thứ không phải object) đều tương tác bằng _giá trị_.
+Chúng ta set giá trị của thuộc tính `favoriteFood` trong object `info` bằng ký tự bánh pizza, `'🍕'`.
+Chuỗi trong javascript là một kiểu cơ bản, nên nó cũng sẽ tương tác bằng giá trị.
 
-Bản thân mảng `food` không hề thay đổi, do giá trị của `favoriteFood` chỉ là một bản _copy_ của giá trị đầu tiên trong mảng mà thôi, và không hề trỏ tới reference của `food[0]`. Do đó khi ghi ra, giá trị của mảng vẫn là giá trị ban đầu, `['🍕', '🍫', '🥑', '🍔']`.
+Bản thân mảng `food` không hề thay đổi, do giá trị của `favoriteFood` chỉ là một bản _copy_ của giá trị đầu tiên trong mảng mà thôi, và không hề trỏ tới reference của `food[0]`.
+Do đó khi ghi ra, giá trị của mảng vẫn là giá trị ban đầu, `['🍕', '🍫', '🥑', '🍔']`.
 
 </p>
 </details>
@@ -5573,11 +5676,17 @@ getName()
 
 #### Đáp án: D
 
-Mỗi hàm sẽ có một _context thực thi_ (hay _scope_) của riêng nó. Hàm `getName` đầu tiên sẽ tìm trong context của nó (scope) để tìm xem có biến nào tên là `name` hay không. Trong trường hợp này, hàm `getName` có biến `name` được khai báo với từ khóa `let`, giá trị là `'Sarah'`.
+Mỗi hàm sẽ có một _context thực thi_ (hay _scope_) của riêng nó.
+Hàm `getName` đầu tiên sẽ tìm trong context của nó (scope) để tìm xem có biến nào tên là `name` hay không.
+Trong trường hợp này, hàm `getName` có biến `name` được khai báo với từ khóa `let`, giá trị là `'Sarah'`.
 
-Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được _khởi tạo_. Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize). Nó được gọi là "temporal dead zone". Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`.
+Một biến được khai báo với từ khóa `let` (hoặc `const`) sẽ được `hoisted`, nhưng không giống như `var`, nó sẽ không được _khởi tạo_.
+Nó sẽ không thể truy cập được trước dòng ta khai báo (initialize).
+Nó được gọi là "temporal dead zone".
+Khi ta cố truy cập một biến trước khi nó được khai báo, JavaScript sẽ throw ra `ReferenceError`.
 
-Nếu ta không khai báo biến `name` bên trong hàm `getName`, thì Javascript engine sẽ tiếp tục tìm kiếm trong _scope chain_. Nó sẽ tìm thấy ở scope phía ngoài một biến `name` với giá trị là `Lydia`. Trong trường hợp này nó sẽ log ra `Lydia`.
+Nếu ta không khai báo biến `name` bên trong hàm `getName`, thì Javascript engine sẽ tiếp tục tìm kiếm trong _scope chain_.
+Nó sẽ tìm thấy ở scope phía ngoài một biến `name` với giá trị là `Lydia`. Trong trường hợp này nó sẽ log ra `Lydia`.
 
 ```javascript
 let name = 'Lydia'
@@ -5622,16 +5731,20 @@ console.log(two.next().value)
 
 #### Đáp án: C
 
-Với từ khóa `yield`, ta sẽ trả về các giá trị trong một `generator`. Với từ khóa `yield*`, ta có thể trả về giá trị từ một `engerator` khác, hoặc một `iterable object` (ví dụ mảng).
+Với từ khóa `yield`, ta sẽ trả về các giá trị trong một `generator`.
+Với từ khóa `yield*`, ta có thể trả về giá trị từ một `engerator` khác, hoặc một `iterable object` (ví dụ mảng).
 
-Trong `generatorOne`, ta trả về toàn bộ mảng `['a', 'b', 'c']` sử dụng từ khóa `yield`. Giá trị của thuộc tính `value` trong object thu được bởi phương thức `next` trong `one` (`one.next().value`) là toàn bộ mảng `['a', 'b', 'c']`.
+Trong `generatorOne`, ta trả về toàn bộ mảng `['a', 'b', 'c']` sử dụng từ khóa `yield`.
+Giá trị của thuộc tính `value` trong object thu được bởi phương thức `next` trong `one` (`one.next().value`) là toàn bộ mảng `['a', 'b', 'c']`.
 
 ```javascript
 console.log(one.next().value) // ['a', 'b', 'c']
 console.log(one.next().value) // undefined
 ```
 
-Trong `generatorTwo`, ta sử dụng từ khóa `yield*`. Có nghĩa là giá trị đầu tiên mà `two` trả về là giá trị đầu tiên trong `iterator`. Trong trường hợp này `iterator` của chúng ta là mảng `['a', 'b', 'c']`. Giá trị đầu tiên của mảng là `a`, nên lần đầu tiên khi ta gọi `two.next().value`, `a` sẽ được trả về.
+Trong `generatorTwo`, ta sử dụng từ khóa `yield*`. Có nghĩa là giá trị đầu tiên mà `two` trả về là giá trị đầu tiên trong `iterator`.
+Trong trường hợp này `iterator` của chúng ta là mảng `['a', 'b', 'c']`.
+Giá trị đầu tiên của mảng là `a`, nên lần đầu tiên khi ta gọi `two.next().value`, `a` sẽ được trả về.
 
 ```javascript
 console.log(two.next().value) // 'a'
@@ -5661,7 +5774,10 @@ console.log(`${(x => x)('I love')} to program`)
 
 #### Đáp án: A
 
-Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu ``, gọi là `template literals`) sẽ được đánh giá trước. Sau đó kết quả của biểu thức sẽ được đưa vào chuỗi, trong trường hợp này biểu thức là `(x => x)('I love')`. Chúng ta truyền giá trị đối số `'I love'` cho một arrow function `x => x`. `x` lúc này là `'I love'`, và trả về chính nó. Cuối cùng kết quả của chuỗi là `I love to program`.
+Biểu thức bên trong chuỗi template (tức chuỗi nằm trong hai dấu ``, gọi là `template literals`) sẽ được đánh giá trước.
+Sau đó kết quả của biểu thức sẽ được đưa vào chuỗi, trong trường hợp này biểu thức là `(x => x)('I love')`.
+Chúng ta truyền giá trị đối số `'I love'` cho một arrow function `x => x`. `x` lúc này là `'I love'`, và trả về chính nó.
+Cuối cùng kết quả của chuỗi là `I love to program`.
 
 </p>
 </details>
@@ -5690,20 +5806,22 @@ config = null
 
 #### Đáp án: C
 
-Thông thường khi ta set một object bằng `null`, thì object này sẽ được bộ dọn rác dọn đi do không còn gì reference đến nó nữa (_garbage collected_). Tuy nhiên, do callback trong `setInterval` là một arrow function (do đó nó sẽ gắn với object `config`), nên callback này vẫn sẽ giữ reference đến object `config`. Vì vẫn còn giữ reference, nên object sẽ không bị dọn đi. Do đó nó vẫn sẽ được gọi sau mỗi 1000ms (tức 1 giây).
+Thông thường khi ta set một object bằng `null`, thì object này sẽ được bộ dọn rác dọn đi do không còn gì reference đến nó nữa (_garbage collected_).
+Tuy nhiên, do callback trong `setInterval` là một arrow function (do đó nó sẽ gắn với object `config`), nên callback này vẫn sẽ giữ reference đến object `config`.
+Vì vẫn còn giữ reference, nên object sẽ không bị dọn đi. Do đó nó vẫn sẽ được gọi sau mỗi 1000ms (tức 1 giây).
 
 </p>
 </details>
 
 ---
 
-###### 171. Những hàm nào sẽ trả về `'Hello world!'`?
+###### 171. Những hàm nào sẽ trả về `'Hello world'`?
 
 ```javascript
 const myMap = new Map()
 const myFunc = () => 'greeting'
 
-myMap.set(myFunc, 'Hello world!')
+myMap.set(myFunc, 'Hello world')
 
 //1
 myMap.get('greeting')
@@ -5723,10 +5841,11 @@ myMap.get(() => 'greeting')
 
 #### Đáp án: B
 
-Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đối số đầu tiên đưa vào trong hàm `set` function, và value sẽ là đối số thứ hai.Trong trường hơp này key chính là _hàm_ `() => 'greeting'`, value là `'Hello world'`. `myMap` trở thành `{ () => 'greeting' => 'Hello world!' }`.
+Khi ta thêm vào một cặp key/value với từ khóa `set`, key sẽ là đối số đầu tiên đưa vào trong hàm `set` function, và value sẽ là đối số thứ hai.Trong trường hơp này key chính là _hàm_ `() => 'greeting'`, value là `'Hello world'`. `myMap` trở thành `{ () => 'greeting' => 'Hello world' }`.
 
 1 sai, vì key là `() => 'greeting'` chứ không phải là `'greeting'`.
-3 sai, vì khi chúng ta đưa một hàm vào làm đối số trong phương thức `get`, nó sẽ được đưa vào dưới dạng _reference_. Function vốn là object, do đó 2 hàm sẽ không bao giờ là `strictly equal`, mặc dù chúng có trông giống nhau đi chăng nữa thì chúng vẫn trỏ đến các vùng nhớ khác nhau.
+3 sai, vì khi chúng ta đưa một hàm vào làm đối số trong phương thức `get`, nó sẽ được đưa vào dưới dạng _reference_.
+Function vốn là object, do đó 2 hàm sẽ không bao giờ là `strictly equal`, mặc dù chúng có trông giống nhau đi chăng nữa thì chúng vẫn trỏ đến các vùng nhớ khác nhau.
 
 </p>
 </details>
@@ -5763,11 +5882,14 @@ console.log(person)
 
 #### Đáp án: C
 
-Cả hai hàm `changeAge` và `changeAgeAndName` đều có tham số mặc định - nó là một _bản copy_ mới của object `{ ...person }`. Object này sẽ copy tất cả những cặp key/values bên trong object `person`.
+Cả hai hàm `changeAge` và `changeAgeAndName` đều có tham số mặc định - nó là một _bản copy_ mới của object `{ ...person }`.
+Object này sẽ copy tất cả những cặp key/values bên trong object `person`.
 
-Đầu tiên, chúng ta gọi hàm `changeAge` và đưa chính object `person` vào làm đối số. Hàm này sẽ tăng giá trị của thuộc tính `age` lên 1. `person` lúc này là `{ name: "Lydia", age: 22 }`.
+Đầu tiên, chúng ta gọi hàm `changeAge` và đưa chính object `person` vào làm đối số.
+Hàm này sẽ tăng giá trị của thuộc tính `age` lên 1. `person` lúc này là `{ name: "Lydia", age: 22 }`.
 
-Sau đó, chúng ta gọi hàm `changeAgeAndName` tuy nhiên không đưa vào đối số nào cả. Do đó giá trị của `x` lúc này sẽ là giá trị mặc định, tức một bản _copy_ của object `{ ...person }`. Do nó chỉ là một bản copy (tức object mới), nên nó không ảnh hưởng gì tới giá trị của object `person` gốc, giá trị của `person` gốc sẽ vẫn là `{ name: "Lydia", age: 22 }`.
+Sau đó, chúng ta gọi hàm `changeAgeAndName` tuy nhiên không đưa vào đối số nào cả. Do đó giá trị của `x` lúc này sẽ là giá trị mặc định, tức một bản _copy_ của object `{ ...person }`.
+Do nó chỉ là một bản copy (tức object mới), nên nó không ảnh hưởng gì tới giá trị của object `person` gốc, giá trị của `person` gốc sẽ vẫn là `{ name: "Lydia", age: 22 }`.
 
 </p>
 </details>
@@ -5792,7 +5914,8 @@ function sumValues(x, y, z) {
 
 #### Đáp án: C
 
-Với toán tử ba chấm (`spread operator`) `...`, chúng ta có thể unpack một iterable thành từng các phần tử riêng biệt. Hàm `sumValues` nhận vào 3 giá trị: `x`, `y` và `z`. `...[1, 2, 3]` sẽ trả về `1, 2, 3`, đưa vào `sumValues` sẽ cho ta kết quả là 6.
+Với toán tử ba chấm (`spread operator`) `...`, chúng ta có thể unpack một iterable thành từng các phần tử riêng biệt.
+Hàm `sumValues` nhận vào 3 giá trị: `x`, `y` và `z`. `...[1, 2, 3]` sẽ trả về `1, 2, 3`, đưa vào `sumValues` sẽ cho ta kết quả là 6.
 
 </p>
 </details>
@@ -5818,7 +5941,9 @@ console.log(list[(num += 1)]);
 
 #### Đáp án: B
 
-Với phép toán `+=`, Ta tăng giá trị của `num` lên `1`. `num` có giá trị khởi tạo là `1`, do đó `1 + 1` là `2`. Phần tử thứ hai của `list` là 🥰, do đó `console.log(list[2])` sẽ in ra 🥰.
+Với phép toán `+=`, Ta tăng giá trị của `num` lên `1`.
+`num` có giá trị khởi tạo là `1`, do đó `1 + 1` là `2`.
+Phần tử thứ hai của `list` là 🥰, do đó `console.log(list[2])` sẽ in ra 🥰.
 
 </p>
 </details>
@@ -5856,11 +5981,15 @@ console.log(member.getLastName?.());
 
 #### Đáp án: B
 
-Với phép toán optional chaining `?.`, chúng ta sẽ không cần phải check xem giá trị phía sau nó có được phép truy cập hay có tồn tại hay không. Nếu ta cố lấy một thuộc tính của `undefined` hay `null` (_nullish_), biểu thức sẽ dừng lại và trả về `undefined`.
+Với phép toán optional chaining `?.`, chúng ta sẽ không cần phải check xem giá trị phía sau nó có được phép truy cập hay có tồn tại hay không.
+Nếu ta cố lấy một thuộc tính của `undefined` hay `null` (_nullish_), biểu thức sẽ dừng lại và trả về `undefined`.
 
-`person.pet?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là một nullish. Nó có một thuộc tính `name`, với giá trị `Mara`.
+`person.pet?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là một nullish.
+Nó có một thuộc tính `name`, với giá trị `Mara`.
 
-`person.pet?.family?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là nullish. Tuy nhiên `pet` không có thuộc tính `family`, nên `person.pet.family` là nullish. Biểu thức sẽ trả về `undefined`.
+`person.pet?.family?.name`: `person` có thuộc tính `pet`: do đó `person.pet` không phải là nullish.
+Tuy nhiên `pet` không có thuộc tính `family`, nên `person.pet.family` là nullish.
+Biểu thức sẽ trả về `undefined`.
 
 `person.getFullName?.()`: `person` có thuộc tính `getFullName`: do đó `person.getFullName()` không phải nullish và có thể gọi ra, trả về `Lydia Hallie`.
 
@@ -5877,13 +6006,13 @@ Với phép toán optional chaining `?.`, chúng ta sẽ không cần phải che
 const groceries = ["banana", "apple", "peanuts"];
 
 if (groceries.indexOf("banana")) {
-	console.log("We have to buy bananas!");
+	console.log("We have to buy bananas");
 } else {
-	console.log(`We don't have to buy bananas!`);
+	console.log(`We don't have to buy bananas`);
 }
 ```
 
-- A: We have to buy bananas!
+- A: We have to buy bananas
 - B: We don't have to buy bananas
 - C: `undefined`
 - D: `1`
@@ -5893,7 +6022,9 @@ if (groceries.indexOf("banana")) {
 
 #### Đáp án: B
 
-Ta đưa một điều kiện `groceries.indexOf("banana")` vào câu lệnh `if`. `groceries.indexOf("banana")` trả về `0`, là một giá trị `falsy`. Do đó điệu kiện `if` sẽ chạy vào khối `else` và in ra `We don't have to buy bananas!`.
+Ta đưa một điều kiện `groceries.indexOf("banana")` vào câu lệnh `if`.
+`groceries.indexOf("banana")` trả về `0`, là một giá trị `falsy`.
+Do đó điệu kiện `if` sẽ chạy vào khối `else` và in ra `We don't have to buy bananas`.
 
 </p>
 </details>
@@ -5923,7 +6054,9 @@ console.log(config.language);
 
 #### Đáp án: D
 
-Phương thức `language` là một `setter`. Setter không mang giá trị, nhiệm vụ của nó chỉ đơn giản là _thay đổi_ thuộc tính. Khi ta gọi một phương thức `setter` nó sẽ trả về `undefined`.
+Phương thức `language` là một `setter`.
+Setter không mang giá trị, nhiệm vụ của nó chỉ đơn giản là _thay đổi_ thuộc tính.
+Khi ta gọi một phương thức `setter` nó sẽ trả về `undefined`.
 
 </p>
 </details>
@@ -5949,7 +6082,9 @@ console.log(!typeof name === "string");
 
 #### Đáp án: C
 
-`typeof name` trả về `"string"`. Chuỗi `"string"` là một giá trị `truthy`, do đó `!typeof name` sẽ trả về một giá trị bool là `false`. Do đó `false === "object"` và `false === "string"` đều trả về`false`.
+`typeof name` trả về `"string"`.
+Chuỗi `"string"` là một giá trị `truthy`, do đó `!typeof name` sẽ trả về một giá trị bool là `false`.
+Do đó `false === "object"` và `false === "string"` đều trả về`false`.
 
 (Nếu chúng ta muốn check xem một kiểu dữ liệu không phải là một kiểu nào đó, chúng ta nên viết `!==` thay vì `!typeof`)
 
@@ -5979,7 +6114,12 @@ add(4)(5)(6);
 
 #### Đáp án: A
 
-Hàm `add` trả về một arrow function, arrow function này lại trả về một arrow function khác, arrow function này lại trả về một arrow function khác nữa. Hàm đầu tiên nhận vào một tham số `x` với giá trị là 4 `4`. Chúng ta gọi hàm thứ hai, nhận vào giá trị của `y` là `5`. Sau đó chúng ta gọi hàm thứ 3, nhận vào giá trị của `z` là `6`. Sau đó ta truy cập các giá trị của `x`, `y` và `z` bên trong arrow function cuối cùng, khi này JS engine sẽ lần ngược lại scope chain để tìm các giá trị `x` và `y` tương ứng. Do đó cuối cùng nó sẽ trả về `4` `5` `6`.
+Hàm `add` trả về một arrow function, arrow function này lại trả về một arrow function khác, arrow function này lại trả về một arrow function khác nữa.
+Hàm đầu tiên nhận vào một tham số `x` với giá trị là 4 `4`.
+Chúng ta gọi hàm thứ hai, nhận vào giá trị của `y` là `5`.
+Sau đó chúng ta gọi hàm thứ 3, nhận vào giá trị của `z` là `6`.
+Sau đó ta truy cập các giá trị của `x`, `y` và `z` bên trong arrow function cuối cùng, khi này JS engine sẽ lần ngược lại scope chain để tìm các giá trị `x` và `y` tương ứng.
+Do đó cuối cùng nó sẽ trả về `4` `5` `6`.
 
 </p>
 </details>
@@ -6013,7 +6153,10 @@ async function* range(start, end) {
 
 #### Đáp án: C
 
-Generator `range` trả về một async object với các promise tương ứng với mỗi phần tử ta đưa vào: `Promise{1}`, `Promise{2}`, `Promise{3}`. Ta set giá trị `gen` bằng với một async object để thực hiện vòng lặp `for await ... of` sau đó. Tiếp đó ta lại set giá trị của `item` bằng với giá trị trả về của mỗi promise: đầu tiên là `Promise{1}`, sau đó `Promise{2}`, sau đó `Promise{3}`. Do chúng ta sử dụng cú pháp `async/await` nên sẽ trả về giá trị đã được resolve của promise `item`, do đó lần lượt `1`, `2`, và `3` được in ra.
+Generator `range` trả về một async object với các promise tương ứng với mỗi phần tử ta đưa vào: `Promise{1}`, `Promise{2}`, `Promise{3}`.
+Ta set giá trị `gen` bằng với một async object để thực hiện vòng lặp `for await ... of` sau đó.
+Tiếp đó ta lại set giá trị của `item` bằng với giá trị trả về của mỗi promise: đầu tiên là `Promise{1}`, sau đó `Promise{2}`, sau đó `Promise{3}`.
+Do chúng ta sử dụng cú pháp `async/await` nên sẽ trả về giá trị đã được resolve của promise `item`, do đó lần lượt `1`, `2`, và `3` được in ra.
 
 </p>
 </details>
@@ -6040,7 +6183,8 @@ myFunc(1, 2, 3);
 
 #### Đáp án: D
 
-`myFunc` nhận vào một object có các thuộc tính `x`, `y` và `z` làm đối số của nó. Do chúng ta đưa vào 3 số riêng biệt (1, 2, 3) chứ không phải một object với các thuộc tính `x`, `y`, `z` như ({x: 1, y: 2, z: 3}), nên `x`, `y`, `z` đều có giá trị là `undefined`.
+`myFunc` nhận vào một object có các thuộc tính `x`, `y` và `z` làm đối số của nó.
+Do chúng ta đưa vào 3 số riêng biệt (1, 2, 3) chứ không phải một object với các thuộc tính `x`, `y`, `z` như ({x: 1, y: 2, z: 3}), nên `x`, `y`, `z` đều có giá trị là `undefined`.
 
 </p>
 </details>
@@ -6077,7 +6221,9 @@ console.log(getFine(130, 300))
 
 #### Đáp án: B
 
-Với phương thức `Intl.NumberFormat`, chúng ta có thể format bất cứ số nào theo định dạng ta mong muốn. Ở đây ta format giá trị `130` theo định dạng `en-US`, kiểu `unit`, đơn vị là `mile-per-hour`, và nó sẽ trả về `130 mph`. Tiếp theo số `300` sẽ được format theo định dạng `en-US`, kiểu `currentcy`, đơn vị `USD`, và kết quả là `$300.00`.
+Với phương thức `Intl.NumberFormat`, chúng ta có thể format bất cứ số nào theo định dạng ta mong muốn.
+Ở đây ta format giá trị `130` theo định dạng `en-US`, kiểu `unit`, đơn vị là `mile-per-hour`, và nó sẽ trả về `130 mph`.
+Tiếp theo số `300` sẽ được format theo định dạng `en-US`, kiểu `currentcy`, đơn vị `USD`, và kết quả là `$300.00`.
 
 </p>
 </details>
@@ -6103,7 +6249,10 @@ console.log(spookyItems);
 
 #### Đáp án: B
 
-Khi tiến hành cú pháp destructuring object, chúng ta có thể unpack các giá trị ở phía phải của một object, và đưa giá trị đã được unpack đó làm giá trị của thuộc tính tương ứng của object phía trái. Trong trường hợp này, ta đã gán giá trị "💀" cho `spookyItems[3]`. Có nghĩa là mảng `spookyItems` đã bị thay đổi, chúng ta đã thêm vào nó một phần tử "💀". Do đó khi in ra thì kết quả sẽ là `["👻", "🎃", "🕸", "💀"]` .
+Khi tiến hành cú pháp destructuring object, chúng ta có thể unpack các giá trị ở phía phải của một object, và đưa giá trị đã được unpack đó làm giá trị của thuộc tính tương ứng của object phía trái.
+Trong trường hợp này, ta đã gán giá trị "💀" cho `spookyItems[3]`.
+Có nghĩa là mảng `spookyItems` đã bị thay đổi, chúng ta đã thêm vào nó một phần tử "💀".
+Do đó khi in ra thì kết quả sẽ là `["👻", "🎃", "🕸", "💀"]` .
 
 </p>
 </details>
@@ -6133,8 +6282,11 @@ console.log(isNaN(age));
 
 #### Đáp án: C
 
-Với phương thức `Number.isNaN`, ta có thể check một giá trị có phải là _dạng số_ và bằng `NaN` hay không. `name` không phải là một số, do đó `Number.isNaN(name)` sẽ trả về `false`. `age` là một số, nhưng không bằng `NaN`, do đó `Number.isNaN(age)` cũng trả về `false`.
-Với phương thức `isNaN`, ta đơn thuần chỉ check xem giá trị đưa vào không phải là _dạng số_ hay không. `name` không phải là dạng số, nên `isNaN(name)` trả về `true`. `age` là số, nên `isNaN(age)` trả về `false`.
+Với phương thức `Number.isNaN`, ta có thể check một giá trị có phải là _dạng số_ và bằng `NaN` hay không.
+`name` không phải là một số, do đó `Number.isNaN(name)` sẽ trả về `false`. `age` là một số, nhưng không bằng `NaN`, do đó `Number.isNaN(age)` cũng trả về `false`.
+
+Với phương thức `isNaN`, ta đơn thuần chỉ check xem giá trị đưa vào không phải là _dạng số_ hay không.
+`name` không phải là dạng số, nên `isNaN(name)` trả về `true`. `age` là số, nên `isNaN(age)` trả về `false`.
 
 </p>
 </details>
@@ -6164,7 +6316,10 @@ getInfo();
 
 #### Đáp án: D
 
-Một biến được khai báo với từ khóa `const` sẽ không thể truy cập trước khi nó được khởi tạo: nó gọi là _temporal dead zone_. Trong hàm `getInfo`, giá trị `randomValue` sẽ được tìm kiếm đầu tiên trong scope của hàm `getInfo`. Tại dòng ta muốn lấy ra `typeof randomValue`, giá trị `randomValue` chưa được khởi tạo, do đó một `ReferenceError` sẽ được throw ra! Lưu ý nhỏ là Javascript engine sẽ không tìm kiếm ở scope khác nữa do `randomValue` đã được khai báo bên trong hàm `getInfo`.
+Một biến được khai báo với từ khóa `const` sẽ không thể truy cập trước khi nó được khởi tạo: nó gọi là _temporal dead zone_.
+Trong hàm `getInfo`, giá trị `randomValue` sẽ được tìm kiếm đầu tiên trong scope của hàm `getInfo`.
+Tại dòng ta muốn lấy ra `typeof randomValue`, giá trị `randomValue` chưa được khởi tạo, do đó một `ReferenceError` sẽ được throw ra.
+Lưu ý nhỏ là Javascript engine sẽ không tìm kiếm ở scope khác nữa do `randomValue` đã được khai báo bên trong hàm `getInfo`.
 
 </p>
 </details>
@@ -6197,7 +6352,9 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 #### Đáp án: C
 
-Trong khối `try`, ta in ra giá trị của biến `myPromise`: `"Woah some cool data"`. Do không có lỗi gì xảy ra ở đây cả, nên các lệnh trong khối `catch` sẽ không được chạy. Tuy nhiên các lệnh trong khối `finally` thì sẽ _luôn luôn_ chạy, nên `"Oh finally!"` sẽ được in ra.
+Trong khối `try`, ta in ra giá trị của biến `myPromise`: `"Woah some cool data"`.
+Do không có lỗi gì xảy ra ở đây cả, nên các lệnh trong khối `catch` sẽ không được chạy.
+Tuy nhiên các lệnh trong khối `finally` thì sẽ _luôn luôn_ chạy, nên `"Oh finally!"` sẽ được in ra.
 
 </p>
 </details>
@@ -6222,7 +6379,10 @@ console.log(emojis.flat(1));
 
 #### Đáp án: B
 
-Với phương thức `flat`, ta có thể tạo một mảng mới với các phần tử đã được `flattened` (làm phẳng). Độ sâu của mảng đã làm phẳng sẽ phụ thuộc vào giá trị ta đưa vào. Trong trường hợp này ta đưa vào là `1` (thực ra đây là giá trị default, ta không đưa vào cũng không sao), có nghĩa là chỉ những phần tử ở độ sâu 1 sẽ được làm phẳng. Chúng là`['🥑']` và `['✨', '✨', ['🍕', '🍕']]` trong trường hợp này. Nối lại ta sẽ có mảng mới `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+Với phương thức `flat`, ta có thể tạo một mảng mới với các phần tử đã được `flattened` (làm phẳng).
+Độ sâu của mảng đã làm phẳng sẽ phụ thuộc vào giá trị ta đưa vào.
+Trong trường hợp này ta đưa vào là `1` (thực ra đây là giá trị default, ta không đưa vào cũng không sao), có nghĩa là chỉ những phần tử ở độ sâu 1 sẽ được làm phẳng.
+Chúng là`['🥑']` và `['✨', '✨', ['🍕', '🍕']]` trong trường hợp này. Nối lại ta sẽ có mảng mới `['🥑', '✨', '✨', ['🍕', '🍕']]`.
 
 </p>
 </details>
@@ -6262,15 +6422,20 @@ console.log(counterOne.count);
 
 #### Đáp án: D
 
-`counterOne` là một instance của class `Counter`. Trong counter class có thuộc tính `count` bên trong constructor, và một phương thức `increment`. Đầu tiên chúng ta gọi phương thức `increment` hai lần bằng `counterOne.increment()`. Nên hiện tại giá trị của `counterOne.count` là `2`.
+`counterOne` là một instance của class `Counter`.
+Trong counter class có thuộc tính `count` bên trong constructor, và một phương thức `increment`.
+Đầu tiên chúng ta gọi phương thức `increment` hai lần bằng `counterOne.increment()`.
+Nên hiện tại giá trị của `counterOne.count` là `2`.
 
-<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+<img src="img/KxLlTm9.png" width="400">
 
-Sau đó chúng ta có thêm một biến mới là `counterTwo`, và set cho nó giá trị bằng với `counterOne`. Do object được tương tác bằng reference, nên việc này tương ứng với ta đã tạo thêm một reference đến bộ nhớ mà biến `counterOne` đã trỏ vào. Do chúng có chung bộ nhớ, bất cứ thay đổi nào trên `counterTwo` cũng sẽ thay đổi trên `counterOne`. Lúc này `counterTwo.count` cũng sẽ là `2`.
+Sau đó chúng ta có thêm một biến mới là `counterTwo`, và set cho nó giá trị bằng với `counterOne`.
+Do object được tương tác bằng reference, nên việc này tương ứng với ta đã tạo thêm một reference đến bộ nhớ mà biến `counterOne` đã trỏ vào.
+Do chúng có chung bộ nhớ, bất cứ thay đổi nào trên `counterTwo` cũng sẽ thay đổi trên `counterOne`. Lúc này `counterTwo.count` cũng sẽ là `2`.
 
 Ta gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó chúng ta in ra `count` ở `counterOne`, kết quả là `3`.
 
-<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+<img src="img/BNBHXmc.png" width="400">
 
 </p>
 </details>
@@ -6794,3 +6959,26 @@ Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '�
 </details>
 
 ---
+
+###### 203. Output là gì?
+
+```javascript
+console.log("I want pizza"[0])
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+<details><summary><b>Đáp án</b></summary>
+<p>
+
+#### Đáp án: B
+
+Trong trường hợp ta muốn lấy ra một ký tự trong một chuỗi, ta có thể sử dụng toán tử ngoặc vuông. Ký tự đầu tiên sẽ có thứ tự là 0, và cứ tiếp tục như vậy. Trong trường hợp này chúng ta lấy ra ký tự có thứ tự là 0, đó chính là ký tự `"I'`.
+
+Chú ý là phương thức này không hoạt động với IE7 trở xuống. Thay vì thế ta sử dụng `.charAt()`
+
+</p>
+</details>
