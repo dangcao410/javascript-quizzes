@@ -6445,44 +6445,56 @@ Ta gọi hàm `counterTwo.increment()` để tăng `count` lên `3`. Sau đó ch
 ###### 189. Output là gì?
 
 ```javascript
-const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+const myPromise = Promise.resolve(Promise.resolve("Promise"));
 
 function funcOne() {
 	myPromise.then(res => res).then(res => console.log(res));
-	setTimeout(() => console.log("Timeout!", 0));
-	console.log("Last line!");
+	setTimeout(() => console.log("Timeout", 0));
+	console.log("LastLine");
 }
 
 async function funcTwo() {
 	const res = await myPromise;
 	console.log(await res);
-	setTimeout(() => console.log("Timeout!", 0));
-	console.log("Last line!");
+	setTimeout(() => console.log("Timeout", 0));
+	console.log("LastLine");
 }
 
 funcOne();
 funcTwo();
 ```
 
-- A: `Promise! Last line! Promise! Last line! Last line! Promise!`
-- B: `Last line! Timeout! Promise! Last line! Timeout! Promise!`
-- C: `Promise! Last line! Last line! Promise! Timeout! Timeout!`
-- D: `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+- A: `Promise LastLine Promise LastLine LastLine Promise`
+- B: `LastLine Timeout Promise LastLine Timeout Promise`
+- C: `Promise LastLine LastLine Promise Timeout Timeout`
+- D: `LastLine Promise Promise LastLine Timeout Timeout`
 
 <details><summary><b>Đáp án</b></summary>
 <p>
 
 #### Đáp án: D
 
-Đầu tiên chúng ta gọi `funcOne`. Trong dòng đầu tiên của `funcOne`, chúng ta gọi `myPromise`, đây là một hàm _bất đồng bộ_. Trong khi chờ promise này hoàn thành, nó sẽ tiếp tục thực thi các dòng khác trong `funcOne`. Dòng tiếp theo là cũng là một hàm _bất đồng bộ_ `setTimeout`, phần callback của nó sẽ được gửi tới Web API (các bạn có thể tham khảo câu hỏi trước đó để hiểu về callstack và Web API).
+Đầu tiên chúng ta gọi `funcOne`.
+Trong dòng đầu tiên của `funcOne`, chúng ta gọi `myPromise`, đây là một hàm _bất đồng bộ_.
+Trong khi chờ promise này hoàn thành, nó sẽ tiếp tục thực thi các dòng khác trong `funcOne`.
+Dòng tiếp theo là cũng là một hàm _bất đồng bộ_ `setTimeout`, phần callback của nó sẽ được gửi tới Web API (các bạn có thể tham khảo câu hỏi trước đó để hiểu về callstack và Web API).
 
-Do cả promise và timeout đều là những hàm xử lý bất đồng bộ, nên trong khi chờ chúng hoàn thành thì các dòng tiếp theo vẫn tiếp tục được thực thi. Có nghĩa là `Last line!` sẽ được in ra đầu tiên, do nó là một hàm chạy _đồng bộ_. Và đây cũng là dòng cuối cùng của hàm `funcOne`, khi này promise sẽ được resolve, trả về `Promise!`. Tuy nhiên do ta tiếp tục gọi hàm `funcTwo()`, call stack của ta vẫn chưa rỗng, nên callback của `setTimeout` vẫn chưa thể được đưa vào callstack (vẫn đang năm ở Web API).
+Do cả promise và timeout đều là những hàm xử lý bất đồng bộ, nên trong khi chờ chúng hoàn thành thì các dòng tiếp theo vẫn tiếp tục được thực thi.
+Có nghĩa là `LastLine` sẽ được in ra đầu tiên, do nó là một hàm chạy _đồng bộ_.
+Và đây cũng là dòng cuối cùng của hàm `funcOne`, khi này promise sẽ được resolve, trả về `Promise`.
+Tuy nhiên do ta tiếp tục gọi hàm `funcTwo()`, call stack của ta vẫn chưa rỗng, nên callback của `setTimeout` vẫn chưa thể được đưa vào callstack (vẫn đang năm ở Web API).
 
-Trong hàm `funcTwo` đầu tiên ta sẽ _awaiting_ myPromise. Với từ khóa `await`, Ta sẽ tạm dừng thực thi cho tới khi n ào promise được resolved (hay rejected). Khi này ta sẽ in ra giá trị của `res` (do bản thân hàm promise lại trả về một promise). Nó sẽ in ra `Promise!`.
+Trong hàm `funcTwo` đầu tiên ta sẽ _awaiting_ myPromise.
+Với từ khóa `await`, Ta sẽ tạm dừng thực thi cho tới khi n ào promise được resolved (hay rejected).
+Khi này ta sẽ in ra giá trị của `res` (do bản thân hàm promise lại trả về một promise). Nó sẽ in ra `Promise`.
 
 Dòng tiếp theo lại là một hàm _bất đồng bộ_ `setTimeout`, callback khi này tiếp tục được gửi tới Web API.
 
-Ta tiếp tục thực thi dòng cuối cùng của `funcTwo`, trả về `Last line!`. Khi này `funcTwo` đã làm rỗng call stack. Các callback khi nãy (`() => console.log("Timeout!")` từ `funcOne`, và `() => console.log("Timeout!")` từ `funcTwo`) lần lượt được đưa vào trong call stack. Callback đầu tiên in ra `Timeout!`. Callback thứ hai in ra `Timeout!`. Kết quả cuối cùng sẽ là `Last line! Promise! Promise! Last line! Timeout! Timeout!`
+Ta tiếp tục thực thi dòng cuối cùng của `funcTwo`, trả về `Last line`.
+Khi này `funcTwo` đã làm rỗng call stack. Các callback khi nãy (`() => console.log("Timeout!")` từ `funcOne`, và `() => console.log("Timeout!")` từ `funcTwo`) lần lượt được đưa vào trong call stack.
+Callback đầu tiên in ra `Timeout`.
+Callback thứ hai in ra `Timeout`.
+Kết quả cuối cùng sẽ là `LastLine Promise Promise LastLine Timeout Timeout`.
 
 </p>
 </details>
@@ -6511,7 +6523,8 @@ import * as sum from "./sum";
 
 #### Đáp án: C
 
-Với dấu hoa thị `*`, ta sẽ import tất cả những gì đã được export ra bởi file đó, cả default lẫn những hàm có tên. Nếu ta có một dòng như sau:
+Với dấu hoa thị `*`, ta sẽ import tất cả những gì đã được export ra bởi file đó, cả default lẫn những hàm có tên.
+Nếu ta có một dòng như sau:
 
 ```javascript
 // info.js
@@ -6551,8 +6564,8 @@ Ta có thể gọi hàm này bằng cách sử dụng `sum.default`
 
 ```javascript
 const handler = {
-	set: () => console.log("Added a new property!"),
-	get: () => console.log("Accessed a property!")
+	set: () => console.log("Added a new property"),
+	get: () => console.log("Accessed a property")
 };
 
 const person = new Proxy({}, handler);
@@ -6561,9 +6574,9 @@ person.name = "Lydia";
 person.name;
 ```
 
-- A: `Added a new property!`
-- B: `Accessed a property!`
-- C: `Added a new property!` `Accessed a property!`
+- A: `Added a new property`
+- B: `Accessed a property`
+- C: `Added a new property` `Accessed a property`
 - D: Nothing gets logged
 
 <details><summary><b>Đáp án</b></summary>
@@ -6571,13 +6584,18 @@ person.name;
 
 #### Đáp án: C
 
-Với Proxy object, ta có thể add thêm được các hành vi (behavior) cho object bằng cách đưa nó vào làm đối số thứ hai. Trong trường hợp này, chúng ta đưa vào object `handler` có hai thuộc tính: `set` và `get`. `set` sẽ được gọi mỗi khi ta _thay đổi_ giá trị của thuộc tính, `get` sẽ được gọi mỗi khi ta _truy cập_ giá trị của thuộc tính.
+Với Proxy object, ta có thể add thêm được các hành vi (behavior) cho object bằng cách đưa nó vào làm đối số thứ hai.
+Trong trường hợp này, chúng ta đưa vào object `handler` có hai thuộc tính: `set` và `get`. `set` sẽ được gọi mỗi khi ta _thay đổi_ giá trị của thuộc tính, `get` sẽ được gọi mỗi khi ta _truy cập_ giá trị của thuộc tính.
 
-Giá trị của `person` sẽ là đối số đầu tiên đưa vào, là một object rỗng `{}`. Hành vi của `person` là đối số thứ hai, tức `handler`. Do đó môi khi ta thêm thuộc tính của obejct `person`, `set` sẽ được gọi. Nếu ta truy cập thuộc tính của `person` thì `get` sẽ được gọi.
+Giá trị của `person` sẽ là đối số đầu tiên đưa vào, là một object rỗng `{}`.
+Hành vi của `person` là đối số thứ hai, tức `handler`.
+Do đó môi khi ta thêm thuộc tính của obejct `person`, `set` sẽ được gọi.
+Nếu ta truy cập thuộc tính của `person` thì `get` sẽ được gọi.
 
-Đầu tiên ra thêm vào thuộc tính `name` cho proxy object (`person.name = "Lydia"`). `set` được gọi và in ra `"Added a new property!"`.
+Đầu tiên ra thêm vào thuộc tính `name` cho proxy object (`person.name = "Lydia"`).
+`set` được gọi và in ra `"Added a new property"`.
 
-Sau đó chúng truy cập thuộc tính này, `get` được gọi và in ra `"Accessed a property!"`.
+Sau đó chúng truy cập thuộc tính này, `get` được gọi và in ra `"Accessed a property"`.
 
 </p>
 </details>
@@ -6634,9 +6652,11 @@ Object.freeze(person);
 
 #### Đáp án: C
 
-Phương thức `Object.freeze` sẽ _đóng băng_ object. Ta không thể thêm/sửa/xóa bất kì thuộc tính nào.
+Phương thức `Object.freeze` sẽ _đóng băng_ object.
+Ta không thể thêm/sửa/xóa bất kì thuộc tính nào.
 
-Tuy nhiên trên thực tế đây chỉ là đóng băng _nông_ (_shallowly_) object, có nghĩa là nó chỉ đóng băng các thuộc tính _trực tiếp_ của object mà thôi. Nếu thuộc tính lại là một object khác, như `address` trong trường hợp này, thuộc tính bên trong của `address` sẽ không bị đóng băng, và ta vẫn có thể chỉnh sửa như bình thường.
+Tuy nhiên trên thực tế đây chỉ là đóng băng _nông_ (_shallowly_) object, có nghĩa là nó chỉ đóng băng các thuộc tính _trực tiếp_ của object mà thôi.
+Nếu thuộc tính lại là một object khác, như `address` trong trường hợp này, thuộc tính bên trong của `address` sẽ không bị đóng băng, và ta vẫn có thể chỉnh sửa như bình thường.
 
 </p>
 </details>
@@ -6666,9 +6686,14 @@ myFunc(3);
 
 #### Đáp án: A
 
-Đầu tiên, ta gọi hàm `myFunc()` nhưng không đưa vào đối số nào. Do đó `num` và `value` sẽ nhận các giá trị mặc định: `num` là `2`, và `value` sẽ là giá trị trả về của hàm `add`. Với hàm `add`, ta đưa `num` vào làm đối số, tức `2`. `add` trả về `4`, đây sẽ là giá trị của `value`.
+Đầu tiên, ta gọi hàm `myFunc()` nhưng không đưa vào đối số nào.
+Do đó `num` và `value` sẽ nhận các giá trị mặc định: `num` là `2`, và `value` sẽ là giá trị trả về của hàm `add`.
+Với hàm `add`, ta đưa `num` vào làm đối số, tức `2`. `add` trả về `4`, đây sẽ là giá trị của `value`.
 
-Sau đó ta gọi hàm `myFunc(3)`, khi này `3` sẽ là giá trị của `num`. Ta không đưa vào giá trị cho `value`. Lúc này `value` tiếp tục nhận giá trị mặc định: giá trị trả về của hàm `add`. Trong `add`, ta đưa vào `num`, khi này là `3`. `add` sẽ trả về `6`, đây sẽ là giá trị của `value`.
+Sau đó ta gọi hàm `myFunc(3)`, khi này `3` sẽ là giá trị của `num`.
+Ta không đưa vào giá trị cho `value`.
+Lúc này `value` tiếp tục nhận giá trị mặc định: giá trị trả về của hàm `add`.
+Trong `add`, ta đưa vào `num`, khi này là `3`. `add` sẽ trả về `6`, đây sẽ là giá trị của `value`.
 
 </p>
 </details>
@@ -6706,7 +6731,9 @@ console.log(counter.#number)
 
 #### Đáp án: D
 
-Với cú pháp ES2020, ta có thể thêm các thuộc tính private vào class bằng cách sử dụng `#`. Ta không thể truy cập được biến này bên ngoài class. Khi ta in ra `counter.#number`, một SyntaxError sẽ được throw: ta không thể truy cập từ phía ngoài class `Counter`!
+Với cú pháp ES2020, ta có thể thêm các thuộc tính private vào class bằng cách sử dụng `#`.
+Ta không thể truy cập được biến này bên ngoài class.
+Khi ta in ra `counter.#number`, một SyntaxError sẽ được throw: ta không thể truy cập từ phía ngoài class `Counter`.
 
 </p>
 </details>
@@ -6748,7 +6775,9 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Đáp án: B
 
-Ta duyệt và in ra giá trị của từng member bên trong `members`, mà `members` lại nằm bên trong mảng `teams`, ta cần đưa vào đối số `teams[i].members` cho hàm generator `getMembers` trong phần code thiếu. Hàm generator sẽ trả về một generator object. Để duyệt qua từng phần tử của một generator object, ta dùng từ khóa `yield*`.
+Ta duyệt và in ra giá trị của từng member bên trong `members`, mà `members` lại nằm bên trong mảng `teams`, ta cần đưa vào đối số `teams[i].members` cho hàm generator `getMembers` trong phần code thiếu.
+Hàm generator sẽ trả về một generator object.
+Để duyệt qua từng phần tử của một generator object, ta dùng từ khóa `yield*`.
 
 Nếu ta dùng `yield`, `return yield`, hay `return`, toàn bộ generator sẽ được trả về trong lần đầu tiên chúng ta gọi phương thức `next`.
 
@@ -6790,13 +6819,17 @@ console.log(person.hobbies);
 
 Hàm `addHobby` nhận vào hai đối số, `hobby`, và `hobbies` với giá trị default là mảng `hobbies` của object `person`.
 
-Đầu tiên chúng ta gọi hàm `addHobby` và đưa vào `"running"` làm giá trị cho `hobby`, và một mảng rỗng cho `hobbies`. Do chúng ta đưa vào một mảng rỗng cho `hobbies`, `"running"` sẽ được add vào một mảng rỗng.
+Đầu tiên chúng ta gọi hàm `addHobby` và đưa vào `"running"` làm giá trị cho `hobby`, và một mảng rỗng cho `hobbies`.
+Do chúng ta đưa vào một mảng rỗng cho `hobbies`, `"running"` sẽ được add vào một mảng rỗng.
 
-Sau đó chúng ta tiếp tục gọi hàm `addHobby`, đưa `"dancing"` vào làm giá trị cho `hobby`. Chúng ta không hề đưa vào giá trị nào cho `hobbies`, do đó nó sẽ sử dụng giá trị mặc định, tức mảng `hobbies` trong thuộc tính của object `person`. Có nghĩa là ta đã thêm `dancing` vào trong mảng `person.hobbies`.
+Sau đó chúng ta tiếp tục gọi hàm `addHobby`, đưa `"dancing"` vào làm giá trị cho `hobby`.
+Chúng ta không hề đưa vào giá trị nào cho `hobbies`, do đó nó sẽ sử dụng giá trị mặc định, tức mảng `hobbies` trong thuộc tính của object `person`.
+Có nghĩa là ta đã thêm `dancing` vào trong mảng `person.hobbies`.
 
-Cuối cùng chúng ta lại gọi `addHobby`, đưa `"baking"` vào làm giá trị cho `hobby`, và mảng `person.hobbies` làm giá trị cho `hobbies`. Có nghĩa là ta đã thêm `baking` vào trong mảng `person.hobbies`.
+Cuối cùng chúng ta lại gọi `addHobby`, đưa `"baking"` vào làm giá trị cho `hobby`, và mảng `person.hobbies` làm giá trị cho `hobbies`.
+Có nghĩa là ta đã thêm `baking` vào trong mảng `person.hobbies`.
 
-Sau khi thêm `dancing` và `baking`, giá trị của `person.hobbies` là `["coding", "dancing", "baking"]`
+Sau khi thêm `dancing` và `baking`, giá trị của `person.hobbies` là `["coding", "dancing", "baking"]`.
 
 </p>
 </details>
@@ -6832,7 +6865,10 @@ const pet = new Flamingo();
 
 #### Đáp án: B
 
-Chúng ta tạo ra biến `pet` là một instance của clas `Flamingo`. Khi ta tạo ra instance, `constructor` bên trong `Flamingo` sẽ được gọi. Đầu tiên, `"I'm pink. 🌸"` được in ra, sau đó chúng ta gọi `super()`. `super()` sẽ gọi constructor ở class cha, tức `Bird`. Hàm constructor trong `Bird` được gọi và in ra `"I'm a bird. 🦢"`.
+Chúng ta tạo ra biến `pet` là một instance của clas `Flamingo`.
+Khi ta tạo ra instance, `constructor` bên trong `Flamingo` sẽ được gọi.
+Đầu tiên, `"I'm pink. 🌸"` được in ra, sau đó chúng ta gọi `super()`. `super()` sẽ gọi constructor ở class cha, tức `Bird`.
+Hàm constructor trong `Bird` được gọi và in ra `"I'm a bird. 🦢"`.
 
 </p>
 </details>
@@ -6860,7 +6896,9 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### Đáp án: D
 
-Từ khóa `const` làm cho ta không thể _định nghĩa lại_ giá trị của biến, nó là _read-only_. Tuy nhiên giá trị của bên trong nó thì không phải là bất biến. Các thuộc tính bên trong mảng `emojis` vẫn có thể được sửa đổi, ví dụ thêm phần tử, cắt, hoặc là đưa độ dài mảng về 0.
+Từ khóa `const` làm cho ta không thể _định nghĩa lại_ giá trị của biến, nó là _read-only_.
+Tuy nhiên giá trị của bên trong nó thì không phải là bất biến.
+Các thuộc tính bên trong mảng `emojis` vẫn có thể được sửa đổi, ví dụ thêm phần tử, cắt, hoặc là đưa độ dài mảng về 0.
 
 </p>
 </details>
@@ -6888,7 +6926,9 @@ const person = {
 
 #### Đáp án: C
 
-Mặc định ta không thể duyệt qua được object. Trừ phi nó được cài đặt iterator protocol. Ta có thể cài đặt bằng cách thêm vào một iterator symbol `[Symbol.iterator]`, biến nó trở thành generator object (object có thể duyệt được), ví dụ `*[Symbol.iterator]() {}`.
+Mặc định ta không thể duyệt qua được object.
+Trừ khi nó được cài đặt iterator protocol.
+Ta có thể cài đặt bằng cách thêm vào một iterator symbol `[Symbol.iterator]`, biến nó trở thành generator object (object có thể duyệt được), ví dụ `*[Symbol.iterator]() {}`.
 
 Để generator này trả về được mảng các giá trị của các thuộc tính của object `person`, tức `Object.values` của object `person`, ta sẽ sử dụng cấu trúc `yield* Object.values(this)`.
 
@@ -6918,7 +6958,10 @@ console.log(count)
 
 #### Đáp án: C
 
-Câu lệnh `if` trong vòng lập `forEach` kiểm tra giá trị của `num` là truthy hay falsy. Vì số đầu tiên trong mảng `nums` là `0`, giá trị falsy, code trong câu lệnh `if` sẽ không chạy. `count` chỉ tăng giá trị đối với 3 số còn lại trong mảng `nums`, `1`, `2` và `3`. Vì giá trị của `count` tăng thêm `1` trong 3 lần, giá trị của `count` sẽ là `3`.
+Câu lệnh `if` trong vòng lập `forEach` kiểm tra giá trị của `num` là truthy hay falsy.
+Vì số đầu tiên trong mảng `nums` là `0`, giá trị falsy, code trong câu lệnh `if` sẽ không chạy.
+`count` chỉ tăng giá trị đối với 3 số còn lại trong mảng `nums`, `1`, `2` và `3`.
+Vì giá trị của `count` tăng thêm `1` trong 3 lần, giá trị của `count` sẽ là `3`.
 
 </p>
 </details>
@@ -6947,13 +6990,19 @@ getFruit([['🍍'], ['🍊', '🍌']])
 
 #### Đáp án: D
 
-Phép toán `?` cho phép ta truy cập giá trị bên trong của object. Chúng ta thử in ra phần tử có thứ tự là `1` trong mảng con với thứ tự là `1` trong mảng `fruits`. Nếu mảng con với thứ tự là `1` trong mảng `fruits` không tồn tại, nó sẽ trả về `undefined`. Nếu mảng con với thứ tự là `1` trong mảng `fruits` tồn tại, nhưng mảng con này không có phần tử nào mang thứ tự `1`, nó cũng sẽ trả về `undefined`.
+Phép toán `?` cho phép ta truy cập giá trị bên trong của object.
+Chúng ta thử in ra phần tử có thứ tự là `1` trong mảng con với thứ tự là `1` trong mảng `fruits`.
+Nếu mảng con với thứ tự là `1` trong mảng `fruits` không tồn tại, nó sẽ trả về `undefined`.
+Nếu mảng con với thứ tự là `1` trong mảng `fruits` tồn tại, nhưng mảng con này không có phần tử nào mang thứ tự `1`, nó cũng sẽ trả về `undefined`.
 
-Trước tiên, chúng ta thử in ra phần tử thứ hai trong mảng con `['🍍']` của `[['🍊', '🍌'], ['🍍']]`. Mảng con này chỉ chứa một phần tử, nghĩa là không có phần tử nào với thứ tự là `1`, và trả về `undefined`.
+Trước tiên, chúng ta thử in ra phần tử thứ hai trong mảng con `['🍍']` của `[['🍊', '🍌'], ['🍍']]`.
+Mảng con này chỉ chứa một phần tử, nghĩa là không có phần tử nào với thứ tự là `1`, và trả về `undefined`.
 
-Sau đó, ta gọi hàm `getFruits` khi không truyền vào một đối số nào, nghĩa là `fruits` có giá trị mặc định là `undefined`. Vì ta truyền phần tử mang thứ tự `1` của `fruits`, nó trả về `undefined` do phần tử này không tồn tại.
+Sau đó, ta gọi hàm `getFruits` khi không truyền vào một đối số nào, nghĩa là `fruits` có giá trị mặc định là `undefined`.
+Vì ta truyền phần tử mang thứ tự `1` của `fruits`, nó trả về `undefined` do phần tử này không tồn tại.
 
-Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '🍌']` của mảng `['🍍'], ['🍊', '🍌']`. Phần tử mang thứ tự `1` bên trong mảng con này là `🍌` sẽ được in ra.
+Cuối cùng, ta thử in ra phần tử thứ hai trong mảng con `['🍊', '🍌']` của mảng `['🍍'], ['🍊', '🍌']`.
+Phần tử mang thứ tự `1` bên trong mảng con này là `🍌` sẽ được in ra.
 
 </p>
 </details>
@@ -6976,9 +7025,11 @@ console.log("I want pizza"[0])
 
 #### Đáp án: B
 
-Trong trường hợp ta muốn lấy ra một ký tự trong một chuỗi, ta có thể sử dụng toán tử ngoặc vuông. Ký tự đầu tiên sẽ có thứ tự là 0, và cứ tiếp tục như vậy. Trong trường hợp này chúng ta lấy ra ký tự có thứ tự là 0, đó chính là ký tự `"I'`.
+Trong trường hợp ta muốn lấy ra một ký tự trong một chuỗi, ta có thể sử dụng toán tử ngoặc vuông.
+Ký tự đầu tiên sẽ có thứ tự là 0, và cứ tiếp tục như vậy.
+Trong trường hợp này chúng ta lấy ra ký tự có thứ tự là 0, đó chính là ký tự `"I'`.
 
-Chú ý là phương thức này không hoạt động với IE7 trở xuống. Thay vì thế ta sử dụng `.charAt()`
+Chú ý là phương thức này không hoạt động với IE7 trở xuống. Thay vì thế ta sử dụng `.charAt()`.
 
 </p>
 </details>
