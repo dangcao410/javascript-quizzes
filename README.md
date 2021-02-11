@@ -5,7 +5,7 @@
 
 
 #### Ngôn ngữ:
-- [🇻🇳 Tiếng Việt](#)
+- [🇻🇳 Tiếng Việt](/README.md)
 - [🇬🇧 English](./English/README.md)
 
 ---
