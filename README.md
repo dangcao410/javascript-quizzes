@@ -1,6 +1,6 @@
 <div align="center">
   <img height="60" src="img/JavaScript-logo.png">
-  <h1>JavaScript Quizzesqwqwqwq</h1>
+  <h1>JavaScript Quizzes</h1>
 </div>
 
 
